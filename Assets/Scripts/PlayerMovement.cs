@@ -87,7 +87,6 @@ public class PlayerMovement : MonoBehaviour
     /* =============================================
      * MOVEMENT METHODS
      * ========================================== */
-
     void MovePlayerWithTranslate()
     {
         transform.Translate(horizontalMovement, verticalMovement, 0);
