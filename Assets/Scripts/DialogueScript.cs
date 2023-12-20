@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,34 +9,59 @@ public class DialogueScript : MonoBehaviour
     [Header("Public Variables")]
     public TextMeshProUGUI message;
     public TextMeshProUGUI speakerName;
-    public string filename;
+
+    [Header("Canvases")]
+    // References to Canvases are needed to ensure that all other Cavnases are
+    // disabled only dialogueScreen is enabled
+    public GameObject dialogueScreen;
+    public GameObject playerControls;
+
+    [Header("Text Speed")]
+    public float textSpeed;
 
     [Header("Internals")]
     [SerializeField] private string[] lines;
     [SerializeField] private string[] speakers;
-    [SerializeField] private float textSpeed;
+    [SerializeField] private string filename;
 
     private int index;
     private const string FOLDER_PATH = "DialogueFiles/";
-    private const string EXTENSION = ".txt";
 
     /* =============================================
-     * Dialogue System Core Components
+     * Initialization
      * ========================================== */
-
     void Start()
     {
         message.text = string.Empty;
         speakerName.text = string.Empty;
-        LoadDialouge(filename);
-        StartDialouge();
     }
 
-    // Update is called once per frame
-    void Update()
+    /* =============================================
+     * Start/Stop Dialogue System
+     * ========================================== */
+    public void StartDialouge(string filename)
+    {
+        index = 0;
+        dialogueScreen.SetActive(true);
+        playerControls.SetActive(false);
+        message.text = string.Empty;
+        speakerName.text = string.Empty;
+        LoadDialouge(filename);
+        StartCoroutine(TypeLine());
+    }
+    private void EndDialogue()
+    {
+        dialogueScreen.SetActive(false);
+        playerControls.SetActive(true);
+    }
+
+    /* =============================================
+     * Dialogue System Core Components
+     * ========================================== */
+    private void FixedUpdate()
     {
         // will need to replace this with Input.Touch later ~ 12/20/2023 ray
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (message.text == lines[index])
             {
@@ -47,13 +73,6 @@ public class DialogueScript : MonoBehaviour
                 message.text = lines[index];
             }
         }
-    }
-    public void StartDialouge()
-    {
-        index = 0;
-        message.text = string.Empty;
-        speakerName.text = string.Empty;
-        StartCoroutine(TypeLine());
     }
 
     private void NextLine()
@@ -67,7 +86,7 @@ public class DialogueScript : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+            EndDialogue();
         }
     }
 
@@ -103,7 +122,7 @@ public class DialogueScript : MonoBehaviour
                     _lines.Add(parts[1]);
                 }
             }
-            
+
             speakers = _speakers.ToArray();
             lines = _lines.ToArray();
         }
@@ -112,4 +131,5 @@ public class DialogueScript : MonoBehaviour
             Debug.LogError("Failed to load the dialogue file: " + filename);
         }
     }
+
 }

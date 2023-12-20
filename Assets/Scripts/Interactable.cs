@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -6,18 +7,28 @@ using UnityEngine.UI;
 
 public class Interactable : MonoBehaviour
 {
+    // just copy paste [SerializeField] if you need to view the internals
+
     [Header("Flags")]
-    [SerializeField] private bool IS_INTERACTABLE;
-    [SerializeField] private bool IS_IN_RANGE;
+    private bool IS_INTERACTABLE; // if object can be interacted with 
+    private bool IS_IN_RANGE; // if player is close enough to interact with object
 
     [Header("Player Controls Reference")]
-    [SerializeField] private Button button;
+    private Button button;
+
+    [Header("Object References")]
+    private SpriteRenderer sr;
+    private Material defaultMaterial;
 
     [Header("Interaction Bubble")]
-    [SerializeField] private GameObject interactableBubble;
-    public Sprite interactionbubble;
+    private GameObject interactableBubble;
 
-    [Header("Interaction Events")]
+    [Header("Public Variables")]
+    public bool initiallyInteractable;
+    public Material visualPromptMaterial;
+    public Sprite interactionBubbleSprite;
+
+    [Header("Unity Events")]
     public UnityEvent interactAction;
 
     /* =============================================
@@ -25,15 +36,20 @@ public class Interactable : MonoBehaviour
      * ========================================== */
     void Awake()
     {
-        if(IS_INTERACTABLE)
+        if(initiallyInteractable)
         {
+            IS_INTERACTABLE = true;
             CreateInteractableBubble();
+        } else
+        {
+            IS_INTERACTABLE = false;
         }
     }
 
     private void Start()
     {
         GetPlayerActionButton();
+        SetSelfObjectReferences();
     }
 
     private void GetPlayerActionButton()
@@ -63,6 +79,18 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    private void SetSelfObjectReferences()
+    {
+        try
+        {
+            sr = gameObject.GetComponent<SpriteRenderer>();
+            defaultMaterial = sr.material;
+        } catch (Exception e)
+        {
+            Debug.LogError($"Could not get {name}'s SpriteRenderer component!: " + e);
+        }
+    }
+
     /* =============================================
      * INTERACTION FUNCTIONS
      * ========================================== */
@@ -81,12 +109,20 @@ public class Interactable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        IS_IN_RANGE = true;
+        if(IS_INTERACTABLE)
+        {
+            IS_IN_RANGE = true;
+            sr.material = visualPromptMaterial;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        IS_IN_RANGE = false;
+        if (IS_INTERACTABLE)
+        {
+            IS_IN_RANGE = false;
+            sr.material = defaultMaterial;
+        }
     }
 
     /* =============================================
@@ -97,7 +133,7 @@ public class Interactable : MonoBehaviour
         interactableBubble = new GameObject("InteractableBubble");
         interactableBubble.transform.parent = transform;
         SpriteRenderer imageComponent = interactableBubble.AddComponent<SpriteRenderer>();
-        imageComponent.sprite = interactionbubble;
+        imageComponent.sprite = interactionBubbleSprite;
         interactableBubble.transform.localPosition = new Vector2(0f, 1f);
     }
 
@@ -105,6 +141,26 @@ public class Interactable : MonoBehaviour
     {
         GameObject.Destroy(interactableBubble);
         interactableBubble = null;
+    }
+
+    /* =============================================
+     * SET INTERACTIBILITY FUNCTIONS
+     * ========================================== */
+
+    public void SetAsInteractable()
+    {
+        IS_INTERACTABLE = true;
+        if(interactableBubble == null)
+        {
+            CreateInteractableBubble();
+        }
+    }
+
+    public void SetAsUninteractable()
+    {
+        IS_INTERACTABLE = false;
+        DestoryInteractableBubble();
+        sr.material = defaultMaterial;
     }
 
     public void SampleMethod()
