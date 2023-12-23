@@ -84,7 +84,7 @@ public abstract class Activity : MonoBehaviour
     public abstract void ExecuteActivity(int hoursSpentOnActivity);
 
     // function for increasing the player stat
-    protected abstract void IncreasePlayerStat();
+    protected abstract void IncreasePlayerStat(int hoursSpentOnActivity);
 
     // function for reducing stress (if any) for engaging in this activity
     private void ReduceStressLevel(int hoursPassed)

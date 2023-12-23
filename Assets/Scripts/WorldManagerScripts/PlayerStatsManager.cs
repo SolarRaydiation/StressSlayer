@@ -15,10 +15,16 @@ public class PlayerStatsManager : MonoBehaviour
     public TextMeshProUGUI cashRemainingText;
 
     [Header("Serialized Private Variables - Player Stats")]
-    [SerializeField] private int maxHealth;
-    [SerializeField] private int attackDamage;
-    [SerializeField] private int timesDrugWasTaken; // this file can potentially handle the drug system you've been thinking of
-    [SerializeField] private int cashRemaining;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private float actualMaxHealth;
+    [SerializeField] private float attackDamage;
+    [SerializeField] private float cashRemaining;
+
+    [Header("Serialized Private Variables - Drug System")]
+    [SerializeField] private const float PERCENTAGE_DECREASE_PER_DRUG_USE = 0.05f;
+    [SerializeField] private const int drugUseLimit = 5;
+    [SerializeField] private int timesDrugWasTaken;
+    [SerializeField] private bool KILL_PLAYER_LATER_FLAG;
 
     /* =============================================
      * Initialization
@@ -28,6 +34,7 @@ public class PlayerStatsManager : MonoBehaviour
     {
         LoadPlayerStats();
         UpdateCashRemainingTextUI();
+        KILL_PLAYER_LATER_FLAG = false;
     }
 
     private void LoadPlayerStats()
@@ -36,24 +43,30 @@ public class PlayerStatsManager : MonoBehaviour
         // a savefile
         maxHealth = 10;
         attackDamage = 1;
-        timesDrugWasTaken = 0;
         cashRemaining = 0;
+        SetPlayerActualMaxHealth();
     }
 
     /* =============================================
      * Getter/Setter Methods
      * ========================================== */
 
-    public int GetPlayerHealthStat()
+    public float GetPlayerHealthStat()
     {
         return maxHealth;
     }
+
+    public float GetPlayerActualMaxHealthStat()
+    {
+        return actualMaxHealth;
+    }
+
     public void IncreasePlayermaxHealthStat(int changeInmaxHealth)
     {
         maxHealth = maxHealth + changeInmaxHealth;
     }
 
-    public int GetPlayerAttackDamageStat()
+    public float GetPlayerAttackDamageStat()
     {
         return attackDamage;
     }
@@ -63,7 +76,7 @@ public class PlayerStatsManager : MonoBehaviour
         attackDamage = attackDamage + changeInAttackDamage;
     }
 
-    public int GetPlayerCashStat()
+    public float GetPlayerCashStat()
     {
         return cashRemaining;
     }
@@ -98,6 +111,35 @@ public class PlayerStatsManager : MonoBehaviour
     {
         Debug.Log(DecreasePlayerCashStat(changeInCash));
     }
+
+    /* =============================================
+     * Drug System
+     * ========================================== */
+
+    private void SetPlayerActualMaxHealth()
+    {
+        Debug.Log((timesDrugWasTaken * PERCENTAGE_DECREASE_PER_DRUG_USE));
+        Debug.Log(maxHealth * (timesDrugWasTaken * PERCENTAGE_DECREASE_PER_DRUG_USE));
+        actualMaxHealth = maxHealth - (maxHealth * (timesDrugWasTaken * PERCENTAGE_DECREASE_PER_DRUG_USE));
+    }
+
+    public void SimulateEffectsOfDrugUse()
+    {
+        timesDrugWasTaken++;
+        if(timesDrugWasTaken <= drugUseLimit)
+        {
+            SetPlayerActualMaxHealth();
+        } else
+        {
+            KILL_PLAYER_LATER_FLAG = true;
+        }
+    }
+
+    public bool GetKillPlayerByDrugFlag()
+    {
+        return KILL_PLAYER_LATER_FLAG;
+    }
+
 
     /* =============================================
      * UI Update Methods

@@ -1755,10 +1755,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2045697570}
-        m_TargetAssemblyTypeName: StressManager, Assembly-CSharp
-        m_MethodName: AddStress
-        m_Mode: 3
+      - m_Target: {fileID: 2045697569}
+        m_TargetAssemblyTypeName: ClockManager, Assembly-CSharp
+        m_MethodName: DebugGetNumberOfHoursInDayLeft
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3583,13 +3583,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1133476061}
-        m_TargetAssemblyTypeName: ActivityManager, Assembly-CSharp
-        m_MethodName: Initialize
+        m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
+        m_MethodName: CancelInvoke
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 10
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3603,10 +3603,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1133476056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e66cdb8128cd36e4fa82fe30ceede651, type: 3}
+  m_Script: {fileID: 11500000, guid: f5136f9f2988c784ab436b9306d342de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activityName: 
+  stressReducedPerHour: 20
   activitySystem: {fileID: 0}
+  stressManager: {fileID: 0}
+  playerStatsManager: {fileID: 0}
+  clockManager: {fileID: 0}
 --- !u!1 &1180829184
 GameObject:
   m_ObjectHideFlags: 0
@@ -5710,7 +5715,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stressMeter: {fileID: 801845531}
   MAX_STRESS: 100
-  currentStressLevel: 0
+  currentStressLevel: 50
 --- !u!114 &2045697571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5743,9 +5748,11 @@ MonoBehaviour:
   attachedToPlayer: 0
   cashRemainingText: {fileID: 1635143992}
   maxHealth: 0
+  actualHealth: 0
   attackDamage: 0
-  timesDrugWasTaken: 0
   cashRemaining: 0
+  timesDrugWasTaken: 0
+  KILL_PLAYER_LATER_FLAG: 0
 --- !u!114 &2045697574
 MonoBehaviour:
   m_ObjectHideFlags: 0

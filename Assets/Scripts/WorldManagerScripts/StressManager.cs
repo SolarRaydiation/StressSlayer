@@ -16,7 +16,6 @@ public class StressManager : MonoBehaviour
     private void Start()
     {
         stressMeter.maxValue = MAX_STRESS;
-        currentStressLevel = 0;
         stressMeter.value = currentStressLevel;
     }
 

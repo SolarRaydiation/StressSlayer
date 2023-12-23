@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class StudyingActivity : Activity
 {
-    [Header("Studying Activity - Details")]
-    public float DIFFICULTY_REDUCTION_PER_HOUR = 0.25f;
+    [Header("Studying Activity - Variables")]
+    public float difficultyReductionPerHour = 0.25f;
 
     [Header("Studying Activity - Internals")]
     [SerializeField] NextLevelPreInitializer nlpi;
@@ -24,7 +24,7 @@ public class StudyingActivity : Activity
         }
     }
     
-    protected override void IncreasePlayerStat()
+    protected override void IncreasePlayerStat(int hoursSpentOnActivity)
     {
         // intentionally left blank
         // this function is not needed
@@ -37,7 +37,7 @@ public class StudyingActivity : Activity
             if(IsThereEnoughTimeForActivity(hoursSpentOnActivity))
             {
                 if(nlpi.ReduceNextLevelDifficulty(hoursSpentOnActivity *
-                    DIFFICULTY_REDUCTION_PER_HOUR))
+                    difficultyReductionPerHour))
                 {
                     Debug.Log("Difficulty reduced!");
                     clockManager.MoveTimeForwardByHours(hoursSpentOnActivity);
