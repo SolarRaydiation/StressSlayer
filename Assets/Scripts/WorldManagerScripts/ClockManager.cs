@@ -50,6 +50,11 @@ public class ClockManager : MonoBehaviour
         }
     }
 
+    public void DebugMoveTimeForwardByHours(int hoursPassed)
+    {
+        Debug.Log($"MoveTiemForwardByHours return value: {MoveTimeForwardByHours(hoursPassed)}");
+    }
+
     public int GetNumberOfHoursInDayLeft()
     {
         Debug.Log(MAX_TIME_IN_HOURS - currentTimeInHours);
