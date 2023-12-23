@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ClockManager : MonoBehaviour
 {
-    [Header("UI Elements")]
+    [Header("UI Externals")]
     public Transform clockHandTransform;
     public TextMeshProUGUI clockTimeText;
 
