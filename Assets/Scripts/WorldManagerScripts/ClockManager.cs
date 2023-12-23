@@ -52,6 +52,7 @@ public class ClockManager : MonoBehaviour
 
     public int GetNumberOfHoursInDayLeft()
     {
+        Debug.Log(MAX_TIME_IN_HOURS - currentTimeInHours);
         return MAX_TIME_IN_HOURS - currentTimeInHours;
     }  
 }

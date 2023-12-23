@@ -162,9 +162,4 @@ public class Interactable : MonoBehaviour
         DestoryInteractableBubble();
         sr.material = defaultMaterial;
     }
-
-    public void SampleMethod()
-    {
-        Debug.Log("Interacted!");
-    }
 }
