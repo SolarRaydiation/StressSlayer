@@ -20,7 +20,7 @@ public class StudyingActivity : Activity
         }
         catch (Exception e)
         {
-            Debug.LogError("Could not find NextLevelPreInitializer component from WorldManager!");
+            Debug.LogError("Could not find NextLevelPreInitializer component from WorldManager!: " + e);
         }
     }
     

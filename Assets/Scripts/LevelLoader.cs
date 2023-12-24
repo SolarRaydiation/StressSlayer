@@ -1,5 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,28 +7,43 @@ public class LevelLoader : MonoBehaviour
 {
     public Animator animator;
     public float transitionTime = 2.0f;
+
+    private string triggerAnimationName = "ChangeScene";
     // Update is called once per frame
 
-    private void Start()
+    public void LoadNextLevel(string levelName)
     {
-        StartCoroutine(StartLevel());
+        StartCoroutine(LoadLevelWithName(levelName));
     }
 
-    private void LoadNextLevel()
+    IEnumerator LoadLevelWithIndex(int levelIndex)
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
-    }
-
-    IEnumerator LoadLevel(int levelIndex)
-    {
-        animator.SetTrigger("Start");
+        animator.SetTrigger(triggerAnimationName);
         yield return new WaitForSeconds(transitionTime);
-        SceneManager.LoadScene(levelIndex);
+        try
+        {
+            SceneManager.LoadScene(levelIndex);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Could not move to scene with index '{levelIndex}' because: " + e);
+        }
     }
 
-    IEnumerator StartLevel()
+    IEnumerator LoadLevelWithName(string levelName)
     {
+        animator.SetTrigger(triggerAnimationName);
+        animator.SetBool("test", true); ;
         yield return new WaitForSeconds(transitionTime);
-        animator.SetTrigger("StartLevel");
+
+        try
+        {
+            SceneManager.LoadScene(levelName);
+        } catch (Exception e)
+        {
+            Debug.LogError($"Could not move to '{levelName}' because: " + e);
+        }
     }
+
+
 }
