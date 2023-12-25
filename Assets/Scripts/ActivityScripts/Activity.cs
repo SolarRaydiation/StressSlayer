@@ -7,6 +7,9 @@ public abstract class Activity : MonoBehaviour
     [Header("Activity - Details")]
     public string activityName;
     public int stressReducedPerHour;
+    public string statName;
+    public bool hasStressReduction;
+    public bool hasStatIncrease;
 
     [Header("Activity - Script References")]
     [SerializeField] protected ActivitySystem activitySystem;
@@ -102,5 +105,20 @@ public abstract class Activity : MonoBehaviour
         {
             return false;
         }
+    }
+    // function to tirggering activity system to work
+    public void ActivateActivitySystem()
+    {
+        activitySystem.Initialize(this);
+    }
+
+    public string CalculateStressReduction(int hoursPassed)
+    {
+        return $"You will {stressReducedPerHour * hoursPassed} points";
+    }
+
+    public string CalculateStatIncreaseBenefits(int hoursPassed)
+    {
+        return $"You will {hoursPassed} points in {statName}";
     }
 }

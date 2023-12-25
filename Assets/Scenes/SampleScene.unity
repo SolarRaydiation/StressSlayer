@@ -2365,7 +2365,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 394220381710371772, guid: a61b2d959752db541adf1d8cc0f8f143, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4849236382629943566, guid: a61b2d959752db541adf1d8cc0f8f143, type: 3}
       propertyPath: transitionTime
@@ -3741,10 +3741,10 @@ MonoBehaviour:
   interactAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1133476061}
-        m_TargetAssemblyTypeName: StudyingActivity, Assembly-CSharp
-        m_MethodName: ExecuteActivity
-        m_Mode: 3
+      - m_Target: {fileID: 1133476062}
+        m_TargetAssemblyTypeName: Activity, Assembly-CSharp
+        m_MethodName: ActivateActivitySystem
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3760,13 +3760,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133476056}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e66cdb8128cd36e4fa82fe30ceede651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activityName: 
   stressReducedPerHour: 10
+  statName: 
+  hasStressReduction: 1
+  hasStatIncrease: 0
   activitySystem: {fileID: 0}
   stressManager: {fileID: 0}
   playerStatsManager: {fileID: 0}
@@ -3785,8 +3788,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5136f9f2988c784ab436b9306d342de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activityName: 
+  activityName: Drug
   stressReducedPerHour: 20
+  statName: 
+  hasStressReduction: 0
+  hasStatIncrease: 0
   activitySystem: {fileID: 0}
   stressManager: {fileID: 0}
   playerStatsManager: {fileID: 0}
@@ -4990,7 +4996,7 @@ GameObject:
   - component: {fileID: 1839155620}
   - component: {fileID: 1839155619}
   m_Layer: 5
-  m_Name: text (2)
+  m_Name: benefitsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5802,6 +5808,7 @@ MonoBehaviour:
   removeHours: {fileID: 1351857679}
   hoursToSpend: {fileID: 268535110}
   question: {fileID: 1955376953}
+  benefitsText: {fileID: 1839155619}
   startActivity: {fileID: 2058088568}
   cancelActivity: {fileID: 1038040695}
   activityName: 
@@ -5809,6 +5816,7 @@ MonoBehaviour:
   hoursToInvest: 0
   clockManager: {fileID: 0}
   activitySystem: {fileID: 0}
+  activity: {fileID: 0}
 --- !u!1 &2045697566
 GameObject:
   m_ObjectHideFlags: 0

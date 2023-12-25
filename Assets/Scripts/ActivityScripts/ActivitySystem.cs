@@ -10,12 +10,12 @@ public class ActivitySystem : MonoBehaviour
     public GameObject overworldScreen;
     public GameObject activityConfirmationScreen;
 
-    public void Initialize()
+    public void Initialize(Activity activity)
     {
         DisableAllOtherScreens();
         activityConfirmationScreen.SetActive(true);
         ActivityConfirmationScreenManager acsm = activityConfirmationScreen.GetComponent<ActivityConfirmationScreenManager>();
-        acsm.RefreshScreen();
+        acsm.RefreshScreen(activity);
     }
 
     private void DisableAllOtherScreens()
@@ -28,6 +28,7 @@ public class ActivitySystem : MonoBehaviour
     public void CancelInitialization()
     {
         dialogueScreen.SetActive(false);
+        activityConfirmationScreen.SetActive(false);
         playerControls.SetActive(true);
         overworldScreen.SetActive(true);
     }

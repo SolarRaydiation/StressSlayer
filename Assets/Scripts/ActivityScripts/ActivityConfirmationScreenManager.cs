@@ -12,6 +12,7 @@ public class ActivityConfirmationScreenManager : MonoBehaviour
     public Button removeHours;
     public TextMeshProUGUI hoursToSpend;
     public TextMeshProUGUI question;
+    public TextMeshProUGUI benefitsText;
     public Button startActivity;
     public Button cancelActivity;
 
@@ -21,8 +22,21 @@ public class ActivityConfirmationScreenManager : MonoBehaviour
     [SerializeField] private int hoursToInvest;
     [SerializeField] private ClockManager clockManager;
     [SerializeField] private ActivitySystem activitySystem;
+    [SerializeField] private Activity activity;
 
-    void Start()
+    /* =============================================
+     * Core Functions
+     * ========================================== */
+
+    public void RefreshScreen(Activity a)
+    {
+        activity = a;
+        SetScriptReferences();
+        RetrieveInformation();
+        UpdateScreen();
+    }
+
+    private void SetScriptReferences()
     {
         // find ClockManager system
         try
@@ -45,24 +59,33 @@ public class ActivityConfirmationScreenManager : MonoBehaviour
         }
     }
 
-    public void RefreshScreen()
-    {
-        RetrieveInformation();
-        UpdateConfirmationScreenInformation();
-    }
-
-
     private void RetrieveInformation()
     {
         maxHoursToInvest = clockManager.GetNumberOfHoursInDayLeft();
-        hoursToInvest = 0;
+        hoursToInvest = 1;
     }
 
-    private void UpdateConfirmationScreenInformation()
+    private void UpdateScreen()
     {
         hoursToSpend.text = hoursToInvest.ToString();
-        question.text = $"Do you want to spend {hoursToSpend.text} hours on XXXXX?";
+        question.text = $"Do you want to spend {hoursToSpend.text} hours on {activity.activityName}?";
+        benefitsText.text = "";
+        if (activity.hasStatIncrease)
+        {
+            Debug.Log($"hasStatIncrease is set to true");
+            benefitsText.text = activity.CalculateStatIncreaseBenefits(hoursToInvest) + "\n";
+        }
+
+        if (activity.hasStressReduction)
+        {
+            Debug.Log($"hasStressReduction is set to true");
+            String.Concat(benefitsText.text, activity.CalculateStressReduction(hoursToInvest));
+        }
     }
+
+    /* =============================================
+     * Support Methods
+     * ========================================== */
 
     public void AddOneHour()
     {
@@ -71,24 +94,22 @@ public class ActivityConfirmationScreenManager : MonoBehaviour
         {
             hoursToInvest = maxHoursToInvest;
         }
-        hoursToSpend.text = hoursToInvest.ToString();
-        question.text = $"Do you want to spend {hoursToSpend.text} hours on XXXXX?";
+        UpdateScreen();
     }
 
     public void RemoveOneHour()
     {
         hoursToInvest--;
-        if(hoursToInvest < 0)
+        if(hoursToInvest < 1)
         {
-            hoursToInvest = 0;
+            hoursToInvest = 1;
         }
-        hoursToSpend.text = hoursToInvest.ToString();
-        question.text = $"Do you want to spend {hoursToSpend.text} hours on XXXXX?";
+        UpdateScreen();
     }
 
     public void StartActivity()
     {
-
+        activity.ExecuteActivity(hoursToInvest);
     }
 
     public void CancelActivity()
