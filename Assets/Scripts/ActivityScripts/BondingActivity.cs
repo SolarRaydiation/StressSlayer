@@ -15,6 +15,10 @@ public class BondingActivity : Activity
     [SerializeField] private bool investedMoreNineHours = false; 
     [SerializeField] private int hoursInvested;
 
+    /* =============================================
+     * INITIALIZATION FUNCTIONS
+     * ========================================== */
+
     private void HasInvestedMoreThanNineHours()
     {
         if(hoursInvested >= 9)
@@ -23,10 +27,14 @@ public class BondingActivity : Activity
         }
     }
 
-    private bool GetInvestedNineHoursFlag()
+    public bool GetInvestedNineHoursFlag()
     {
         return investedMoreNineHours;
     }
+
+    /* =============================================
+     * Inherited Functions
+     * ========================================== */
 
     public override void ExecuteActivity(int hoursSpentOnActivity)
     {

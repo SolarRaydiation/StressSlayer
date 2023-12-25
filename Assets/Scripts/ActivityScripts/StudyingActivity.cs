@@ -11,6 +11,9 @@ public class StudyingActivity : Activity
     [Header("Studying Activity - Internals")]
     [SerializeField] NextLevelPreInitializer nlpi;
 
+    /* =============================================
+     * Initialization Functions
+     * ========================================== */
     private void GetNextLevelPreInitializerFromWorldManager()
     {
         try
@@ -23,7 +26,12 @@ public class StudyingActivity : Activity
             Debug.LogError("Could not find NextLevelPreInitializer component from WorldManager!: " + e);
         }
     }
-    
+
+
+    /* =============================================
+     * Inherited Functions
+     * ========================================== */
+
     protected override void IncreasePlayerStat(int hoursSpentOnActivity)
     {
         // intentionally left blank
@@ -34,17 +42,16 @@ public class StudyingActivity : Activity
     {
         if(nlpi != null)
         {
-            if(IsThereEnoughTimeForActivity(hoursSpentOnActivity))
+            if (IsThereEnoughTimeForActivity(hoursSpentOnActivity))
             {
-                if(nlpi.ReduceNextLevelDifficulty(hoursSpentOnActivity *
-                    difficultyReductionPerHour))
+                if(nlpi.CanReduceLevelDifficulty(hoursSpentOnActivity * difficultyReductionPerHour))
                 {
-                    Debug.Log("Difficulty reduced!");
+                    nlpi.ReduceLevelDifficulty(hoursSpentOnActivity * difficultyReductionPerHour);
                     clockManager.MoveTimeForwardByHours(hoursSpentOnActivity);
-                }
-                else
+                    Debug.Log("Difficulty reduced!");
+                } else
                 {
-                    Debug.Log("Difficulty limit reached!");
+                    Debug.Log("Can't reduce difficulty!");
                 }
             } else
             {

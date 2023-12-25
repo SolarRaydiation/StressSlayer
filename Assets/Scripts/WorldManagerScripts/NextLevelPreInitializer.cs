@@ -28,34 +28,32 @@ public class NextLevelPreInitializer : MonoBehaviour
     }
 
     /* =============================================
-     * Setter Methods
+     * Difficulty update functions
      * ========================================== */
-    /// <summary>
-    /// First checks if the reduction in difficulty will not casue the next level's
-    /// difficulty to drop below the minimum. If yes, the difficulty will be reduced.
-    /// The calling function may also proceed with their execution. Otherwise, false.
-    /// </summary>
-    /// <param name="difficultyReduction"></param>
-    /// <returns></returns>
-    public bool ReduceNextLevelDifficulty(float difficultyReduction)
+
+    public void ReduceLevelDifficulty(float difficultyReductionRate)
     {
-        if((nextLevelDifficulty - difficultyReduction) >= MINIMUM_LEVEL_DIFFICULTY)
+        nextLevelDifficulty = nextLevelDifficulty - difficultyReductionRate;
+        //nextLevelDifficulty = Mathf.Max(nextLevelDifficulty, MINIMUM_LEVEL_DIFFICULTY);
+        UpdateNextLevelDifficultyTextUI();
+    }
+
+    public bool CanReduceLevelDifficulty(float difficultyReductionRate)
+    {
+        if((nextLevelDifficulty - difficultyReductionRate) >=  MINIMUM_LEVEL_DIFFICULTY)
         {
-            nextLevelDifficulty = nextLevelDifficulty - difficultyReduction;
-            UpdateNextLevelDifficultyTextUI();
+            Debug.Log($"nextLevelDifficulty: {nextLevelDifficulty} | difficultyReductionRate: {difficultyReductionRate}");
+            Debug.Log($"{nextLevelDifficulty - difficultyReductionRate} >= {MINIMUM_LEVEL_DIFFICULTY}");
             return true;
         } else
         {
+            Debug.Log($"{nextLevelDifficulty} {difficultyReductionRate}");
+            Debug.Log($"{nextLevelDifficulty - difficultyReductionRate} >= {MINIMUM_LEVEL_DIFFICULTY}");
             return false;
         }
     }
 
-    public void DebugReduceNextLevelDifficulty(float difficultyReduction)
-    {
-        Debug.Log(ReduceNextLevelDifficulty(difficultyReduction));
-    }
-
-    public float GetNextLevelDifficult()
+    public float GetNextLevelDifficulty()
     {
         return nextLevelDifficulty;
     }

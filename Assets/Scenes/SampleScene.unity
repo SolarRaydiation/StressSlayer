@@ -3741,13 +3741,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1133476061}
-        m_TargetAssemblyTypeName: UnityEngine.MonoBehaviour, UnityEngine
-        m_MethodName: CancelInvoke
-        m_Mode: 1
+        m_TargetAssemblyTypeName: StudyingActivity, Assembly-CSharp
+        m_MethodName: ExecuteActivity
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3761,15 +3761,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1133476056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5136f9f2988c784ab436b9306d342de, type: 3}
+  m_Script: {fileID: 11500000, guid: e66cdb8128cd36e4fa82fe30ceede651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activityName: 
-  stressReducedPerHour: 20
+  stressReducedPerHour: 10
   activitySystem: {fileID: 0}
   stressManager: {fileID: 0}
   playerStatsManager: {fileID: 0}
   clockManager: {fileID: 0}
+  difficultyReductionPerHour: 0.25
+  nlpi: {fileID: 0}
 --- !u!1 &1180829184
 GameObject:
   m_ObjectHideFlags: 0
