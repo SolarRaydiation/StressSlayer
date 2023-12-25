@@ -80,14 +80,14 @@ public abstract class Activity : MonoBehaviour
      * Methods
      * ========================================== */
 
-    // function for applying the awards for engaging in this activity
+    // function for applying the rewards for engaging in this activity
     public abstract void ExecuteActivity(int hoursSpentOnActivity);
 
     // function for increasing the player stat
     protected abstract void IncreasePlayerStat(int hoursSpentOnActivity);
 
     // function for reducing stress (if any) for engaging in this activity
-    private void ReduceStressLevel(int hoursPassed)
+    protected void ReduceStressLevel(int hoursPassed)
     {
         stressManager.ReduceStress(stressReducedPerHour * hoursPassed);
     }
