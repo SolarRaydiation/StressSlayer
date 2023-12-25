@@ -7,7 +7,7 @@ public class BasketballActivity : Activity
     public override void ExecuteActivity(int hoursSpentOnActivity)
     {
         IncreasePlayerStat(hoursSpentOnActivity);
-        stressManager.ReduceStress(hoursSpentOnActivity * stressReducedPerHour);
+        ReduceStressLevel(hoursSpentOnActivity);
         clockManager.MoveTimeForwardByHours(hoursSpentOnActivity);
     }
     protected override void IncreasePlayerStat(int hoursSpentOnActivity)

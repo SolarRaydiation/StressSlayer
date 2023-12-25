@@ -6,7 +6,7 @@ public class DrugActivity : Activity
 {
     public override void ExecuteActivity(int hoursSpentOnActivity)
     {
-        stressManager.ReduceStress(hoursSpentOnActivity * stressReducedPerHour);
+        ReduceStressLevel(hoursSpentOnActivity);
         playerStatsManager.SimulateEffectsOfDrugUse();
         clockManager.MoveTimeForwardByHours(hoursSpentOnActivity);
     }

@@ -3613,6 +3613,7 @@ GameObject:
   - component: {fileID: 1133476060}
   - component: {fileID: 1133476059}
   - component: {fileID: 1133476061}
+  - component: {fileID: 1133476062}
   m_Layer: 6
   m_Name: ActivityTrigger
   m_TagString: ActivityInteractable
@@ -3759,7 +3760,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1133476056}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e66cdb8128cd36e4fa82fe30ceede651, type: 3}
   m_Name: 
@@ -3772,6 +3773,24 @@ MonoBehaviour:
   clockManager: {fileID: 0}
   difficultyReductionPerHour: 0.25
   nlpi: {fileID: 0}
+--- !u!114 &1133476062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1133476056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5136f9f2988c784ab436b9306d342de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activityName: 
+  stressReducedPerHour: 20
+  activitySystem: {fileID: 0}
+  stressManager: {fileID: 0}
+  playerStatsManager: {fileID: 0}
+  clockManager: {fileID: 0}
 --- !u!1 &1180829184
 GameObject:
   m_ObjectHideFlags: 0
