@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static Item;
 
 public class PlayerStatsManager : MonoBehaviour
 {
@@ -19,6 +20,11 @@ public class PlayerStatsManager : MonoBehaviour
     [SerializeField] private float actualMaxHealth;
     [SerializeField] private float attackDamage;
     [SerializeField] private float cashRemaining;
+
+    [Header("Serialized Private Variables - Item Count")]
+    [SerializeField] private int fruitsAndVegetablesOwned;
+    [SerializeField] private int cortisolInjectorsOwned;
+    [SerializeField] private int assortedDrugsOwned;
 
     [Header("Serialized Private Variables - Drug System")]
     [SerializeField] private const float PERCENTAGE_DECREASE_PER_DRUG_USE = 0.05f;
@@ -94,23 +100,31 @@ public class PlayerStatsManager : MonoBehaviour
     /// </summary>
     /// <param name="changeInCash"></param>
     /// <returns></returns>
-    public bool DecreasePlayerCashStat(int changeInCash)
+    public void DecreasePlayerCashStat(int changeInCash)
     {
-        if((cashRemaining - changeInCash) >= 0)
+        cashRemaining = cashRemaining - changeInCash;
+        UpdateCashRemainingTextUI();
+    }
+
+    public void AddItem(Item.ItemType itemType)
+    {
+        switch(itemType)
         {
-            cashRemaining = cashRemaining - changeInCash;
-            UpdateCashRemainingTextUI();
-            return true;
-        } else
-        {
-            return false;
+            case ItemType.FruitsAndVegetables:
+                fruitsAndVegetablesOwned++;
+                break;
+            case ItemType.AssortedDrugs:
+                assortedDrugsOwned++;
+                break;
+            case ItemType.CortisolInjector:
+                cortisolInjectorsOwned++;
+                break;
+            default:
+                Debug.LogError($"ItemType {itemType} could not be added to inventory.");
+                break;
         }
     }
 
-    public void DebugDecreasePlayerCashStat(int changeInCash)
-    {
-        Debug.Log(DecreasePlayerCashStat(changeInCash));
-    }
 
     /* =============================================
      * Drug System
