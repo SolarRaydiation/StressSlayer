@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class DeleteCanvas : MonoBehaviour
@@ -7,5 +6,10 @@ public class DeleteCanvas : MonoBehaviour
     public void DestroyObject()
     {
         GameObject.Destroy(gameObject);
+    }
+
+    public void DeactivateObject()
+    {
+        gameObject.SetActive(false);
     }
 }
