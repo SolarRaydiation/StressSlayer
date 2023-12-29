@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TransitionScene.unity
     guid: 0f965e2b0e5a86b4388a159ca0c80260
+  - enabled: 1
+    path: Assets/Scenes/CombatLevelTest.unity
+    guid: d393b0b08066fcb43afbe5613911100b
   m_configObjects: {}

@@ -42,7 +42,7 @@ public class WallMover : MonoBehaviour
         {
             if (wallTransform.transform.position.y >= yAxisPosition)
             {
-                wallTransform.transform.Translate(0, -translation * 2, 0);
+                wallTransform.transform.Translate(0, -translation, 0);
             }
         }
     }

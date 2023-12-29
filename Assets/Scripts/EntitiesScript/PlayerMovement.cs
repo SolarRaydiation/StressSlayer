@@ -6,34 +6,34 @@ using UnityEngine.XR;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float movementSpeed;
+    public float baseMovementSpeed;                 
+    private float currentMovementSpeed;             
+    private FixedJoystick joystick;
 
-    
-    [SerializeField] private FixedJoystick joystick;
-
-    [Header("Private Variables")]
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private SpriteRenderer sr;
+    [Header("GameObject Component References")]
+    private Rigidbody2D rb;
+    private SpriteRenderer sr;
 
     [Header("Movement Values")]
-    [SerializeField] private float horizontalMovement;
-    [SerializeField] private float verticalMovement;
+    private float horizontalMovement;
+    private float verticalMovement;
 
     /* =============================================
      * INITIALIZATION
      * ========================================== */
     private void Awake()
     {
+        currentMovementSpeed = baseMovementSpeed;
         GetPlayerComponents();
     }
 
-    void Start()
+    private void Start()
     {
         // get references form outside the object
         GetJoystickFromPlayerControls();
     }
 
-    void GetJoystickFromPlayerControls()
+    private void GetJoystickFromPlayerControls()
     {
         try
         {
@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void GetPlayerComponents()
+    private void GetPlayerComponents()
     {
         try
         {
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     /* =============================================
-     * UPDATE METHODS
+     * Update Methods
      * ========================================== */
     void FixedUpdate()
     {
@@ -78,14 +78,35 @@ public class PlayerMovement : MonoBehaviour
         MirrorPlayerDirection();
     }
 
-    void GetMovementValues()
+    /* =============================================
+     * Movement Values Methods
+     * ========================================== */
+
+    private void GetMovementValues()
     {
-        horizontalMovement = joystick.Horizontal * movementSpeed;
-        verticalMovement = joystick.Vertical * movementSpeed;
+        horizontalMovement = joystick.Horizontal * currentMovementSpeed;
+        verticalMovement = joystick.Vertical * currentMovementSpeed;
+    }
+
+    public float GetCurrentMovementSpeed()
+    {
+        return currentMovementSpeed;
+    }
+
+    public void IncreaseCurrentMovementSpeedTemporarily(float newCurrentMovementSpeed, float seconds)
+    {
+       currentMovementSpeed = newCurrentMovementSpeed;
+       StartCoroutine(MovementBonusDuration(seconds));
+    }
+
+    IEnumerator MovementBonusDuration(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        currentMovementSpeed = baseMovementSpeed;
     }
 
     /* =============================================
-     * MOVEMENT METHODS
+     * Movement Methods
      * ========================================== */
     void MovePlayerWithTranslate()
     {
@@ -98,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     /* =============================================
-     * OTHERS
+     * Other Methods
      * ========================================== */
 
     void MirrorPlayerDirection()

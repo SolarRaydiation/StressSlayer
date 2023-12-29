@@ -8,6 +8,8 @@ TagManager:
   - ActivityInteractable
   - WorldManager
   - Enemy
+  - Collectible
+  - Background
   layers:
   - Default
   - TransparentFX
@@ -17,9 +19,9 @@ TagManager:
   - UI
   - Interactables
   - PostProcessing
-  - 
-  - 
-  - 
+  - Entities
+  - Environment
+  - Collectibles
   - 
   - 
   - 
