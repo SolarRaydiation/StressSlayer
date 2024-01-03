@@ -9,7 +9,7 @@ public class TimerCountdown : MonoBehaviour
     public float secondsBeforeGameStart;        // how many seconds before the level starts in seconds
     public float levelDurationInSeconds;        // the max number of seconds the game will last ins econds
     public TextMeshProUGUI timerText;           // UI for displaying how much time is left
-    private float timeRemaining;
+    [SerializeField] private float timeRemaining;
 
     [Header("GameObjects To Reveal After Countdown")]
     public GameObject[] gameObjectsToShow;      // an array for holding all the GameObjects that are hidden
