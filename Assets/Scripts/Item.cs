@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Item
 {
+    private const string FOLDER_PATH = "GameItems/";
     public enum ItemType
     {
         // for Madam Lusog
@@ -11,6 +13,8 @@ public class Item
         // for drug user
         AssortedDrugs, CortisolInjector
     }
+
+    public Image[] imageArray;
 
     public static string GetItemName(ItemType type)
     {
@@ -53,8 +57,19 @@ public class Item
         }
     }
 
-    public static void GetSprite(ItemType itemType)
+    public static Sprite GetSprite(ItemType itemType)
     {
-        // to be filled at a later date
+        switch (itemType)
+        {
+            case ItemType.FruitsAndVegetables:
+                return Resources.Load<Sprite>(string.Concat(FOLDER_PATH, "FruitsAndVegetables"));
+            case ItemType.AssortedDrugs:
+                return Resources.Load<Sprite>(string.Concat(FOLDER_PATH, "AssortedDrugs"));
+            case ItemType.CortisolInjector:
+                return Resources.Load<Sprite>(string.Concat(FOLDER_PATH, "CortisolInjector"));
+            default:
+                Debug.LogWarning($"Recieved abnormal ItemType {itemType} while retrieving Sprite");
+                return Resources.Load<Sprite>(string.Concat(FOLDER_PATH, "FruitsAndVegetables"));
+        }
     }
 }

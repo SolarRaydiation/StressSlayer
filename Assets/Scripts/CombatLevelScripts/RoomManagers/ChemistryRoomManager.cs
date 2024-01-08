@@ -9,7 +9,7 @@ public class ChemistryRoomManager : RoomManager
     public ParticleSystem poisonRainParticleSystem;
     public float timeBeforePoisonRainStarts;
     public float poisonRainDuration;
-    public PoisonRainWarningUI poisonRainManager;
+    public WarningText poisonRainManager;
     private float timeRemaining;
     protected override void TriggerStartingAnimation()
     {

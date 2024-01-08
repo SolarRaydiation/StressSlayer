@@ -18,12 +18,12 @@ TagManager:
   - Water
   - UI
   - Interactables
-  - PostProcessing
+  - empty
   - Entities
   - Environment
   - Collectibles
-  - 
-  - 
+  - Enemy
+  - Player
   - 
   - 
   - 

@@ -1,28 +1,36 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mail;
 using UnityEngine;
 using UnityEngine.XR;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float baseMovementSpeed;                 
-    private float currentMovementSpeed;             
-    private FixedJoystick joystick;
+    public static PlayerMovement instance;
 
-    [Header("GameObject Component References")]
+    public float baseMovementSpeed;
+    public AudioSource walkSound;
+    
+    [Header("Internals")]               
+    private float currentMovementSpeed;
+    private FixedJoystick joystick;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
-
-    [Header("Movement Values")]
+    private Transform transform;
     private float horizontalMovement;
     private float verticalMovement;
+    private Animator animator;
 
-    /* =============================================
-     * INITIALIZATION
-     * ========================================== */
+    #region Initialization
     private void Awake()
     {
+        if(instance != null)
+        {
+            Debug.LogWarning("Warning! More than one PlayerMovement in Scene!");
+        }
+        instance = this;
+
         currentMovementSpeed = baseMovementSpeed;
         GetPlayerComponents();
     }
@@ -31,8 +39,26 @@ public class PlayerMovement : MonoBehaviour
     {
         // get references form outside the object
         GetJoystickFromPlayerControls();
+        LoadData();
     }
 
+    private void LoadData()
+    {
+        SaveFileManager sfm = SaveFileManager.GetInstance();
+        PlayerData saveFile = sfm.saveFile;
+        if (saveFile != null)
+        {
+            baseMovementSpeed = saveFile.baseMovementSpeed;
+            Debug.Log("Savefile loaded to PlayerMovement");
+        }
+        else
+        {
+            baseMovementSpeed = 12;
+            Debug.LogError($"No save file found. PlayerMovement will default to fall-back.");
+        }
+    }
+
+    #endregion
     private void GetJoystickFromPlayerControls()
     {
         try
@@ -60,14 +86,27 @@ public class PlayerMovement : MonoBehaviour
 
         try
         {
-            sr = gameObject.GetComponent<SpriteRenderer>();
+            transform = gameObject.GetComponent<Transform>();
         }
         catch (Exception e)
         {
-            Debug.LogError("Could not get SpriteRenderer from player!: " + e);
+            Debug.LogError("Could not get Transform from player!: " + e);
+        }
+
+        try
+        {
+            animator = gameObject.GetComponent<Animator>();
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Could not get Animator from player!: " + e);
         }
     }
 
+    public static PlayerMovement GetInstance()
+    {
+        return instance;
+    }
     /* =============================================
      * Update Methods
      * ========================================== */
@@ -76,6 +115,15 @@ public class PlayerMovement : MonoBehaviour
         GetMovementValues();
         MovePlayerHorizontallyWithPhysics();
         MirrorPlayerDirection();
+
+        if (Mathf.Abs(horizontalMovement) > 0)
+        {
+            walkSound.enabled = true;
+        }
+        else
+        {
+            walkSound.enabled = false;
+        }
     }
 
     /* =============================================
@@ -116,20 +164,38 @@ public class PlayerMovement : MonoBehaviour
     void MovePlayerHorizontallyWithPhysics()
     {
         rb.velocity = new Vector2 (horizontalMovement, rb.velocity.y);
+        animator.SetFloat("speed", Mathf.Abs(horizontalMovement));
     }
 
     /* =============================================
      * Other Methods
      * ========================================== */
 
-    void MirrorPlayerDirection()
+    private void MirrorPlayerDirection()
     {
         if(horizontalMovement > 0)
         {
-            sr.flipX = false;
+            Vector3 currentScale = transform.localScale;
+            currentScale.x = 2;
+            //currentScale.x = 1;
+            transform.localScale = currentScale;
         } if(horizontalMovement < 0)
         {
-            sr.flipX = true;
+            Vector3 currentScale = transform.localScale;
+            currentScale.x = -2;
+            //currentScale.x = -1;
+            transform.localScale = currentScale;
+        }
+    }
+
+    public bool IsPlayerMoving()
+    {
+        if(Mathf.Abs(horizontalMovement) > 0.01)
+        {
+            return true;
+        } else
+        {
+            return false;
         }
     }
 }

@@ -9,15 +9,38 @@ public class StressManager : MonoBehaviour
 
     [Header("Public Variables")]
     public int MAX_STRESS;
+    public bool isCombatLevel;
+
+    [Header("Combat Level Properties")]
+    public int stressIncreasePerTick;
+    public float tickDuration;
 
     [Header("Internals")]
     [SerializeField] private int currentStressLevel;
+    [SerializeField] private StressLevel stressState;
+    [SerializeField] private float stressBonus;
+    [SerializeField] private PlayerStatsScript pss;
+
+    public enum StressLevel
+    {
+        Green, Yellow, Orange, Red, Black
+    }
 
     private void Start()
     {
         stressMeter.maxValue = MAX_STRESS;
         stressMeter.value = currentStressLevel;
+        if(isCombatLevel)
+        {
+            pss = gameObject.GetComponent<PlayerStatsScript>();
+            StartCoroutine(IncreaseStressGradually(tickDuration));
+            StartCoroutine(IncreaseStressBasedOnEnemyCount());
+        }
     }
+
+    /* =============================================
+     * Core Functions
+     * ========================================== */
 
     public void AddStress(int amount)
     {
@@ -28,6 +51,7 @@ public class StressManager : MonoBehaviour
         }
 
         stressMeter.value = currentStressLevel;
+        UpdateCurrentStressLevel();
     }
 
     public void ReduceStress(int amount)
@@ -38,5 +62,93 @@ public class StressManager : MonoBehaviour
             currentStressLevel = 0;
         }
         stressMeter.value = currentStressLevel;
+        UpdateCurrentStressLevel();
+    }
+
+    private void UpdateCurrentStressLevel()
+    {
+        stressState = GetCurrentStressLevel(currentStressLevel);
+        stressBonus = GetStressBonus(stressState);
+    }
+
+    /* =============================================
+     * Apply Bonuses to the Player's Stats
+     * ========================================== */
+
+    private void ApplyPlayerBonuses()
+    {
+        pss.UpdateCurrentAttackDamage(pss.GetBaseAttackDamage() + 
+            (pss.GetBaseAttackDamage() * stressBonus)
+            );
+        //Debug.Log($"Current player damage is at {pss.GetCurrentAttackDamage()}");
+    }
+
+    /* =============================================
+     * Coroutines
+     * ========================================== */
+
+    IEnumerator IncreaseStressGradually(float tickDuration)
+    {
+        yield return new WaitForSeconds(tickDuration);
+        AddStress(stressIncreasePerTick);
+        UpdateCurrentStressLevel();
+        ApplyPlayerBonuses();
+        StartCoroutine(IncreaseStressGradually(tickDuration));
+    }
+
+    IEnumerator IncreaseStressBasedOnEnemyCount()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        yield return new WaitForSeconds(5.0f);
+        AddStress(enemies.Length);
+        UpdateCurrentStressLevel();
+        ApplyPlayerBonuses();
+        StartCoroutine(IncreaseStressBasedOnEnemyCount());
+    }
+
+    /* =============================================
+     * Static Functions
+     * ========================================== */
+
+    protected static float GetStressBonus(StressLevel sl)
+    {
+        switch (sl)
+        {
+            case StressLevel.Green:
+                return 0f;
+            case StressLevel.Yellow:
+                return 0.25f;
+            case StressLevel.Orange:
+                return 0.50f;
+            case StressLevel.Red:
+                return 0.75f;
+            case StressLevel.Black:
+                return 1f;
+            default:
+                Debug.LogWarning($"An unexpected value '{sl.ToString()}' was recieved" +
+                    $" while getting Stress Bonus. Default value of 0f has been returned.");
+                return 0f;
+        }
+    }
+
+    protected static StressLevel GetCurrentStressLevel(float currentStressLevel)
+    {
+        // greenzone
+        if(currentStressLevel < 20)
+        {
+            return StressLevel.Green;
+        } else if (currentStressLevel < 40)
+        {
+            return StressLevel.Yellow;
+        } else if (currentStressLevel < 60)
+        {
+            return StressLevel.Orange;
+        } else if (currentStressLevel < 80)
+        {
+            return StressLevel.Red;
+        } else
+        {
+            return StressLevel.Black;
+        }
     }
 }

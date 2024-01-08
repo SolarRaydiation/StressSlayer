@@ -5,32 +5,23 @@ using UnityEngine;
 
 public class StudyingActivity : Activity
 {
-    [Header("Studying Activity - Variables")]
+    [Header("Studying Activity Variables")]
     public float difficultyReductionPerHour = 0.25f;
 
-    [Header("Studying Activity - Internals")]
-    [SerializeField] NextLevelPreInitializer nlpi;
-
-    /* =============================================
-     * Initialization Functions
-     * ========================================== */
-    private void GetNextLevelPreInitializerFromWorldManager()
+    public override string DisplayStatIncreaseBenefits(int hoursInvested)
     {
-        try
-        {
-            GameObject worldManager = GameObject.FindGameObjectWithTag("WorldManager");
-            nlpi = worldManager.GetComponent<NextLevelPreInitializer>();
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("Could not find NextLevelPreInitializer component from WorldManager!: " + e);
-        }
+        return $"You will reduce the difficulty of the next level to {(hoursInvested * difficultyReductionPerHour) * 100}%" +
+            $"from {nextLevelPreInitializer.GetNextLevelDifficulty() * 100}% (minimum level difficulty of 50%).";
     }
 
+    public override void IncreasePlayerStat(int hoursInvested)
+    {
+        nextLevelPreInitializer.ReduceLevelDifficulty(hoursInvested * difficultyReductionPerHour);
+    }
 
     /* =============================================
      * Inherited Functions
-     * ========================================== */
+     * ========================================== 
 
     protected override void IncreasePlayerStat(int hoursSpentOnActivity)
     {
@@ -63,4 +54,9 @@ public class StudyingActivity : Activity
             ExecuteActivity(hoursSpentOnActivity);
         }
     }
+
+    public override string DisplayStatIncreaseBenefits(int hoursInvested)
+    {
+        throw new NotImplementedException();
+    }*/
 }

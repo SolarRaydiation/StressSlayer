@@ -33,7 +33,8 @@ public class LevelLoader : MonoBehaviour
     IEnumerator LoadLevelWithName(string levelName)
     {
         animator.SetTrigger(triggerAnimationName);
-        animator.SetBool("test", true); ;
+        SaveFileManager sfm = SaveFileManager.GetInstance();
+        sfm.SavePlayerData();
         yield return new WaitForSeconds(transitionTime);
 
         try

@@ -4,19 +4,17 @@ using UnityEngine;
 
 public class WorkingActivity : Activity
 {
-    [Header("Working Activity - Variables")]
+    [Header("Working Activity Variables")]
     public int earningsPerHour;
-    public override void ExecuteActivity(int hoursSpentOnActivity)
+
+    public override string DisplayStatIncreaseBenefits(int hoursInvested)
     {
-        if(IsThereEnoughTimeForActivity(hoursSpentOnActivity))
-        {
-            IncreasePlayerStat(hoursSpentOnActivity);
-            clockManager.MoveTimeForwardByHours(hoursSpentOnActivity);
-        }
+        return $"You will gain {earningsPerHour * hoursInvested} cash";
     }
 
-    protected override void IncreasePlayerStat(int hoursSpentOnActivity)
+
+    public override void IncreasePlayerStat(int hoursInvested)
     {
-        playerStatsManager.IncreasePlayerCashStat(earningsPerHour * hoursSpentOnActivity);
+        playerInventoryManager.IncreaseCash(earningsPerHour * hoursInvested);
     }
 }

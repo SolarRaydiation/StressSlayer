@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using static System.TimeZoneInfo;
+using UnityEngine.UI;
 
-public class EntityStatsScript : MonoBehaviour
+public abstract class EntityStatsScript : MonoBehaviour
 {
     // Movements are handled in a separate script
 
@@ -12,39 +12,43 @@ public class EntityStatsScript : MonoBehaviour
 
     [Header("Entity Health Values")]
     public float initialMaxHealth;
-    public float initialActualHealth;               // value not used if isPlayer set to false
+    public float initialActualMaxHealth;               // value not used if isPlayer set to false
+    public Slider healthBar;
 
     [Header("Entity Damage Values")]
     public float baseAttackDamage;
 
-    [Header("Serialized Internals")]
-    [SerializeField] private float currentHealth;
-    [SerializeField] private bool isHealthZero;
-    private float maxHealth;
-    [SerializeField] private float actualMaxHealth; // value not used if isPlayer set to false
-    [SerializeField] float currentAttackDamage;
-    private Animator animator;                      // for visual cues
+    [Header("ESS Interrnrals")]
+    [SerializeField] protected float currentHealth;
+    protected bool isHealthZero;
+    protected float maxHealth;
+    protected float actualMaxHealth; // value not used if isPlayer set to false
+    [SerializeField] protected float currentAttackDamage;
+    [SerializeField] protected Animator animator;                      // for visual cues
 
     void Start()
     {
         InitializeHealthValues();
         InitializeDamageValues();
         GetAnimationComponent();
+        ExecuteOtherStartFunctions();
     }
 
     public void InitializeHealthValues()
     {
         isHealthZero = false;
         maxHealth = initialMaxHealth;
+        healthBar.maxValue = initialMaxHealth;
         if (isPlayer)
         {
-            actualMaxHealth = initialActualHealth;
-            currentHealth = initialActualHealth;
+            actualMaxHealth = initialActualMaxHealth;
+            currentHealth = initialActualMaxHealth;
         }
         else
         {
             currentHealth = initialMaxHealth;
         }
+        healthBar.value = currentHealth;
     }
 
     public void InitializeDamageValues()
@@ -63,6 +67,9 @@ public class EntityStatsScript : MonoBehaviour
         }
 
     }
+
+    // if the child classes need to execute their own start functions
+    protected abstract void ExecuteOtherStartFunctions();
 
 
     /* =============================================
@@ -85,11 +92,12 @@ public class EntityStatsScript : MonoBehaviour
         if (currentHealth > maxHealth && !isPlayer)
         {
             currentHealth = maxHealth;
-        } else
+        } else if (currentHealth > actualMaxHealth && isPlayer)
         {
             currentHealth = actualMaxHealth;
         }
-        animator.SetTrigger("TookHealItem");
+        UpdateHealthBar();
+        ExecuteOtherIncreaseHealthFunctions();
     }
 
     public void DecreaseHealth(float healthDecrease)
@@ -97,18 +105,29 @@ public class EntityStatsScript : MonoBehaviour
         currentHealth = currentHealth - healthDecrease;
         if (currentHealth > 0)
         {
-            animator.SetTrigger("TookDamage");
+            ExecuteOtherDecreaseHealthFunctions();
+            UpdateHealthBar();
         }
         else
         {
-            isHealthZero = false;
-            StartCoroutine(KillEntity());
+            isHealthZero = true;
+            UpdateHealthBar();
+            EntityDeathFunction();
         }
     }
 
-    IEnumerator KillEntity()
+    private void UpdateHealthBar()
     {
-        animator.SetTrigger("IsDead");
+        healthBar.value = currentHealth;
+    }
+
+    protected abstract void ExecuteOtherIncreaseHealthFunctions();
+    protected abstract void ExecuteOtherDecreaseHealthFunctions();
+    protected abstract void EntityDeathFunction();
+
+    protected IEnumerator KillEntity(string deathAnimationTrigger)
+    {
+        animator.SetTrigger(deathAnimationTrigger);
         yield return new WaitForSeconds(1.3f);
         GameObject.Destroy(gameObject);
     }
@@ -125,6 +144,11 @@ public class EntityStatsScript : MonoBehaviour
     public float GetBaseAttackDamage()
     {
         return baseAttackDamage;
+    }
+
+    public void UpdateCurrentAttackDamage(float newAttackDamage)
+    {
+        currentAttackDamage = newAttackDamage;
     }
 
     public void IncreaseCurrentAttackDamageTemporarily(float newAttackDamage, float seconds)

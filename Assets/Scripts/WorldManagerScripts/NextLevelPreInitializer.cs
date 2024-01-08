@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -12,20 +13,54 @@ public class NextLevelPreInitializer : MonoBehaviour
     [Header("UI Externals")]
     public TextMeshProUGUI nextLevelDifficultyText;
 
-    [Header("Serialized Private Variables - Difficulty Metric")]
-    [SerializeField] private float nextLevelDifficulty;
+    [Header("Next Level Difficulty")]
+    public float nextLevelDifficulty;
 
-    
+    [Header("Internals")]
+    private static NextLevelPreInitializer instance;
+
+
     //private const float DIFFICULTY_REDUCTION_PER_HOUR = 0.25f;
 
     /* =============================================
      * Initialization
      * ========================================== */
+
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Debug.LogWarning("There is more than one NextLevelPreInitializer in the Scene!");
+        }
+        instance = this;
+    }
+
     private void Start()
     {
-        nextLevelDifficulty = INTIAL_LEVEL_DIFFICULTY;
-        UpdateNextLevelDifficultyTextUI();
+        LoadData();
     }
+
+    private void LoadData()
+    {
+        SaveFileManager sfm = SaveFileManager.GetInstance();
+        PlayerData saveFile = sfm.saveFile;
+        if (saveFile != null)
+        {
+            nextLevelDifficulty = saveFile.nextLevelDifficulty;
+            Debug.Log("Savefile loaded to NextLevelPreInitializer");
+        }
+        else
+        {
+            nextLevelDifficulty = INTIAL_LEVEL_DIFFICULTY;
+            Debug.LogError($"No save file found. NextLevelPreInitializer will default to fall-back.");
+        }
+    }
+
+    public static NextLevelPreInitializer GetInstance()
+    {
+        return instance;
+    }
+
 
     /* =============================================
      * Difficulty update functions
@@ -33,9 +68,15 @@ public class NextLevelPreInitializer : MonoBehaviour
 
     public void ReduceLevelDifficulty(float difficultyReductionRate)
     {
-        nextLevelDifficulty = nextLevelDifficulty - difficultyReductionRate;
-        //nextLevelDifficulty = Mathf.Max(nextLevelDifficulty, MINIMUM_LEVEL_DIFFICULTY);
-        UpdateNextLevelDifficultyTextUI();
+        if(nextLevelDifficulty - difficultyReductionRate < MINIMUM_LEVEL_DIFFICULTY)
+        {
+            nextLevelDifficulty = MINIMUM_LEVEL_DIFFICULTY;
+        } else
+        {
+            nextLevelDifficulty = nextLevelDifficulty - difficultyReductionRate;
+        }
+        
+        //UpdateNextLevelDifficultyTextUI();
     }
 
     public bool CanReduceLevelDifficulty(float difficultyReductionRate)
@@ -57,13 +98,6 @@ public class NextLevelPreInitializer : MonoBehaviour
     {
         return nextLevelDifficulty;
     }
-
-    // note: there is no setter fucntion for nextLevelDifficulty. No need
-    // to increase the difficulty
-
-    /* =============================================
-     * UI Update Methods
-     * ========================================== */
 
     public void UpdateNextLevelDifficultyTextUI()
     {

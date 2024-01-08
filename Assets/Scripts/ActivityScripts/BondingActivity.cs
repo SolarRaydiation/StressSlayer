@@ -15,9 +15,19 @@ public class BondingActivity : Activity
     [SerializeField] private bool investedMoreNineHours = false; 
     [SerializeField] private int hoursInvested;
 
+    public override string DisplayStatIncreaseBenefits(int hoursInvested)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void IncreasePlayerStat(int hoursInvested)
+    {
+        throw new System.NotImplementedException();
+    }
+
     /* =============================================
      * INITIALIZATION FUNCTIONS
-     * ========================================== */
+     * ========================================== 
 
     private void HasInvestedMoreThanNineHours()
     {
@@ -34,7 +44,7 @@ public class BondingActivity : Activity
 
     /* =============================================
      * Inherited Functions
-     * ========================================== */
+     * ========================================== 
 
     public override void ExecuteActivity(int hoursSpentOnActivity)
     {
@@ -53,5 +63,5 @@ public class BondingActivity : Activity
     protected override void IncreasePlayerStat(int hoursSpentOnActivity)
     {
         // intentionally left blank
-    }
+    }*/
 }

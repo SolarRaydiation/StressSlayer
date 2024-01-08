@@ -11,9 +11,7 @@ public class PauseMenuFunctions : MonoBehaviour
     [Header("Canvases to Hide From Player")]
     public GameObject[] canvasList;
 
-    /* =============================================
-     * Initialization Methods
-     * ========================================== */
+    #region Initialization
 
     private void Start()
     {
@@ -27,9 +25,9 @@ public class PauseMenuFunctions : MonoBehaviour
         }
     }
 
-    /* =============================================
-     * Pause/Resume Game and Pause Menu Methods
-     * ========================================== */
+    #endregion
+
+    #region PauseMenuFunctions
 
     /// <summary>
     /// Pauses the game by hiding all GameObjects with a Canvas, setting the
@@ -104,4 +102,6 @@ public class PauseMenuFunctions : MonoBehaviour
     {
         Application.Quit();
     }
+
+    #endregion
 }
