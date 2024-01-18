@@ -468,6 +468,7 @@ GameObject:
   - component: {fileID: 5700501551659145641}
   - component: {fileID: 693010361928701598}
   - component: {fileID: 1282008035503738261}
+  - component: {fileID: 5427393100494728039}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -576,8 +577,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PauseMenuFunctions, Assembly-CSharp
+      - m_Target: {fileID: 5427393100494728039}
+        m_TargetAssemblyTypeName: PauseMenuManagerHelper, Assembly-CSharp
         m_MethodName: PauseGame
         m_Mode: 1
         m_Arguments:
@@ -696,6 +697,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5427393100494728039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439938686626229856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05c4e942365c3cc48b5d5dd9d3c1b105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1920605381097219707
 GameObject:
   m_ObjectHideFlags: 0

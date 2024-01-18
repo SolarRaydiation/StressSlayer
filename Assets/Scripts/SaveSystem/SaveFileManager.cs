@@ -7,6 +7,7 @@ public class SaveFileManager : MonoBehaviour
     private static SaveFileManager instance;
     public PlayerData saveFile;
 
+    #region Initialization
     private void Awake()
     {
         if(instance != null)
@@ -23,24 +24,36 @@ public class SaveFileManager : MonoBehaviour
         return instance;
     }
 
-    public void SavePlayerData()
-    {
-        SaveSystem.SaveData();
-    }
+    #endregion
 
-    public void SavePlayerDataAsync()
-    {
-        StartCoroutine(SaveGameStateAsync());
-    }
-
-    IEnumerator SaveGameStateAsync()
-    {
-        yield return null;
-        SavePlayerData();
-    }
+    #region Methods
 
     private PlayerData LoadPlayerData()
     {
         return SaveSystem.LoadData();
     }
+
+    public void SavePlayerData(string levelName)
+    {
+        SaveSystem.SaveData(levelName);
+    }
+
+    public void SavePlayerDataAsync(string levelName)
+    {
+        StartCoroutine(SaveGameStateAsync(levelName));
+    }
+
+    IEnumerator SaveGameStateAsync(string levelName)
+    {
+        yield return null;
+        SavePlayerData(levelName);
+    }
+
+    public bool DoesSaveFileExists()
+    {
+        Debug.Log(SaveSystem.CheckIfSaveFileExists());
+        return SaveSystem.CheckIfSaveFileExists();
+    }
+
+    #endregion
 }

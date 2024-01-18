@@ -1111,6 +1111,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5656540125566312629, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
   m_PrefabInstance: {fileID: 1703431413}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1703431417 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5797924568273781353, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
+  m_PrefabInstance: {fileID: 1703431413}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1703431418 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8879404189725665131, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
+  m_PrefabInstance: {fileID: 1703431413}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1829383384
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1168,6 +1190,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6450243984416558477, guid: 500738185f24443448886afad0d6d4cd, type: 3}
+      propertyPath: dayText
+      value: 
+      objectReference: {fileID: 1703431418}
+    - target: {fileID: 6450243984416558477, guid: 500738185f24443448886afad0d6d4cd, type: 3}
       propertyPath: clockTimeText
       value: 
       objectReference: {fileID: 1703431414}
@@ -1207,6 +1233,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorldManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6901225575325893206, guid: 500738185f24443448886afad0d6d4cd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6982229290190309757, guid: 500738185f24443448886afad0d6d4cd, type: 3}
       propertyPath: shopScreen
       value: 
@@ -1227,6 +1257,10 @@ PrefabInstance:
       propertyPath: canvases.Array.data[1]
       value: 
       objectReference: {fileID: 1703431416}
+    - target: {fileID: 8112982195689714280, guid: 500738185f24443448886afad0d6d4cd, type: 3}
+      propertyPath: nextLevelDifficultyText
+      value: 
+      objectReference: {fileID: 1703431417}
     - target: {fileID: 9017421135065038316, guid: 500738185f24443448886afad0d6d4cd, type: 3}
       propertyPath: dialogueText
       value: 
@@ -1255,6 +1289,14 @@ PrefabInstance:
       propertyPath: choices.Array.data[3]
       value: 
       objectReference: {fileID: 687162800}
+    - target: {fileID: 9017421135065038316, guid: 500738185f24443448886afad0d6d4cd, type: 3}
+      propertyPath: canvases.Array.data[0]
+      value: 
+      objectReference: {fileID: 1436542707}
+    - target: {fileID: 9017421135065038316, guid: 500738185f24443448886afad0d6d4cd, type: 3}
+      propertyPath: canvases.Array.data[1]
+      value: 
+      objectReference: {fileID: 1703431416}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

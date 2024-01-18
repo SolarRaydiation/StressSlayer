@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - Collectible
   - Background
+  - GlobalVolume
+  - Light
   layers:
   - Default
   - TransparentFX

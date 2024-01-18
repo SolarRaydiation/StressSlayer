@@ -1,13 +1,13 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ActionButtonHelper : MonoBehaviour
 {
-    public Color canInteractColor;     // 65E565
-    [SerializeField] private Image actionButtonImage;
+    public Color canInteractColor;
+    private Image actionButtonImage;
+    private Button actionButton;
+    private Interactable attachedInteractable;
 
     void Start()
     {
@@ -16,6 +16,7 @@ public class ActionButtonHelper : MonoBehaviour
             GameObject playerControls = GameObject.Find("PlayerControls");
             Transform actionButtonTransform = playerControls.transform.Find("ActionButton");
             GameObject actionButtonObject = actionButtonTransform.gameObject;
+            actionButton = actionButtonObject.GetComponent<Button>();
             actionButtonImage = actionButtonObject.GetComponent<Image>();
         }
         catch (Exception e)
@@ -24,16 +25,43 @@ public class ActionButtonHelper : MonoBehaviour
         }
     }
 
+    #region Trigger Enter and Exit Methods
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Interactable") || other.CompareTag("ActivityInteractable"))
         {
-            actionButtonImage.color = canInteractColor;
+            //actionButtonImage.color = canInteractColor;
+            GetAttachedInteractable(other.gameObject);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        actionButtonImage.color = Color.white;
+        //actionButtonImage.color = Color.white;
+        RemoveAttachedInteractable();
     }
+
+    #endregion
+
+    #region attachedInteractable Methods
+    private void GetAttachedInteractable(GameObject obj)
+    {
+        attachedInteractable = obj.GetComponent<Interactable>();
+        if( attachedInteractable != null )
+        {
+            Debug.Log($"Found an Interactable script in object: {obj.name}");
+            actionButton.onClick.AddListener(attachedInteractable.StartInteraction);
+        } else
+        {
+            Debug.LogWarning($"{obj.name} does not have an Interactable script!");
+        }
+    }
+
+    private void RemoveAttachedInteractable()
+    {
+        attachedInteractable = null;
+        actionButton.onClick.RemoveAllListeners();
+    }
+
+    #endregion
 }

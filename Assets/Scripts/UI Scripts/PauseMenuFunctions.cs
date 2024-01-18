@@ -6,26 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuFunctions : MonoBehaviour
 {
-    private CanvasInteractibilityScript cis;
 
     [Header("Canvases to Hide From Player")]
     public GameObject[] canvasList;
-
-    #region Initialization
-
-    private void Start()
-    {
-        try
-        {
-            cis = GetComponent<CanvasInteractibilityScript>();
-        }
-        catch (Exception e)
-        {
-            Debug.LogWarning($"Could not get CanvasInteractibilityScript component of {gameObject.name}!: {e}");
-        }
-    }
-
-    #endregion
+    public CanvasInteractibilityScript cis;
 
     #region PauseMenuFunctions
 

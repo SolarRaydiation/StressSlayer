@@ -5,7 +5,6 @@ using Ink.Runtime;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.EventSystems;
-using Pathfinding;
 
 public class DialogueManager : MonoBehaviour
 {

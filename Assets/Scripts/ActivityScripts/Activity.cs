@@ -17,9 +17,7 @@ public abstract class Activity : MonoBehaviour
     protected PlayerInventoryManager playerInventoryManager;
     protected NextLevelPreInitializer nextLevelPreInitializer;
 
-    /* =============================================
-     * Initialization Methods
-     * ========================================== */
+    #region Initialization
     private void Start()
     {
         try
@@ -35,9 +33,9 @@ public abstract class Activity : MonoBehaviour
         }
     }
 
-    /* =============================================
-     * Methods Related to Reducing Stress
-     * ========================================== */
+    #endregion
+
+    #region Methods for Reducing Stress
     public void ReduceStressLevel(int hoursInvested)
     {
         playerStatsController.ReduceStress(stressReducedPerHour * hoursInvested);
@@ -48,23 +46,25 @@ public abstract class Activity : MonoBehaviour
         return $"You will reduce your stress by {stressReducedPerHour * hoursInvested}.";
     }
 
-    /* =============================================
-     * Methods Related to Improving Player Stats
-     * ========================================== */
-    
+    #endregion
+
+    #region Methods for Improving Player Stats
+
     // any increase in the stat level of the player
     public abstract void IncreasePlayerStat(int hoursInvested);
 
     // shows by how much those stats will increase
     public abstract string DisplayStatIncreaseBenefits(int hoursInvested);
 
-    /* =============================================
-     * Core Methods
-     * ========================================== */
+    #endregion
+
+    #region Core Methods
 
     public void TriggerActivitySystem()
     {
         ActivitySystem activitySystem = ActivitySystem.GetInstance();
         activitySystem.EnterActivityMode(this);
     }
+
+    #endregion
 }

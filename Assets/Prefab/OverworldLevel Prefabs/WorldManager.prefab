@@ -228,20 +228,20 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 2662814633058271710}
     m_ColliderPaths:
-    - - X: 811608128
-        Y: 186580048
-      - X: -193744816
-        Y: 186580048
-      - X: -193744816
-        Y: -187086480
-      - X: 811608128
-        Y: -187086480
+    - - X: 2672873216
+        Y: 442115168
+      - X: -336115104
+        Y: 442115168
+      - X: -336115104
+        Y: -311402144
+      - X: 2672873216
+        Y: -311402144
   m_CompositePaths:
     m_Paths:
-    - - {x: 81.16078, y: -18.708649}
-      - {x: 81.16078, y: 18.658005}
-      - {x: -19.374481, y: 18.657976}
-      - {x: -19.374453, y: -18.708649}
+    - - {x: 267.2873, y: -31.140215}
+      - {x: 267.2873, y: 44.211517}
+      - {x: -33.61151, y: 44.211487}
+      - {x: -33.61148, y: -31.140215}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -278,7 +278,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 1
-  m_Offset: {x: 30.893166, y: -0.02532196}
+  m_Offset: {x: 116.837906, y: 6.535652}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -289,7 +289,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 100.53529, y: 37.366653}
+  m_Size: {x: 300.89883, y: 75.35173}
   m_EdgeRadius: 0
 --- !u!1 &6717072300639770855
 GameObject:
@@ -308,6 +308,7 @@ GameObject:
   - component: {fileID: 5064859938691244991}
   - component: {fileID: 6982229290190309757}
   - component: {fileID: 8764683841230804868}
+  - component: {fileID: 6901225575325893206}
   m_Layer: 0
   m_Name: WorldManager
   m_TagString: WorldManager
@@ -346,6 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clockHandTransform: {fileID: 0}
   clockTimeText: {fileID: 0}
+  dayText: {fileID: 0}
   currentDaySection: 0
   currentHour: 0
   currentDay: 0
@@ -488,3 +490,18 @@ MonoBehaviour:
     fruitsAndVegetablesOwned: 0
     cortisolInjectorsOwned: 0
     assortedDrugsOwned: 0
+--- !u!114 &6901225575325893206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6717072300639770855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f1dd9ec6f59e7842acb61f522c6df14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hourToStartShifting: 16
+  weightShift: 0.16667
+  hourToActivateLightSources: 19

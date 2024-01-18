@@ -34,7 +34,7 @@ public class LevelLoader : MonoBehaviour
     {
         animator.SetTrigger(triggerAnimationName);
         SaveFileManager sfm = SaveFileManager.GetInstance();
-        sfm.SavePlayerData();
+        sfm.SavePlayerData(levelName);
         yield return new WaitForSeconds(transitionTime);
 
         try
@@ -45,6 +45,4 @@ public class LevelLoader : MonoBehaviour
             Debug.LogError($"Could not move to '{levelName}' because: " + e);
         }
     }
-
-
 }

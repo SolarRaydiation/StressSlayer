@@ -5,7 +5,21 @@ using System.Runtime.Serialization.Formatters.Binary;
 public static class SaveSystem
 {
     public const string SAVEFILE_PATH = "/savedata.bin";
-    public static void SaveData()
+
+    public static bool CheckIfSaveFileExists()
+    {
+        string path = Application.persistentDataPath + SAVEFILE_PATH;
+        if (File.Exists(path))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static void SaveData(string nextSceneName)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + SAVEFILE_PATH;
@@ -16,7 +30,8 @@ public static class SaveSystem
             PlayerStatsController.GetInstance(),
             ClockManager.GetInstance(),
             NextLevelPreInitializer.GetInstance(),
-            PlayerInventoryManager.GetInstance()
+            PlayerInventoryManager.GetInstance(),
+            nextSceneName
             );
 
         Debug.Log("We have reached this point in the program.");
@@ -43,7 +58,7 @@ public static class SaveSystem
         }
     }
 
-    private static PlayerData CreateNewSaveFile()
+    public static PlayerData CreateNewSaveFile()
     {
         Debug.Log("Creating new save file...");
 
@@ -56,5 +71,11 @@ public static class SaveSystem
         Debug.Log("Savefile created and stored to " + path);
         stream.Close();
         return data;
+    }
+
+    public static void DeleteData()
+    {
+        string path = Application.persistentDataPath + SAVEFILE_PATH;
+        File.Delete(path);
     }
 }

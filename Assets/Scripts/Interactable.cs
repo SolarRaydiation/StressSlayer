@@ -14,40 +14,32 @@ public class Interactable : MonoBehaviour
     public Color notInteractableColor;                          // #EA3030. Tells user that object CANNOT be interacted with
     public string notInteractableMessage;                       // message to send if not interactable
     public AudioSource interactableClickedSFX;
+    public AudioSource interactableFailSFX;
 
     [Header("Unity Events")]
     public UnityEvent interactAction;                           // action(s) to execute when interacted with
 
     [Header("Flags")]
-    [SerializeField] private bool IS_IN_RANGE;                   // if player is close enough to interact with object
+    private bool IS_IN_RANGE;                   // if player is close enough to interact with object
 
     [Header("Internals")]
-    [SerializeField] private Button button;                      // reference to player's interaction button
-    [SerializeField] private SpriteRenderer sr;                  // reference to gameObject's SpriteRenderer
-    [SerializeField] private GameObject interactableBubble;      // prompt to tell player object can be interacted with
-    [SerializeField] private WarningText uninteractableWarning;  // flash player reason they can't interact if object is not
-                                                                 // interactable
+    private Button button;                      // reference to player's interaction button
+    private SpriteRenderer sr;                  // reference to gameObject's SpriteRenderer
+    private GameObject interactableBubble;      // prompt to tell player object can be interacted with
+    private WarningText uninteractableWarning;  // flash player reason they can't interact if object is not
+    [SerializeField] private Color originalColor;
 
-    /* =============================================
-     * Initialization Methods
-     * ========================================== */
+    #region Initialization
     void Awake()
-    {
-        if(interactable)
-        {
-            /* if(showInteractionBubble)
-            {
-                CreateInteractableBubble();
-            }*/
-        }
-    }
-
-    private void Start()
     {
         GetPlayerActionButton();
         SetSelfObjectReferences();
         GetWarningTextScript();
+        originalColor = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a);
+    }
 
+    private void Start()
+    {
         // check if a BoxCollider2D is present or not. If not, then create one and set it as trigger
         BoxCollider2D collider = gameObject.GetComponent<BoxCollider2D>();
         if (collider != null)
@@ -101,15 +93,14 @@ public class Interactable : MonoBehaviour
         }
     }
 
-    /* =============================================
-     * Action to Execute When Interacted With
-     * ========================================== */
+    #endregion
 
-    void StartInteraction()
+    #region Execute Action
+
+    public void StartInteraction()
     {
         if (interactable && IS_IN_RANGE)
         {
-            Debug.Log($"{name} interacted with! Executing commands.");
             interactAction.Invoke();
             if(interactableClickedSFX != null)
             {
@@ -118,16 +109,21 @@ public class Interactable : MonoBehaviour
         } else
         {
             uninteractableWarning.FlashWarningForNSeconds(3.0f, notInteractableMessage);
+            if (interactableFailSFX != null)
+            {
+                interactableFailSFX.Play();
+            }
         }
     }
 
-    /* =============================================
-     * Player Detection Functions
-     * ========================================== */
+    #endregion
 
+    #region SpriteRenderer Methods
+
+    // mainly for signalling to the player object can be interacted with (or not)
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        AttachButtonListener();
+        // AttachButtonListener();
 
         if (interactable)
         {
@@ -142,13 +138,13 @@ public class Interactable : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         IS_IN_RANGE = false;
-        sr.color = Color.white;
-        RemoveButtonListener();
+        sr.color = originalColor;
+        // RemoveButtonListener();
     }
 
-    /* =============================================
-     * Interaction Bubble Methods
-     * ========================================== */
+    #endregion
+
+    #region Interaction Bubble Methods
 
     /*
     private void CreateInteractableBubble()
@@ -171,9 +167,9 @@ public class Interactable : MonoBehaviour
         showInteractionBubble = b;
     }*/
 
-    /* =============================================
-     * Set Interactability Methods
-     * ========================================== */
+    #endregion
+
+    #region Interactability Methods
 
     public void SetAsInteractable()
     {
@@ -194,19 +190,17 @@ public class Interactable : MonoBehaviour
         sr.color = Color.white;
     }
 
-    /* =============================================
-     * Button Listeners
-     * ========================================== */
+    #endregion
+
+    #region Deprecated Button Listeners Methods 
     private void AttachButtonListener()
     {
         try
         {
             button.onClick.AddListener(StartInteraction);
-            Debug.Log($"{name} attached a button listener to {button.gameObject.name}.");
         }
         catch (Exception e)
         {
-            Debug.LogError($"{name} could not attach button listener to {button.gameObject.name}!: " + e);
         }
     }
 
@@ -215,11 +209,19 @@ public class Interactable : MonoBehaviour
         try
         {
             button.onClick.RemoveAllListeners();
-            Debug.Log($"{name} removed a button listener from {button.gameObject.name}.");
         }
         catch (Exception e)
         {
-            Debug.LogError($"{name} could not remove button listener from {button.gameObject.name}!: " + e);
         }
     }
+    #endregion
+
+    #region Other Methods
+
+    public Color GetOriginalColor()
+    {
+        return originalColor;
+    }
+
+    #endregion
 }

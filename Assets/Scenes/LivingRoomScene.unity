@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &109140820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8879404189725665131, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
+  m_PrefabInstance: {fileID: 1703431413}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &252235848
 AudioSource:
   m_ObjectHideFlags: 0
@@ -271,7 +282,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -467,7 +478,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -608,7 +619,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -769,7 +780,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -926,7 +937,7 @@ Transform:
   m_GameObject: {fileID: 628994569}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 52.68519, y: 1.1098461, z: 16.635698}
+  m_LocalPosition: {x: 55.21, y: 1.1098461, z: 16.635698}
   m_LocalScale: {x: 4.118624, y: 3.998052, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -949,14 +960,23 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   interactableClickedSFX: {fileID: 628994574}
+  interactableFailSFX: {fileID: 0}
   interactAction:
     m_PersistentCalls:
-      m_Calls: []
-  IS_IN_RANGE: 0
-  button: {fileID: 0}
-  sr: {fileID: 0}
-  interactableBubble: {fileID: 0}
-  uninteractableWarning: {fileID: 0}
+      m_Calls:
+      - m_Target: {fileID: 744999885}
+        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
+        m_MethodName: LoadNextLevel
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: PamilyaEskinitaScene
+          m_BoolArgument: 0
+        m_CallState: 2
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!61 &628994572
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -989,7 +1009,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03208983, y: 0.033057213}
+  m_Offset: {x: -0.022514224, y: 0.033057213}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1000,7 +1020,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.2992656, y: 4.0700207}
+  m_Size: {x: 2.2801144, y: 4.0700207}
   m_EdgeRadius: 0
 --- !u!212 &628994573
 SpriteRenderer:
@@ -1022,7 +1042,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1202,7 +1222,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1676,6 +1696,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   interactableClickedSFX: {fileID: 702343408}
+  interactableFailSFX: {fileID: 0}
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -1691,11 +1712,7 @@ MonoBehaviour:
           m_StringArgument: LivingRoomScene
           m_BoolArgument: 0
         m_CallState: 2
-  IS_IN_RANGE: 0
-  button: {fileID: 0}
-  sr: {fileID: 0}
-  interactableBubble: {fileID: 0}
-  uninteractableWarning: {fileID: 0}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!212 &702343406
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1716,7 +1733,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1911,6 +1928,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6a74d3c2e185964496efc222903db0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &769922371 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5797924568273781353, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
+  m_PrefabInstance: {fileID: 1703431413}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &801854971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1963,7 +1991,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2100,7 +2128,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2230,7 +2258,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2314,7 +2342,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2398,7 +2426,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2485,7 +2513,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2534,6 +2562,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   interactableClickedSFX: {fileID: 0}
+  interactableFailSFX: {fileID: 0}
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -2561,11 +2590,7 @@ MonoBehaviour:
           m_StringArgument: BedroomScene
           m_BoolArgument: 0
         m_CallState: 2
-  IS_IN_RANGE: 0
-  button: {fileID: 0}
-  sr: {fileID: 0}
-  interactableBubble: {fileID: 0}
-  uninteractableWarning: {fileID: 0}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!61 &1156122515
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2807,11 +2832,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 7038792654137983054, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
+--- !u!1 &1177586302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7038792654137983054, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
+  m_PrefabInstance: {fileID: 1177586301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1275273555 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7899190179840173175, guid: 5941f6b8870298a43bd7d5bfc07c192b, type: 3}
@@ -3022,7 +3056,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3214,7 +3248,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3276,6 +3310,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   interactableClickedSFX: {fileID: 1437980000}
+  interactableFailSFX: {fileID: 0}
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -3291,11 +3326,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  IS_IN_RANGE: 0
-  button: {fileID: 0}
-  sr: {fileID: 0}
-  interactableBubble: {fileID: 0}
-  uninteractableWarning: {fileID: 0}
+  originalColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1437979998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3437,7 +3468,7 @@ PrefabInstance:
     - target: {fileID: 693010361928701598, guid: 5941f6b8870298a43bd7d5bfc07c192b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1891065519}
+      objectReference: {fileID: 0}
     - target: {fileID: 833789982708755999, guid: 5941f6b8870298a43bd7d5bfc07c192b, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3582,6 +3613,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5427393100494728039, guid: 5941f6b8870298a43bd7d5bfc07c192b, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 1177586302}
     - target: {fileID: 6753075632348946833, guid: 5941f6b8870298a43bd7d5bfc07c192b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -3852,7 +3887,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4273,7 +4308,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4403,7 +4438,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4533,7 +4568,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4622,6 +4657,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6450243984416558477, guid: 500738185f24443448886afad0d6d4cd, type: 3}
+      propertyPath: dayText
+      value: 
+      objectReference: {fileID: 109140820}
+    - target: {fileID: 6450243984416558477, guid: 500738185f24443448886afad0d6d4cd, type: 3}
       propertyPath: clockTimeText
       value: 
       objectReference: {fileID: 1703431414}
@@ -4657,6 +4696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WorldManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6901225575325893206, guid: 500738185f24443448886afad0d6d4cd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6982229290190309757, guid: 500738185f24443448886afad0d6d4cd, type: 3}
       propertyPath: shopScreen
       value: 
@@ -4677,6 +4720,10 @@ PrefabInstance:
       propertyPath: canvases.Array.data[1]
       value: 
       objectReference: {fileID: 1703431416}
+    - target: {fileID: 8112982195689714280, guid: 500738185f24443448886afad0d6d4cd, type: 3}
+      propertyPath: nextLevelDifficultyText
+      value: 
+      objectReference: {fileID: 769922371}
     - target: {fileID: 9017421135065038316, guid: 500738185f24443448886afad0d6d4cd, type: 3}
       propertyPath: dialogueText
       value: 
@@ -4792,7 +4839,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4824,17 +4871,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1891065519 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2283481131060008986, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
-  m_PrefabInstance: {fileID: 1177586301}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2fc3422252305a408b1573d3d85be00, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1899869454
 GameObject:
   m_ObjectHideFlags: 0
@@ -4872,7 +4908,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4971,7 +5007,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5055,7 +5091,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5235,7 +5271,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

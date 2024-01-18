@@ -19,12 +19,7 @@ public class NextLevelPreInitializer : MonoBehaviour
     [Header("Internals")]
     private static NextLevelPreInitializer instance;
 
-
-    //private const float DIFFICULTY_REDUCTION_PER_HOUR = 0.25f;
-
-    /* =============================================
-     * Initialization
-     * ========================================== */
+    #region Initialization
 
     private void Awake()
     {
@@ -54,6 +49,7 @@ public class NextLevelPreInitializer : MonoBehaviour
             nextLevelDifficulty = INTIAL_LEVEL_DIFFICULTY;
             Debug.LogError($"No save file found. NextLevelPreInitializer will default to fall-back.");
         }
+        UpdateNextLevelDifficultyTextUI();
     }
 
     public static NextLevelPreInitializer GetInstance()
@@ -61,7 +57,9 @@ public class NextLevelPreInitializer : MonoBehaviour
         return instance;
     }
 
+    #endregion
 
+    #region Core Methods
     /* =============================================
      * Difficulty update functions
      * ========================================== */
@@ -75,8 +73,7 @@ public class NextLevelPreInitializer : MonoBehaviour
         {
             nextLevelDifficulty = nextLevelDifficulty - difficultyReductionRate;
         }
-        
-        //UpdateNextLevelDifficultyTextUI();
+        UpdateNextLevelDifficultyTextUI();
     }
 
     public bool CanReduceLevelDifficulty(float difficultyReductionRate)
@@ -101,6 +98,14 @@ public class NextLevelPreInitializer : MonoBehaviour
 
     public void UpdateNextLevelDifficultyTextUI()
     {
-        nextLevelDifficultyText.text = nextLevelDifficulty.ToString();
+        nextLevelDifficultyText.SetText((nextLevelDifficulty * 100).ToString() + "%");
     }
+
+    public void ResetLevelDifficulty()
+    {
+        nextLevelDifficulty = INTIAL_LEVEL_DIFFICULTY;
+        UpdateNextLevelDifficultyTextUI();
+    }
+
+    #endregion
 }

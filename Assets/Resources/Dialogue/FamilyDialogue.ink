@@ -1,7 +1,7 @@
 -> start
 
 === start ===
-Hope the police catch that drug dealer soon- oh, hello little bro. #speaker: brother
+Hope the police catch that drug dealer soon- oh, hello little bro. #speaker: Brother
 * [Hello.]
     -> question_section
     

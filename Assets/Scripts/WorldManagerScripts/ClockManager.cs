@@ -2,15 +2,20 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using UnityEngine.SceneManagement;
 
 public class ClockManager : MonoBehaviour
 {
     private static ClockManager instance;
     public Transform clockHandTransform;
     public TextMeshProUGUI clockTimeText;
-    public enum DaySection {
+    public TextMeshProUGUI dayText;
+
+    public enum DaySection
+    {
         Morning,                // 0
         Afternoon,              // 1
         Evening                 // 2
@@ -31,8 +36,8 @@ public class ClockManager : MonoBehaviour
     public Day currentDay;
 
     [Header("Internals")]
-    [SerializeField] private const int MAX_HOURS = 23;                                      
-    [SerializeField] private const int CHANGE_IN_ROTATION_PER_HOUR_PASSED = -30;            // it takes around -30 degrees of rotation to move the clockhand by one hour
+    private const int MAX_HOURS = 23;
+    private const int CHANGE_IN_ROTATION_PER_HOUR_PASSED = -30;            // it takes around -30 degrees of rotation to move the clockhand by one hour
 
     #region Initialization
     private void Awake()
@@ -42,15 +47,16 @@ public class ClockManager : MonoBehaviour
             Debug.LogWarning("There is more than one instance of ClockManager in the Scene!");
         }
         instance = this;
-        ResetClock();
-        currentHour = 7;
-        UpdateClockUI();
-        SetDaySection();
+        //ResetClock();
+        //currentHour = 7;
+        
     }
 
     private void Start()
     {
         LoadData();
+        UpdateClockUI();
+        SetDaySection();
     }
 
     private void LoadData()
@@ -62,6 +68,7 @@ public class ClockManager : MonoBehaviour
             currentDaySection = saveFile.currentDaySection;
             currentHour = saveFile.currentHour;
             currentDay = saveFile.currentDay;
+            UpdateDayUI(currentDay);
             Debug.Log("Savefile loaded to ClockManager");
         }
         else
@@ -69,17 +76,18 @@ public class ClockManager : MonoBehaviour
             currentDaySection = DaySection.Morning;
             currentHour = 6;
             currentDay = Day.Monday;
+            UpdateDayUI(currentDay);
             Debug.LogError($"No save file found. ClockManager will default to fall-back.");
         }
     }
 
     #endregion
 
-    #region Core Methods
+    #region Time Control Methods
 
     public void MoveForwardTimeByNHours(int n)
     {
-        if(currentHour + n > MAX_HOURS)
+        if (currentHour + n > MAX_HOURS)
         {
             currentHour = MAX_HOURS - (currentHour + n);
         }
@@ -109,14 +117,14 @@ public class ClockManager : MonoBehaviour
         return;
     }
 
-    public void UpdateClockUI()
+    private void UpdateClockUI()
     {
         // Update the clock itself
         clockHandTransform.eulerAngles = new Vector3(0, 0, CHANGE_IN_ROTATION_PER_HOUR_PASSED * currentHour);
 
         // Update the text displaying the time
         int hourToShow = currentHour % 12;
-        if(hourToShow ==  0)
+        if (hourToShow == 0)
         {
             hourToShow = 12;
         }
@@ -130,6 +138,32 @@ public class ClockManager : MonoBehaviour
         }
     }
 
+    private void UpdateDayUI(Day day)
+    {
+        switch (day)
+        {
+            case Day.Monday:
+                dayText.SetText("Monday");
+                break;
+            case Day.Tuesday:
+                dayText.SetText("Tuesday");
+                break;
+            case Day.Wednesday:
+                dayText.SetText("Wednesday");
+                break;
+            case Day.Thursday:
+                dayText.SetText("Thursday");
+                break;
+            case Day.Friday:
+                dayText.SetText("Friday");
+                break;
+            default:
+                Debug.LogError($"Recieved invalid Day value {day} while updating Day UI!");
+                dayText.SetText("ERROR!");
+                break;
+        }
+    }
+
     public void ResetClock()
     {
         currentHour = 0;
@@ -140,9 +174,18 @@ public class ClockManager : MonoBehaviour
     public void MoveDayForward()
     {
         currentDay = currentDay + 1;
+        currentHour = 7;
+        UpdateClockUI();
+        UpdateDayUI(currentDay);
+        NextLevelPreInitializer nlpi = NextLevelPreInitializer.GetInstance();
+        nlpi.ResetLevelDifficulty();
+
+        SaveFileManager sfm = SaveFileManager.GetInstance();
+        sfm.SavePlayerData(SceneManager.GetActiveScene().name);
     }
 
     #endregion
+
 
     #region Getter Methods
 
@@ -172,4 +215,6 @@ public class ClockManager : MonoBehaviour
     }
 
     #endregion
+
+    
 }

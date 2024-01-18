@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -21,6 +22,7 @@ public class ActivitySystem : MonoBehaviour
 
     private ClockManager clockManager;
 
+    #region Initialization
     public void Awake()
     {
         if(instance != null)
@@ -40,10 +42,14 @@ public class ActivitySystem : MonoBehaviour
         return instance;
     }
 
-    /* =============================================
-     * Core Methods
-     * ========================================== */
+    #endregion
 
+    #region Core Methods
+
+    /// <summary>
+    /// Called when the players intends to start an activity.
+    /// </summary>
+    /// <param name="a">The activity to be started.</param>
     public void EnterActivityMode(Activity a)
     {
         activityInstance = a;
@@ -55,8 +61,13 @@ public class ActivitySystem : MonoBehaviour
         HideCanvases();
     }
 
+    /// <summary>
+    /// Not to be confused with ExitActivity(). This is called only when the
+    /// activity in question has been completed.
+    /// </summary>
     public void ExitActivityMode()
     {
+        StartCoroutine(ResetAvailabilityOfInteractables());
         confirmationScreen.SetActive(false);
         Animator animator = fadeoutScreen.GetComponent<Animator>();
         animator.SetTrigger("FadeOut");
@@ -65,6 +76,34 @@ public class ActivitySystem : MonoBehaviour
         activityInstance = null;
     }
 
+    IEnumerator ResetAvailabilityOfInteractables()
+    {
+        yield return null;
+        GameObject[] interactableList = GameObject.FindGameObjectsWithTag("Interactable");
+        foreach (GameObject interactable in interactableList)
+        {
+            InteractableController ic = interactable.GetComponent<InteractableController>();
+            if(ic != null)
+            {
+                ic.RecheckAvailability();
+            }
+        }
+
+        GameObject[] activityInteractableList = GameObject.FindGameObjectsWithTag("ActivityInteractable");
+        foreach (GameObject interactable in activityInteractableList)
+        {
+            InteractableController ic = interactable.GetComponent<InteractableController>();
+            if (ic != null)
+            {
+                ic.RecheckAvailability();
+            }
+        }
+    }
+
+    #endregion
+
+
+    #region UI Support
     private void GetReferences()
     {
         Transform userPromptTransform = activityScreen.transform.Find("UserPrompt").transform;
@@ -76,7 +115,7 @@ public class ActivitySystem : MonoBehaviour
 
     private void FillInUserPromptText()
     {
-        userPromptText.SetText($"Do you want to spend {hoursToInvest} {activityInstance.adverb}?");
+        userPromptText.SetText($"Do you want to spend {hoursToInvest} hours {activityInstance.adverb}?");
     }
 
     private void FillInBenefitsText()
@@ -109,10 +148,6 @@ public class ActivitySystem : MonoBehaviour
         
     }
 
-    /* =============================================
-     * Button Support Methods
-     * ========================================== */
-
     public void AddByOneHour()
     {
         if(hoursToInvest + 1 > clockManager.GetTimeLeftInDay())
@@ -140,6 +175,9 @@ public class ActivitySystem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// For telling the activity system to go ahead with the activity in question.
+    /// </summary>
     public void StartActivity()
     {
         Animator animator = fadeoutScreen.GetComponent<Animator>();
@@ -149,6 +187,10 @@ public class ActivitySystem : MonoBehaviour
         StartCoroutine(OpenConfirmationScreen(animator));
     }
 
+    /// <summary>
+    /// For short circuiting the activity system before the player carries out.
+    /// the activity.
+    /// </summary>
     public void ExitActivity()
     {
         activityScreen.SetActive(false);
@@ -163,9 +205,10 @@ public class ActivitySystem : MonoBehaviour
         confirmationScreen.SetActive(true);
     }
 
-    /* =============================================
-     * Show/Hide Canvases Methods
-     * ========================================== */
+
+    #endregion
+
+    #region Canvases Control
 
     private void HideCanvases()
     {
@@ -182,5 +225,6 @@ public class ActivitySystem : MonoBehaviour
             c.SetActive(true);
         }
     }
+
+    #endregion
 }
-;

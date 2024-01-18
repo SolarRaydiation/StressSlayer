@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static ClockManager;
 
 [System.Serializable]
@@ -30,10 +31,13 @@ public class PlayerData
     public int cortisolInjectorsOwned;
     public int assortedDrugsOwned;
 
+    // others
+    public string sceneName;
+
     #endregion
 
     public PlayerData(PlayerMovement pm, PlayerStatsController psc, ClockManager cm, 
-        NextLevelPreInitializer nlpi, PlayerInventoryManager pim)
+        NextLevelPreInitializer nlpi, PlayerInventoryManager pim, string nextScene)
     {
         // Player Movement
         try
@@ -96,6 +100,17 @@ public class PlayerData
         {
             Debug.LogWarning($"Failed to completely retrieve data from PlayerInventoryManager!: {e}");
         }
+
+        // Name of scene
+        try
+        {
+            sceneName = nextScene;
+            Debug.Log($"Scene named saved: {sceneName}");
+            //Debug.Log("Successfully retrieved Scene Name!");
+        } catch
+        {
+            Debug.LogWarning("Could not get scene name!");
+        }
     }
 
     public PlayerData()
@@ -114,5 +129,6 @@ public class PlayerData
         fruitsAndVegetablesOwned = 0;
         cortisolInjectorsOwned = 0;
         assortedDrugsOwned = 0;
+        sceneName = "BedroomScene";
     }
 }

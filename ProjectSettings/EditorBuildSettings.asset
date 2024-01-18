@@ -6,15 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: b064c2715bb2a7d478ce09c12299d102
+  - enabled: 1
     path: Assets/Scenes/BedroomScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/LivingRoomScene.unity
     guid: e4a5e03d37018f24eb640c5db7b3da56
   - enabled: 1
-    path: Assets/Scenes/Templates/Template.unity
-    guid: a1772197d2a71ce4f87d9252d79d758e
+    path: Assets/Scenes/PamilyaEskinitaScene.unity
+    guid: d242605e291038b4fade6ee5c9bcbdf6
   - enabled: 1
-    path: Assets/Scenes/CombatLevelTest.unity
-    guid: d393b0b08066fcb43afbe5613911100b
+    path: Assets/Scenes/GroceryScene.unity
+    guid: 148651508e6778e4aa8d65df6db83e52
+  - enabled: 1
+    path: Assets/Scenes/BasketballCourtScene.unity
+    guid: 964bb47efd6bff04d82ff5648b7b83ae
   m_configObjects: {}

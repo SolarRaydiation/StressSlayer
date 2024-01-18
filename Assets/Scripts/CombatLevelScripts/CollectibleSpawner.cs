@@ -9,7 +9,8 @@ public class CollectibleSpawner : MonoBehaviour
     public GameObject collectiblePrefab;
     public Vector2 spawnAreaSize = new Vector2(10f, 10f);
 
-    private bool canSpawnCollectibles;
+    [Header("Internals")]
+    public bool canSpawnCollectibles;
     private float timeRemaining;
 
     void Start()
