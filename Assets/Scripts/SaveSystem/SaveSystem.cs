@@ -33,8 +33,6 @@ public static class SaveSystem
             PlayerInventoryManager.GetInstance(),
             nextSceneName
             );
-
-        Debug.Log("We have reached this point in the program.");
         formatter.Serialize(stream, data);
         stream.Close();
     }

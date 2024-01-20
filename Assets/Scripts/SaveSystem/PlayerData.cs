@@ -32,7 +32,13 @@ public class PlayerData
     public int assortedDrugsOwned;
 
     // others
-    public string sceneName;
+    public string currentSceneLocation;
+    public string lastSceneLocation;
+
+    // tutorial
+    public bool tutorialComplete;
+    public bool finishedFirstStep;               
+    public bool finishedSecondStep;
 
     #endregion
 
@@ -104,14 +110,14 @@ public class PlayerData
         // Name of scene
         try
         {
-            sceneName = nextScene;
-            Debug.Log($"Scene named saved: {sceneName}");
-            //Debug.Log("Successfully retrieved Scene Name!");
+            currentSceneLocation = nextScene;
+            lastSceneLocation = SceneManager.GetActiveScene().name;
         } catch
         {
             Debug.LogWarning("Could not get scene name!");
         }
     }
+
 
     public PlayerData()
     {
@@ -129,6 +135,7 @@ public class PlayerData
         fruitsAndVegetablesOwned = 0;
         cortisolInjectorsOwned = 0;
         assortedDrugsOwned = 0;
-        sceneName = "BedroomScene";
+        currentSceneLocation = "Tutorial_BedroomScene";
+        lastSceneLocation = "";
     }
 }

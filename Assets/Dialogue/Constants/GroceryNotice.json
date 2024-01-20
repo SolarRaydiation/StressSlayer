@@ -1,0 +1,1 @@
+﻿{"inkVersion":21,"root":[["^(You see the notice board, and notice an advertisement on it) ","#","^speaker: You","/#","\n","^Looking for part-time workers. Salary is ten coins per hour. ","#","^speaker: Notice Board","/#","\n",["done",{"#f":5,"#n":"g-0"}],null],"done",{"#f":1}],"listDefs":{}}

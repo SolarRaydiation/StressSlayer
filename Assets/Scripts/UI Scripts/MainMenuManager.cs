@@ -33,7 +33,7 @@ public class MainMenuManager : MonoBehaviour
         SaveSystem.CreateNewSaveFile();
         PlayerData playerData = SaveSystem.LoadData();
         AsyncManager asyncManager = AsyncManager.GetInstance();
-        asyncManager.LoadLevel(playerData.sceneName);
+        asyncManager.LoadLevel(playerData.currentSceneLocation);
     }
 
     public void CloseSaveFileAlreadyExistsWindow()
@@ -64,7 +64,7 @@ public class MainMenuManager : MonoBehaviour
     {
         PlayerData playerData = SaveSystem.LoadData();
         AsyncManager asyncManager = AsyncManager.GetInstance();
-        asyncManager.LoadLevel(playerData.sceneName);
+        asyncManager.LoadLevel(playerData.currentSceneLocation);
     }
 
     public void CloseNoSaveFilePresentWindow()

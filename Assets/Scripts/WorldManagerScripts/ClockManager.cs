@@ -47,8 +47,7 @@ public class ClockManager : MonoBehaviour
             Debug.LogWarning("There is more than one instance of ClockManager in the Scene!");
         }
         instance = this;
-        //ResetClock();
-        //currentHour = 7;
+        Time.timeScale = 1.0f;
         
     }
 
@@ -169,6 +168,11 @@ public class ClockManager : MonoBehaviour
         currentHour = 0;
         clockHandTransform.eulerAngles = new Vector3(0, 0, 0);
         clockTimeText.SetText("");
+    }
+
+    public void SetToFreeRoam()
+    {
+        currentHour = 15;
     }
 
     public void MoveDayForward()

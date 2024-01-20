@@ -5,9 +5,9 @@ using UnityEngine.UI;
 public class ActionButtonHelper : MonoBehaviour
 {
     public Color canInteractColor;
-    private Image actionButtonImage;
-    private Button actionButton;
-    private Interactable attachedInteractable;
+    [SerializeField] private Image actionButtonImage;
+    [SerializeField] private Button actionButton;
+    [SerializeField] private Interactable attachedInteractable;
 
     void Start()
     {
@@ -38,7 +38,13 @@ public class ActionButtonHelper : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         //actionButtonImage.color = Color.white;
-        RemoveAttachedInteractable();
+        try
+        {
+            RemoveAttachedInteractable();
+        } catch {
+            // intentionally left blank
+        }
+       
     }
 
     #endregion
@@ -49,7 +55,6 @@ public class ActionButtonHelper : MonoBehaviour
         attachedInteractable = obj.GetComponent<Interactable>();
         if( attachedInteractable != null )
         {
-            Debug.Log($"Found an Interactable script in object: {obj.name}");
             actionButton.onClick.AddListener(attachedInteractable.StartInteraction);
         } else
         {

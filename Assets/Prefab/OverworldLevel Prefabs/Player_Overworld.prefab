@@ -211,6 +211,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canInteractColor: {r: 0.39607844, g: 0.8980392, b: 0.39607844, a: 1}
+  actionButtonImage: {fileID: 0}
+  actionButton: {fileID: 0}
+  attachedInteractable: {fileID: 0}
 --- !u!61 &5796138719606654012
 BoxCollider2D:
   m_ObjectHideFlags: 0

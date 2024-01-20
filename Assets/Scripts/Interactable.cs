@@ -1,6 +1,5 @@
 using System;
-using System.Collections;
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -15,12 +14,14 @@ public class Interactable : MonoBehaviour
     public string notInteractableMessage;                       // message to send if not interactable
     public AudioSource interactableClickedSFX;
     public AudioSource interactableFailSFX;
+    public TextMeshPro textMesh;
+    public string interactableText;
 
     [Header("Unity Events")]
     public UnityEvent interactAction;                           // action(s) to execute when interacted with
 
     [Header("Flags")]
-    private bool IS_IN_RANGE;                   // if player is close enough to interact with object
+    [SerializeField] private bool IS_IN_RANGE;                   // if player is close enough to interact with object
 
     [Header("Internals")]
     private Button button;                      // reference to player's interaction button
@@ -53,6 +54,11 @@ public class Interactable : MonoBehaviour
         {
             BoxCollider2D newCollider = gameObject.AddComponent<BoxCollider2D>();
             newCollider.isTrigger = true;
+        }
+
+        if (textMesh != null)
+        {
+            textMesh.SetText("");
         }
     }
 
@@ -99,6 +105,7 @@ public class Interactable : MonoBehaviour
 
     public void StartInteraction()
     {
+        Debug.Log("Starting interaction!");
         if (interactable && IS_IN_RANGE)
         {
             interactAction.Invoke();
@@ -118,7 +125,7 @@ public class Interactable : MonoBehaviour
 
     #endregion
 
-    #region SpriteRenderer Methods
+    #region Player Detection Methods Methods
 
     // mainly for signalling to the player object can be interacted with (or not)
     private void OnTriggerEnter2D(Collider2D collision)
@@ -129,14 +136,28 @@ public class Interactable : MonoBehaviour
         {
             IS_IN_RANGE = true;
             sr.color = interactableColor;
+
+            if(textMesh != null)
+            {
+                textMesh.SetText(interactableText);
+            }
+            
         } else
         {
+            if (textMesh != null)
+            {
+                textMesh.SetText("");
+            }
             sr.color = notInteractableColor;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (textMesh != null)
+        {
+            textMesh.SetText("");
+        }
         IS_IN_RANGE = false;
         sr.color = originalColor;
         // RemoveButtonListener();

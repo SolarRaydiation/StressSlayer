@@ -5,6 +5,7 @@ using Ink.Runtime;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.EventSystems;
+using UnityEditor.ShaderGraph.Serialization;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class DialogueManager : MonoBehaviour
     private bool dialogueIsPlaying;
     private Story currentStory;
     private const string SPEAKER_TAG = "speaker";
+    [SerializeField] private bool playerMustChoose;
+    [SerializeField] private bool dialogueComplete;
 
     private void Awake()
     {
@@ -43,6 +46,8 @@ public class DialogueManager : MonoBehaviour
     {
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
+        playerMustChoose = false;
+        dialogueComplete = false;
         foreach (GameObject choice in choices)
         {
             choicesText[index] = choice.GetComponentInChildren<TextMeshProUGUI>();
@@ -66,6 +71,7 @@ public class DialogueManager : MonoBehaviour
     public void EnterDialogueMode(TextAsset inkJSON)
     {
         currentStory = new Story(inkJSON.text);
+        dialogueComplete = false;
         dialogueIsPlaying = true;
         HideCanvases();
         dialoguePanel.SetActive(true);
@@ -75,6 +81,7 @@ public class DialogueManager : MonoBehaviour
     private void ExitDialogueMode()
     {
         dialogueIsPlaying = false;
+        dialogueComplete = true;
         dialoguePanel.SetActive(false);
         ShowCanvases();
         dialogueText.text = "";
@@ -85,6 +92,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentStory.canContinue)
         {
+            playerMustChoose = false;
             dialogueText.text = currentStory.Continue();
             DisplayChoices();
             HandleTags(currentStory.currentTags);
@@ -103,6 +111,11 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.LogError("More choices were given than the UI can support. Number of choices given: "
                 + currentChoices.Count);
+        }
+
+        if(currentChoices != null && currentChoices.Count > 0)
+        {
+            playerMustChoose = true;
         }
 
         int index = 0;
@@ -163,7 +176,10 @@ public class DialogueManager : MonoBehaviour
         // replace with touch anywhere
         if (Input.GetKeyDown(KeyCode.E))
         {
-            ContinueDialogue();
+            if(!playerMustChoose)
+            {
+                ContinueDialogue();
+            }
         }
     }
 
@@ -201,4 +217,13 @@ public class DialogueManager : MonoBehaviour
             c.SetActive(true);
         }
     }
+
+    #region Other
+
+    public bool IsDialogueComplete()
+    {
+        return dialogueComplete;
+    }
+
+    #endregion
 }
