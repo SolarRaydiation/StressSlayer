@@ -18,7 +18,7 @@ public class StressManager : MonoBehaviour
 
     [Header("Internals")]
     public int currentStressLevel;
-    [SerializeField] private StressLevel stressState;
+    public StressLevel stressState;
     [SerializeField] private float stressBonus;
     [SerializeField] private PlayerStatsScript pss;
 

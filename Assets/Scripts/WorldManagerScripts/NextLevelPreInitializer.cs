@@ -101,6 +101,7 @@ public class NextLevelPreInitializer : MonoBehaviour
         if(nextLevelDifficultyText == null)
         {
             Debug.LogWarning("UI for nlpi not set");
+            return;
         }
 
 

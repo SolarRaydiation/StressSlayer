@@ -5,11 +5,18 @@ using UnityEngine;
 
 public class TimerCountdown : MonoBehaviour
 {
+    public static TimerCountdown instance;
+
     [Header("Countdown and Timer Values")]
     public float secondsBeforeGameStart;        // how many seconds before the level starts in seconds
     public float levelDurationInSeconds;        // the max number of seconds the game will last ins econds
     public TextMeshProUGUI timerText;           // UI for displaying how much time is left
     [SerializeField] private float timeRemaining;
+
+    public float TimeRemaining
+    {
+        get { return timeRemaining; }
+    }
 
     [Header("GameObjects To Reveal After Countdown")]
     public GameObject[] gameObjectsToShow;      // an array for holding all the GameObjects that are hidden
@@ -18,6 +25,20 @@ public class TimerCountdown : MonoBehaviour
     [Header("Flags")]
     private bool isTimeAtZero;
     private bool isCountdownFinished;
+
+    private void Awake()
+    {
+        if(instance != null)
+        {
+            Debug.LogWarning("More than one instance of TimerCountdown in scene!");
+        }
+        instance = this;
+    }
+
+    public static TimerCountdown GetInstance()
+    {
+        return instance;
+    }
 
     void Start()
     {

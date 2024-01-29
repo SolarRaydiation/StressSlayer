@@ -20,9 +20,19 @@ public abstract class EntityStatsScript : MonoBehaviour
 
     [Header("ESS Interrnrals")]
     [SerializeField] protected float currentHealth;
+    public float CurrentHealth
+    {
+        get { return currentHealth; }
+    }
+
     [SerializeField] protected bool isHealthZero = false;
     public float maxHealth;                         // health w/o drug use considered
     [SerializeField] protected float actualMaxHealth;                   // health w drug use considered
+    public float MaxHealth
+    {
+        get { return maxHealth; }
+    }
+
     [SerializeField] protected float currentAttackDamage;
     [SerializeField] protected Animator animator;                      // for visual cues
 
