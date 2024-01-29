@@ -4,13 +4,35 @@ using UnityEngine;
 
 public class PlayerStatsScript : EntityStatsScript
 {
+    [Header("PSS Specific")]
+    public string playerName;
+    public int timesDrugWasTaken;
+    public float healthRegenRate;
+    public static PlayerStatsScript instance;
+
     protected override void ExecuteOtherStartFunctions()
     {
-        // intentionally left blank
+        SaveFileManager sfm = SaveFileManager.GetInstance();
+        PlayerData saveFile = sfm.saveFile;
+        timesDrugWasTaken = saveFile.timesDrugWasTaken;
+        playerName = saveFile.playerName;
+        StartCoroutine(RegenerateHealth());
+
+        if(instance != null )
+        {
+            Debug.LogWarning("More than one instance of PlayerStatsScript in the scene!");
+        }
+        instance = this;
+    }
+
+    public static PlayerStatsScript GetInstance()
+    {
+        return instance;
     }
 
     protected override void EntityDeathFunction()
     {
+        Debug.Log("PlayerDead");
         StartCoroutine(KillEntity("Dead"));
     }
 
@@ -54,5 +76,28 @@ public class PlayerStatsScript : EntityStatsScript
         }
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    /* =============================================
+     * Drug stuff
+     * ========================================== */
+
+    public void SimulateEffectsOfDrugUse()
+    {
+        timesDrugWasTaken++;
+        actualMaxHealth = maxHealth - (maxHealth * (timesDrugWasTaken * 0.1f));
+        currentHealth -= 1;
+        UpdateHealthBar();
+    }
+
+    /* =============================================
+     * Health Regen
+     * ========================================== */
+
+    IEnumerator RegenerateHealth()
+    {
+        yield return new WaitForSeconds(healthRegenRate);
+        IncreaseHealth(1);
+        StartCoroutine(RegenerateHealth());
     }
 }

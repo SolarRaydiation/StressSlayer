@@ -14,4 +14,9 @@ public class EnviSciCollectible : Collectible
         EntityStatsScript ess = enemy.gameObject.GetComponent<EntityStatsScript>();
         ess.IncreaseHealth(ess.GetMaxHealth());
     }
+
+    protected override void ExecuteOtherStartFunctions()
+    {
+        // intentionally left blank
+    }
 }

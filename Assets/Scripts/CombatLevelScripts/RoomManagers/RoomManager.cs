@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using Unity.Properties;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 public abstract class RoomManager : MonoBehaviour
 {
@@ -15,15 +13,6 @@ public abstract class RoomManager : MonoBehaviour
     [Header("Flags")]
     [SerializeField] protected bool hasRoomStarted;
     [SerializeField]  protected bool hasRoomEnded;
-    
-    /* ===========================================
-     * Initialization Functions
-     * ========================================== */
-
-    private void Start()
-    {
-        
-    }
 
     /* ===========================================
      * Core Functions
@@ -54,11 +43,8 @@ public abstract class RoomManager : MonoBehaviour
         // tell collectible spawner they can start spawning
         collectiblesSpawner.SetFlag(true);
 
-        // disable boxcollider to prevent animation looping
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-
-        // animation
-        TriggerStartingAnimation();
+        // destroy. Its not needed anyways.
+        Destroy(gameObject.GetComponent<BoxCollider2D>());
 
         // provide children classes room to implement their own stuff
         ExecuteRoomStartFunctions();
@@ -72,9 +58,6 @@ public abstract class RoomManager : MonoBehaviour
 
         // tell collectible spawner to stop spawning
         collectiblesSpawner.SetFlag(false);
-
-        // ending animation
-        TriggerEndingAnimation();
 
         // let children take care of anything on their end
         ExecuteRoomEndFunctions();

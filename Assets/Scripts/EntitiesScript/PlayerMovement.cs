@@ -49,7 +49,6 @@ public class PlayerMovement : MonoBehaviour
         if (saveFile != null)
         {
             baseMovementSpeed = saveFile.baseMovementSpeed;
-            Debug.Log("Savefile loaded to PlayerMovement");
         }
         else
         {
@@ -79,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
         try
         {
             rb = gameObject.GetComponent<Rigidbody2D>();
+
         } catch (Exception e)
         {
             Debug.LogError("Could not get Rigidbody2D from player!: " + e);
@@ -113,7 +113,16 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         GetMovementValues();
-        MovePlayerHorizontallyWithPhysics();
+
+        if (rb != null)
+        {
+            MovePlayerHorizontallyWithPhysics();
+        }
+        else
+        {
+            MovePlayerWithTranslate();
+        }
+       
         MirrorPlayerDirection();
 
         if (Mathf.Abs(horizontalMovement) > 0)

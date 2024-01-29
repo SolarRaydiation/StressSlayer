@@ -50,6 +50,5 @@ public class WallMover : MonoBehaviour
     public void SetCanMoveUp(bool b)
     {
         canMoveUp = b;
-        Debug.Log($"CanMoveUp set to {b}");
     }
 }

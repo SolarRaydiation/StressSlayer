@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class StressManager : MonoBehaviour
 {
+    public static StressManager instance;
     public Slider stressMeter;
 
     [Header("Public Variables")]
@@ -16,7 +17,7 @@ public class StressManager : MonoBehaviour
     public float tickDuration;
 
     [Header("Internals")]
-    [SerializeField] private int currentStressLevel;
+    public int currentStressLevel;
     [SerializeField] private StressLevel stressState;
     [SerializeField] private float stressBonus;
     [SerializeField] private PlayerStatsScript pss;
@@ -26,11 +27,28 @@ public class StressManager : MonoBehaviour
         Green, Yellow, Orange, Red, Black
     }
 
+    private void Awake()
+    {
+        if(instance !=  null)
+        {
+            Debug.LogWarning("There is more than one instance of StressManager in existence!");
+        }
+        instance = this;
+    }
+
+    public static StressManager GetInstance()
+    {
+        return instance;
+    }
+
     private void Start()
     {
+        SaveFileManager sfm = SaveFileManager.GetInstance();
+        PlayerData saveFile = sfm.saveFile;
         stressMeter.maxValue = MAX_STRESS;
-        stressMeter.value = currentStressLevel;
-        if(isCombatLevel)
+        stressMeter.value = saveFile.currentStressLevel;
+        currentStressLevel = (int) saveFile.currentStressLevel;
+        if (isCombatLevel)
         {
             pss = gameObject.GetComponent<PlayerStatsScript>();
             StartCoroutine(IncreaseStressGradually(tickDuration));
@@ -150,5 +168,10 @@ public class StressManager : MonoBehaviour
         {
             return StressLevel.Black;
         }
+    }
+
+    public float GetCurrentStressValue()
+    {
+        return stressMeter.value;
     }
 }

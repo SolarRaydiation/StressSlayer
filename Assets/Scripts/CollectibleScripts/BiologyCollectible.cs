@@ -28,6 +28,8 @@ public class BiologyCollectible : Collectible
     protected override void ApplyStatusEffectOnEnemy(GameObject enemy)
     {
         // add bonus to speed here
+        EnemyBehaviorScript ebs = enemy.GetComponent<EnemyBehaviorScript>();
+        StartCoroutine(ebs.TemporarilyInceaseSpeed(statBonus, statusEffectDuration));
 
         // add bonus to damage
         EntityStatsScript ess = enemy.GetComponent<EntityStatsScript>();
@@ -36,5 +38,10 @@ public class BiologyCollectible : Collectible
             ess.GetCurrentAttackDamage() + (ess.GetCurrentAttackDamage() * statBonus),
             statusEffectDuration
             );
+    }
+
+    protected override void ExecuteOtherStartFunctions()
+    {
+        // intentionally left blank
     }
 }

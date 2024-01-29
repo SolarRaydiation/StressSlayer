@@ -35,14 +35,14 @@ public class PlayerData
     public string currentSceneLocation;
     public string lastSceneLocation;
 
-    // tutorial
-    public bool tutorialComplete;
-    public bool finishedFirstStep;               
-    public bool finishedSecondStep;
+    // module tracking
+    public bool moduleOneComplete;
+    public bool moduleTwoComplete;
+    public bool moduleThreeComplete;
 
     #endregion
 
-    public PlayerData(PlayerMovement pm, PlayerStatsController psc, ClockManager cm, 
+    public PlayerData(PlayerMovement pm, PlayerStatsController psc, ClockManager cm,
         NextLevelPreInitializer nlpi, PlayerInventoryManager pim, string nextScene)
     {
         // Player Movement
@@ -50,7 +50,8 @@ public class PlayerData
         {
             baseMovementSpeed = pm.baseMovementSpeed;
             Debug.Log("Successfully retrieved PlayerMovement data!");
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             Debug.LogWarning($"Failed to completely retrieve data from PlayerMovement!: {e}");
         }
@@ -64,7 +65,8 @@ public class PlayerData
             baseAttackDamage = psc.baseAttackDamage;
             currentStressLevel = psc.GetCurrentStressLevel();
             Debug.Log("Successfully retrieved PlayerStatsController data!");
-        } catch (Exception e)
+        }
+        catch (Exception e)
         {
             Debug.LogWarning($"Failed to completely retrieve data from PlayerStatsController!: {e}");
         }
@@ -112,7 +114,87 @@ public class PlayerData
         {
             currentSceneLocation = nextScene;
             lastSceneLocation = SceneManager.GetActiveScene().name;
-        } catch
+        }
+        catch
+        {
+            Debug.LogWarning("Could not get scene name!");
+        }
+    }
+
+    public PlayerData(PlayerMovement pm, PlayerStatsScript pss, StressManager sm, ClockManager cm,
+         GameboostManager gbm, string nextScene)
+    {
+        // Player Movement
+        try
+        {
+            baseMovementSpeed = pm.baseMovementSpeed;
+            Debug.Log("Successfully retrieved PlayerMovement data!");
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"Failed to completely retrieve data from PlayerMovement!: {e}");
+        }
+
+        // Player Stats Script and Stress Manager
+        try
+        {
+            playerName = pss.playerName;
+            maxHealth = pss.maxHealth;
+            timesDrugWasTaken = pss.timesDrugWasTaken;
+            baseAttackDamage = pss.baseAttackDamage;
+            currentStressLevel = sm.currentStressLevel;
+            Debug.Log("Successfully retrieved Player Stats Script and Stress Manager data!");
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"Failed to completely retrieve data from Player Stats Script and Stress Manager!: {e}");
+        }
+
+        // ClockManager
+        try
+        {
+            currentDaySection = cm.currentDaySection;
+            currentHour = cm.currentHour;
+            currentDay = cm.currentDay;
+            Debug.Log("Successfully retrieved ClockManager data!");
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"Failed to completely retrieve data from ClockManager!: {e}");
+        }
+
+        // NLPI
+        try
+        {
+            nextLevelDifficulty = 1.5f;
+            Debug.Log("Successfully retrieved NextLevelPreInitializer data!");
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"Failed to completely retrieve data from NextLevelPreInitializer!: {e}");
+        }
+
+        // Gameboost Manager
+        try
+        {
+            cashRemaining = gbm.cashRemaining;
+            fruitsAndVegetablesOwned = gbm.fruitsAndVegetablesOwned;
+            cortisolInjectorsOwned = gbm.cortisolInjectorsOwned;
+            assortedDrugsOwned = gbm.assortedDrugsOwned;
+            Debug.Log("Successfully retrieved Gameboost Manager data!");
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"Failed to completely retrieve data from Gameboost Manager!: {e}");
+        }
+
+        // Name of scene
+        try
+        {
+            currentSceneLocation = nextScene;
+            lastSceneLocation = SceneManager.GetActiveScene().name;
+        }
+        catch
         {
             Debug.LogWarning("Could not get scene name!");
         }
@@ -122,7 +204,7 @@ public class PlayerData
     public PlayerData()
     {
         baseMovementSpeed = 12;
-        playerName = "Juan";
+        playerName = "";
         maxHealth = 10;
         timesDrugWasTaken = 0;
         baseAttackDamage = 5f;
@@ -137,5 +219,8 @@ public class PlayerData
         assortedDrugsOwned = 0;
         currentSceneLocation = "Tutorial_BedroomScene";
         lastSceneLocation = "";
+        moduleOneComplete = false;
+        moduleTwoComplete = false;
+        moduleThreeComplete = false;
     }
 }

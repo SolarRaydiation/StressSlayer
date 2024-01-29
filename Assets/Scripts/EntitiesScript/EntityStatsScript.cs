@@ -11,8 +11,8 @@ public abstract class EntityStatsScript : MonoBehaviour
     public bool isPlayer;
 
     [Header("Entity Health Values")]
-    public float initialMaxHealth;
-    public float initialActualMaxHealth;               // value not used if isPlayer set to false
+    public float initialMaxHealth;                                      // health w/o drug use considered
+    public float initialActualMaxHealth;                                // health w drug use considered
     public Slider healthBar;
 
     [Header("Entity Damage Values")]
@@ -20,9 +20,9 @@ public abstract class EntityStatsScript : MonoBehaviour
 
     [Header("ESS Interrnrals")]
     [SerializeField] protected float currentHealth;
-    protected bool isHealthZero;
-    protected float maxHealth;
-    protected float actualMaxHealth; // value not used if isPlayer set to false
+    [SerializeField] protected bool isHealthZero = false;
+    public float maxHealth;                         // health w/o drug use considered
+    [SerializeField] protected float actualMaxHealth;                   // health w drug use considered
     [SerializeField] protected float currentAttackDamage;
     [SerializeField] protected Animator animator;                      // for visual cues
 
@@ -35,7 +35,7 @@ public abstract class EntityStatsScript : MonoBehaviour
     }
 
     public void InitializeHealthValues()
-    {
+    {/*
         isHealthZero = false;
         maxHealth = initialMaxHealth;
         healthBar.maxValue = initialMaxHealth;
@@ -48,7 +48,30 @@ public abstract class EntityStatsScript : MonoBehaviour
         {
             currentHealth = initialMaxHealth;
         }
-        healthBar.value = currentHealth;
+        healthBar.value = currentHealth;*/
+
+        if (isPlayer)
+        {
+            SaveFileManager sfm = SaveFileManager.GetInstance();
+            PlayerData saveFile = sfm.saveFile;
+
+            // set the max health of the player as if no drugs were taken
+            maxHealth = saveFile.maxHealth;
+            healthBar.maxValue = saveFile.maxHealth;
+
+            // set the actual max health of the player considerring the drugs
+            // he or she has taken
+            actualMaxHealth = saveFile.maxHealth - (saveFile.maxHealth * (saveFile.timesDrugWasTaken * 0.1f));
+
+            // set current health to equal max health
+            currentHealth = actualMaxHealth;
+        } else // an enemy
+        {
+            maxHealth = initialMaxHealth;
+            currentHealth = initialMaxHealth;
+            healthBar.maxValue = maxHealth;
+            healthBar.value = maxHealth;
+        }
     }
 
     public void InitializeDamageValues()
@@ -70,6 +93,15 @@ public abstract class EntityStatsScript : MonoBehaviour
 
     // if the child classes need to execute their own start functions
     protected abstract void ExecuteOtherStartFunctions();
+
+    private void Update()
+    {
+        if(currentHealth <= 0 && !isHealthZero)
+        {
+            isHealthZero = true;
+            EntityDeathFunction();
+        }
+    }
 
 
     /* =============================================
@@ -116,7 +148,7 @@ public abstract class EntityStatsScript : MonoBehaviour
         }
     }
 
-    private void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         healthBar.value = currentHealth;
     }
@@ -127,8 +159,9 @@ public abstract class EntityStatsScript : MonoBehaviour
 
     protected IEnumerator KillEntity(string deathAnimationTrigger)
     {
+        Debug.Log($"Destroying {gameObject.name}...");
         animator.SetTrigger(deathAnimationTrigger);
-        yield return new WaitForSeconds(1.3f);
+        yield return new WaitForSeconds(0.5f);
         GameObject.Destroy(gameObject);
     }
 

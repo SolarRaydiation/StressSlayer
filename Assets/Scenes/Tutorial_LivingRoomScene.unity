@@ -234,6 +234,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractableTextMesh
       objectReference: {fileID: 0}
+    - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -264,6 +268,18 @@ PrefabInstance:
     - target: {fileID: 634633771095347356, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
       propertyPath: m_Name
       value: TutorialCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270121996517085333, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -142.4072
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270121996517085333, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4270121996517085333, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -17.245987
       objectReference: {fileID: 0}
     - target: {fileID: 7810015346979924434, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
       propertyPath: m_Pivot.x
@@ -343,6 +359,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7810015346979924434, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7906578390943503677, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
+      propertyPath: m_fontSize
+      value: 23.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 7906578390943503677, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 23.72
+      objectReference: {fileID: 0}
+    - target: {fileID: 7906578390943503677, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
+      propertyPath: m_enableAutoSizing
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1275,6 +1303,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 244954765}
     - target: {fileID: 5288308173267818562, guid: 722ce06ecd3fe6943901f601fa4de11a, type: 3}
+      propertyPath: frontdoor
+      value: 
+      objectReference: {fileID: 628994569}
+    - target: {fileID: 5288308173267818562, guid: 722ce06ecd3fe6943901f601fa4de11a, type: 3}
       propertyPath: tutorialText
       value: 
       objectReference: {fileID: 41678250}
@@ -1352,6 +1384,7 @@ GameObject:
   - component: {fileID: 628994572}
   - component: {fileID: 628994571}
   - component: {fileID: 628994574}
+  - component: {fileID: 628994575}
   m_Layer: 6
   m_Name: Interactable_Door
   m_TagString: Interactable
@@ -1382,17 +1415,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628994569}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db4ba167d9fade248a9e6363442aa809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactable: 1
+  interactable: 0
   interactableColor: {r: 0.39607844, g: 0.8980392, b: 0.39607844, a: 1}
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
-  notInteractableMessage: 
+  notInteractableMessage: Talk to your brother first before leaving.
   interactableClickedSFX: {fileID: 628994574}
-  interactableFailSFX: {fileID: 0}
+  interactableFailSFX: {fileID: 628994575}
   textMesh: {fileID: 2093874167}
   interactableText: Leave the house?
   interactAction:
@@ -1520,6 +1553,102 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 62b1f5222d5b211408a47ac02036e123, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &628994575
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628994569}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bb3626ecf9f711b4f952dbf93690932e, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4708,6 +4837,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1162691241606296125, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3379622448689838995, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4787,6 +4920,14 @@ PrefabInstance:
     - target: {fileID: 3379622448689838995, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4073455573432805162, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5524855609780097311, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5656540125566312629, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
       propertyPath: m_Name

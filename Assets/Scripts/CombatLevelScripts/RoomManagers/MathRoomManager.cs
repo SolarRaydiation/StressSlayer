@@ -6,14 +6,14 @@ public class MathRoomManager : RoomManager
 {
     protected override void ExecuteRoomEndFunctions()
     {
-        animator.SetTrigger("MathToDefault");
+        // intentionally left blank
     }
 
     protected override void ExecuteRoomStartFunctions()
     {
-        animator.SetTrigger("FadeToMath");
+        // intentionally left blank
     }
-    
+
     protected override void TriggerEndingAnimation()
     {
         // intentionally left blank

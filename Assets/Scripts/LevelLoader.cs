@@ -16,6 +16,11 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadLevelWithName(levelName));
     }
 
+    public void LoadNextLevel_Combat(string levelName)
+    {
+        StartCoroutine(LoadLevelWithName_Combat(levelName));
+    }
+
     IEnumerator LoadLevelWithIndex(int levelIndex)
     {
         animator.SetTrigger(triggerAnimationName);
@@ -41,6 +46,23 @@ public class LevelLoader : MonoBehaviour
         {
             SceneManager.LoadScene(levelName);
         } catch (Exception e)
+        {
+            Debug.LogError($"Could not move to '{levelName}' because: " + e);
+        }
+    }
+
+    IEnumerator LoadLevelWithName_Combat(string levelName)
+    {
+        animator.SetTrigger(triggerAnimationName);
+        SaveFileManager sfm = SaveFileManager.GetInstance();
+        sfm.SavePlayerData_Combat(levelName);
+        yield return new WaitForSeconds(transitionTime);
+
+        try
+        {
+            SceneManager.LoadScene(levelName);
+        }
+        catch (Exception e)
         {
             Debug.LogError($"Could not move to '{levelName}' because: " + e);
         }

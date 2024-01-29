@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TeacherPostTalkScene.unity
     guid: 411dceab90349cb4f911a3022ac7c85b
+  - enabled: 1
+    path: Assets/Scenes/CombatLevelTest.unity
+    guid: d393b0b08066fcb43afbe5613911100b
   m_configObjects: {}

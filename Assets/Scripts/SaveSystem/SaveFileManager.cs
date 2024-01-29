@@ -28,7 +28,7 @@ public class SaveFileManager : MonoBehaviour
 
     #region Methods
 
-    private PlayerData LoadPlayerData()
+    public PlayerData LoadPlayerData()
     {
         return SaveSystem.LoadData();
     }
@@ -36,6 +36,11 @@ public class SaveFileManager : MonoBehaviour
     public void SavePlayerData(string levelName)
     {
         SaveSystem.SaveData(levelName);
+    }
+
+    public void SavePlayerData_Combat(string levelName)
+    {
+        SaveSystem.SaveData_Combat(levelName);
     }
 
     public void SavePlayerDataAsync(string levelName)
@@ -51,7 +56,6 @@ public class SaveFileManager : MonoBehaviour
 
     public bool DoesSaveFileExists()
     {
-        Debug.Log(SaveSystem.CheckIfSaveFileExists());
         return SaveSystem.CheckIfSaveFileExists();
     }
 

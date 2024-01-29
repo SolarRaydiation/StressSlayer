@@ -118,49 +118,70 @@ public class ClockManager : MonoBehaviour
 
     private void UpdateClockUI()
     {
+        if(clockHandTransform == null || clockTimeText == null || dayText == null)
+        {
+            Debug.LogWarning("UI for ClockManager not set");
+        }
+
         // Update the clock itself
-        clockHandTransform.eulerAngles = new Vector3(0, 0, CHANGE_IN_ROTATION_PER_HOUR_PASSED * currentHour);
+        if(clockHandTransform.gameObject.activeSelf)
+        {
+            clockHandTransform.eulerAngles = new Vector3(0, 0, CHANGE_IN_ROTATION_PER_HOUR_PASSED * currentHour);
+        }
+        
 
         // Update the text displaying the time
-        int hourToShow = currentHour % 12;
-        if (hourToShow == 0)
+        if(clockTimeText.gameObject.activeSelf)
         {
-            hourToShow = 12;
-        }
-        if (currentHour < 12)
-        {
-            clockTimeText.text = string.Concat(hourToShow.ToString(), ":00am");
-        }
-        else
-        {
-            clockTimeText.text = string.Concat(hourToShow.ToString(), ":00pm");
+            int hourToShow = currentHour % 12;
+            if (hourToShow == 0)
+            {
+                hourToShow = 12;
+            }
+            if (currentHour < 12)
+            {
+                clockTimeText.text = string.Concat(hourToShow.ToString(), ":00am");
+            }
+            else
+            {
+                clockTimeText.text = string.Concat(hourToShow.ToString(), ":00pm");
+            }
         }
     }
 
     private void UpdateDayUI(Day day)
     {
-        switch (day)
+        if (clockHandTransform == null || clockTimeText == null || dayText == null)
         {
-            case Day.Monday:
-                dayText.SetText("Monday");
-                break;
-            case Day.Tuesday:
-                dayText.SetText("Tuesday");
-                break;
-            case Day.Wednesday:
-                dayText.SetText("Wednesday");
-                break;
-            case Day.Thursday:
-                dayText.SetText("Thursday");
-                break;
-            case Day.Friday:
-                dayText.SetText("Friday");
-                break;
-            default:
-                Debug.LogError($"Recieved invalid Day value {day} while updating Day UI!");
-                dayText.SetText("ERROR!");
-                break;
+            Debug.LogWarning("UI for ClockManager not set");
         }
+
+        if (dayText.gameObject.activeSelf)
+        {
+            switch (day)
+            {
+                case Day.Monday:
+                    dayText.SetText("Monday");
+                    break;
+                case Day.Tuesday:
+                    dayText.SetText("Tuesday");
+                    break;
+                case Day.Wednesday:
+                    dayText.SetText("Wednesday");
+                    break;
+                case Day.Thursday:
+                    dayText.SetText("Thursday");
+                    break;
+                case Day.Friday:
+                    dayText.SetText("Friday");
+                    break;
+                default:
+                    Debug.LogError($"Recieved invalid Day value {day} while updating Day UI!");
+                    dayText.SetText("ERROR!");
+                    break;
+            }
+        }
+        
     }
 
     public void ResetClock()

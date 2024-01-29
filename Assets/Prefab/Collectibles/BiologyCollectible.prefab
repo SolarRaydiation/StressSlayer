@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 827726431
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.38861695, g: 0.6698113, b: 0.6480501, a: 1}
+  m_Sprite: {fileID: 21300000, guid: f19202df6b49c3845a78c9f80f5ffccb, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -198,4 +198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusEffectDuration: 10
+  floatingTextPrefab: {fileID: 0}
+  floatingText: Stats increased!
   statBonus: 0.25

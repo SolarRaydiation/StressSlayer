@@ -38,12 +38,15 @@ public class DialogueManager : MonoBehaviour
             Debug.LogWarning("There is more than one instance of Dialouge Manager in the scene!");
         }
         instance = this;
-        dialogueIsPlaying = false;
-        dialoguePanel.SetActive(false);
+
+        //dialogueIsPlaying = false;
+        //dialoguePanel.SetActive(false);
     }
 
     private void Start()
     {
+        dialogueIsPlaying = false;
+        dialoguePanel.SetActive(false);
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
         playerMustChoose = false;

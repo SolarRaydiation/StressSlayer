@@ -26,6 +26,9 @@ public class TutorialManager : MonoBehaviour
     [Header("Player Controls")]
     public GameObject actionButton;
 
+    [Header("Various World Objects")]
+    public GameObject frontdoor;
+
     // others
     PlayerMovement pm;
 
@@ -147,7 +150,7 @@ public class TutorialManager : MonoBehaviour
     {
         // show tutorial text
         Debug.Log("Setting up for second step!");
-        StartCoroutine(MoveToNextStepVisualCues("Go to the door and press the interaction button."));
+        StartCoroutine(MoveToNextStepVisualCues("Go to the door and press the interaction button on the bottom right."));
 
         // show action button
         CanvasGroup cg = actionButton.GetComponent<CanvasGroup>();
@@ -159,14 +162,17 @@ public class TutorialManager : MonoBehaviour
     {
         //// show tutorial text
         Debug.Log("Setting up for third step!");
-        tutorialText.SetText("Go talk to your brother.");
+        tutorialText.SetText("Go talk to your brother by the couch with the interaction button.");
     }
 
     public void SetupForFourthStep()
     {
         // show tutorial text
         Debug.Log("Setting up for fourth step!");
-        StartCoroutine(MoveToNextStepVisualCues("Leave the house and go to school!"));
+        Interactable i = frontdoor.GetComponent<Interactable>();
+        i.enabled = true;
+        i.interactable = true;
+        StartCoroutine(MoveToNextStepVisualCues("Exit the house by going leaving by the door."));
     }
 
     public void SetupForFifthStep()

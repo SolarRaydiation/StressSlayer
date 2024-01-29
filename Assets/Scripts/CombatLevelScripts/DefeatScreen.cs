@@ -22,21 +22,24 @@ public class DefeatScreen : MonoBehaviour
     public void OpenDefeatScreen(string defeatReason)
     {
         defeatReasonText.SetText(defeatReason);
+
         canvasGroup.blocksRaycasts = true;
+
         DisableGameObjects();
+
         animator.SetTrigger("AnimateScreen");
+        StartCoroutine(DelayGameFreeze());
     }
 
     public void ResetLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex, LoadSceneMode.Single);
-        
-        // insert code here to make level easier by some percentage
     }
 
     public void ExitLevel()
     {
         Debug.Log("Return to overworld level");
+        SceneManager.LoadScene(0);
     }
 
     private void DisableGameObjects()
@@ -45,5 +48,11 @@ public class DefeatScreen : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    IEnumerator DelayGameFreeze()
+    {
+        yield return new WaitForSeconds(1.2f);
+        Time.timeScale = 0f;
     }
 }

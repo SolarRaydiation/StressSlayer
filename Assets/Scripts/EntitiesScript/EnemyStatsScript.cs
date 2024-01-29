@@ -6,7 +6,15 @@ public class EnemyStatsScript : EntityStatsScript
 {
     protected override void ExecuteOtherStartFunctions()
     {
-        // intentionally left blank
+        NextLevelPreInitializer nlpi = NextLevelPreInitializer.GetInstance();
+        if(nlpi != null )
+        {
+            baseAttackDamage = baseAttackDamage + (baseAttackDamage  * nlpi.nextLevelDifficulty);
+            maxHealth = initialMaxHealth + (initialMaxHealth * nlpi.nextLevelDifficulty);
+            currentHealth = maxHealth;
+            healthBar.maxValue = maxHealth;
+            healthBar.value = maxHealth;
+        }
     }
 
     protected override void EntityDeathFunction()
@@ -22,37 +30,5 @@ public class EnemyStatsScript : EntityStatsScript
     protected override void ExecuteOtherIncreaseHealthFunctions()
     {
         animator.SetTrigger("Heal");
-    }
-
-    /* =============================================
-     * For attacking enemies
-     * ========================================== */
-
-    [Header("Enemy Attack")]
-    public Transform attackPoint;
-    public float attackRange;
-    public LayerMask enemyLayers;
-
-    public void AttackEnemy()
-    {
-        animator.SetTrigger("Attack");
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,
-            attackRange, enemyLayers);
-        foreach (Collider2D enemy in hitEnemies)
-        {
-            PlayerStatsScript pss = enemy.gameObject.GetComponent<PlayerStatsScript>();
-            pss.DecreaseHealth(GetCurrentAttackDamage());
-            Debug.Log($"We hit {enemy.name}!");
-        }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (attackPoint == null)
-        {
-            return;
-        }
-
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }

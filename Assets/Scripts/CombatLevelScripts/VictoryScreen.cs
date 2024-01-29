@@ -19,6 +19,7 @@ public class VictoryScreen : MonoBehaviour
         canvasGroup.blocksRaycasts = true;
         DisableGameObjects();
         animator.SetTrigger("AnimateScreen");
+        StartCoroutine(DelayGameFreeze());
     }
 
     public void ContinueToNextLevel()
@@ -32,5 +33,11 @@ public class VictoryScreen : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+    }
+
+    IEnumerator DelayGameFreeze()
+    {
+        yield return new WaitForSeconds(5f);
+        Time.timeScale = 0f;
     }
 }

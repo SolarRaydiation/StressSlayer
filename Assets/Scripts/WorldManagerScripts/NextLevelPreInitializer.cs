@@ -98,7 +98,16 @@ public class NextLevelPreInitializer : MonoBehaviour
 
     public void UpdateNextLevelDifficultyTextUI()
     {
-        nextLevelDifficultyText.SetText((nextLevelDifficulty * 100).ToString() + "%");
+        if(nextLevelDifficultyText == null)
+        {
+            Debug.LogWarning("UI for nlpi not set");
+        }
+
+
+        if (nextLevelDifficultyText.gameObject.activeSelf)
+        {
+            nextLevelDifficultyText.SetText((nextLevelDifficulty * 100).ToString() + "%");
+        }
     }
 
     public void ResetLevelDifficulty()

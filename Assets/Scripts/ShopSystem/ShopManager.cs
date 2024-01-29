@@ -53,11 +53,12 @@ public class ShopManager : MonoBehaviour
             Debug.LogWarning("There is more than one instance of ShopManager in the scene!");
         }
         instance = this;
-        GetReferences();
+        
     }
 
     private void Start()
     {
+        GetReferences();
         pim = PlayerInventoryManager.GetInstance();
     }
 
