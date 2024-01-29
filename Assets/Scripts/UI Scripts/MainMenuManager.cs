@@ -200,6 +200,8 @@ public class MainMenuManager : MonoBehaviour
                 playButton.onClick.AddListener(() =>
                 {
                     Debug.Log("Playing Module one");
+                    AsyncManager asyncm = AsyncManager.GetInstance();
+                    asyncm.LoadLevel("Tutorial_BedroomScene");
                 });
                 break;
             case ModuleType.ModuleTwo:

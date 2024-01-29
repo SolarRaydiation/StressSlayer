@@ -73,7 +73,7 @@ public class Interactable : MonoBehaviour
         }
         catch (Exception e)
         {
-            Debug.LogError("Could not get Button component reference!: " + e);
+            Debug.LogWarning("Could not get Button component reference!: " + e);
         }
     }
 
@@ -95,7 +95,7 @@ public class Interactable : MonoBehaviour
             uninteractableWarning = GameObject.Find("OverworldScreen").transform.Find("InteractableWarning").GetComponent<WarningText>();
         } catch (Exception e)
         {
-            Debug.LogError("Could not get up WarningText script!: " + e);
+            Debug.LogWarning("Could not get up WarningText script!: " + e);
         }
     }
 

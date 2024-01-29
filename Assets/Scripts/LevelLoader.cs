@@ -21,6 +21,28 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(LoadLevelWithName_Combat(levelName));
     }
 
+    public void CloseModuleOne()
+    {
+        StartCoroutine(_CloseModuleOne());
+    }
+
+    IEnumerator _CloseModuleOne()
+    {
+        animator.SetTrigger(triggerAnimationName);
+        SaveFileManager sfm = SaveFileManager.GetInstance();
+        sfm.SavePlayerDataForModuleTwo();
+        yield return new WaitForSeconds(transitionTime);
+
+        try
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Could not move to MainMenu because: " + e);
+        }
+    }
+
     IEnumerator LoadLevelWithIndex(int levelIndex)
     {
         animator.SetTrigger(triggerAnimationName);

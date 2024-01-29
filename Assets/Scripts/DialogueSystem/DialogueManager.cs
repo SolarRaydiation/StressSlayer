@@ -179,6 +179,7 @@ public class DialogueManager : MonoBehaviour
         // replace with touch anywhere
         if (Input.GetKeyDown(KeyCode.E))
         {
+            Debug.Log("Keystroke logged!");
             if(!playerMustChoose)
             {
                 ContinueDialogue();
@@ -207,6 +208,11 @@ public class DialogueManager : MonoBehaviour
 
     private void HideCanvases()
     {
+        if(canvases == null)
+        {
+            return;
+        }
+
         foreach(GameObject c in canvases)
         {
             c.SetActive(false);
@@ -215,6 +221,11 @@ public class DialogueManager : MonoBehaviour
 
     private void ShowCanvases()
     {
+        if (canvases == null)
+        {
+            return;
+        }
+
         foreach (GameObject c in canvases)
         {
             c.SetActive(true);
@@ -229,4 +240,10 @@ public class DialogueManager : MonoBehaviour
     }
 
     #endregion
+
+    IEnumerator ResetDialogue()
+    {
+        yield return new WaitForSeconds(0.5f);
+        dialogueComplete = false;
+    }
 }

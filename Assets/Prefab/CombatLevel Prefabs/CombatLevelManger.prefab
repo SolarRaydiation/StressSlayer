@@ -1,5 +1,168 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1655667308498289627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5015198721696815248}
+  - component: {fileID: 3090171477367028298}
+  - component: {fileID: 1879307608777363546}
+  - component: {fileID: 1581552476404430407}
+  m_Layer: 0
+  m_Name: CameraBoundery
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5015198721696815248
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655667308498289627}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -221.59265, y: -164.65492, z: -15.729233}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5870202995161958618}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &3090171477367028298
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655667308498289627}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!66 &1879307608777363546
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655667308498289627}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 1
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 1581552476404430407}
+    m_ColliderPaths:
+    - - X: 1767287936
+        Y: 178645520
+      - X: -117765200
+        Y: 178645520
+      - X: -117765200
+        Y: -230830304
+      - X: 1767287936
+        Y: -230830304
+  m_CompositePaths:
+    m_Paths:
+    - - {x: 176.72878, y: -23.08303}
+      - {x: 176.72878, y: 17.864552}
+      - {x: -11.77652, y: 17.864523}
+      - {x: -11.77649, y: -23.08303}
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
+  m_CompositeGameObject: {fileID: 1655667308498289627}
+--- !u!61 &1581552476404430407
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655667308498289627}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 1
+  m_Offset: {x: 82.476135, y: -2.6092396}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 188.50531, y: 40.947582}
+  m_EdgeRadius: 0
 --- !u!1 &2862945646726697412
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,6 +174,9 @@ GameObject:
   - component: {fileID: 5870202995161958618}
   - component: {fileID: 4655168322209835082}
   - component: {fileID: 3376781763890390726}
+  - component: {fileID: 8700924103338208447}
+  - component: {fileID: 1320796950529142809}
+  - component: {fileID: 2823745200966458178}
   m_Layer: 0
   m_Name: CombatLevelManger
   m_TagString: Untagged
@@ -30,7 +196,8 @@ Transform:
   m_LocalPosition: {x: 201.15097, y: 163.86464, z: -0.832977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5015198721696815248}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4655168322209835082
@@ -46,8 +213,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   secondsBeforeGameStart: 3
-  levelDurationInSeconds: 100
+  levelDurationInSeconds: 1000
   timerText: {fileID: 0}
+  timeRemaining: 0
   gameObjectsToShow:
   - {fileID: 0}
 --- !u!114 &3376781763890390726
@@ -66,3 +234,84 @@ MonoBehaviour:
   vs: {fileID: 0}
   hasGameStarted: 0
   hasGameEnded: 0
+  overstressedWarning: {fileID: 0}
+  startCountdown: 0
+  countdownDuration: 10
+  isSubroutineRunning: 0
+  shouldRestart: 0
+--- !u!114 &8700924103338208447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2862945646726697412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56055f1677ee1c245947015724fffb79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  saveFile:
+    baseMovementSpeed: 12
+    playerName: Juan
+    maxHealth: 10
+    timesDrugWasTaken: 0
+    baseAttackDamage: 5
+    currentStressLevel: 30
+    currentDaySection: 0
+    currentHour: 7
+    currentDay: 0
+    nextLevelDifficulty: 1.5
+    cashRemaining: 0
+    fruitsAndVegetablesOwned: 0
+    cortisolInjectorsOwned: 0
+    assortedDrugsOwned: 0
+    currentSceneLocation: Tutorial_BedroomScene
+    lastSceneLocation: 
+    moduleOneComplete: 0
+    moduleTwoComplete: 0
+    moduleThreeComplete: 0
+--- !u!114 &1320796950529142809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2862945646726697412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f8e31593d2c0b74ea45c3bd169fa3cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitsAndVegtableButton: {fileID: 0}
+  cortisolButton: {fileID: 0}
+  drugsButton: {fileID: 0}
+  cashRemaining: 0
+  fruitsAndVegetablesOwned: 0
+  cortisolInjectorsOwned: 0
+  assortedDrugsOwned: 0
+--- !u!114 &2823745200966458178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2862945646726697412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bfba0c32c0f5a6428f1a933eb05ac9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableMoodles: 1
+  disabledAlpha: 99
+  moodlePanel: {fileID: 0}
+  happyMoodle: {fileID: 0}
+  sadMoodle: {fileID: 0}
+  fearfulMoodle: {fileID: 0}
+  angryMoodle: {fileID: 0}
+  happyFlag: 0
+  sadFlag: 0
+  fearfulFlag: 0
+  angryFlag: 0
+  angrySubroutineRunning: 0
+  fearSubroutineRunning: 0

@@ -55,6 +55,18 @@ public static class SaveSystem
         stream.Close();
     }
 
+    public static void SaveDataForModuleTwo(bool isModuleOneComplete, bool isModuleTwoComplete, bool isModuleThreeComplete)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + SAVEFILE_PATH;
+        FileStream stream = new FileStream(path, FileMode.Create);
+        SaveFileManager sfm = SaveFileManager.GetInstance();
+
+        PlayerData data = new PlayerData(sfm.saveFile, isModuleOneComplete, isModuleTwoComplete, isModuleThreeComplete);
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+
     public static PlayerData LoadData()
     {
         Debug.Log("Loading save file...");

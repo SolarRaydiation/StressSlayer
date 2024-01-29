@@ -43,6 +43,11 @@ public class SaveFileManager : MonoBehaviour
         SaveSystem.SaveData_Combat(levelName);
     }
 
+    public void SavePlayerDataForModuleTwo()
+    {
+        SaveSystem.SaveDataForModuleTwo(true, false, false);
+    }
+
     public void SavePlayerDataAsync(string levelName)
     {
         StartCoroutine(SaveGameStateAsync(levelName));
