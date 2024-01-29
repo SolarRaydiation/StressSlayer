@@ -28,7 +28,11 @@ public class SpecialCombatTutorialScript1 : MonoBehaviour
     {
         if (!AreThereEnemiesLeft() && isFirstDialogueComplete)
         {
-            nextDialogue.startDialogue = true;
+            Debug.Log("Completed the first part of the tutorial!");
+            if (nextDialogue != null)
+            {
+                nextDialogue.startDialogue = true;
+            }
             enabled = false;
         }
     }

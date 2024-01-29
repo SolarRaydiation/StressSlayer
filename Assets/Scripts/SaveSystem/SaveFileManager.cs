@@ -33,6 +33,11 @@ public class SaveFileManager : MonoBehaviour
         return SaveSystem.LoadData();
     }
 
+    public void ReloadPlayerData()
+    {
+        saveFile = LoadPlayerData();
+    }
+
     public void SavePlayerData(string levelName)
     {
         SaveSystem.SaveData(levelName);

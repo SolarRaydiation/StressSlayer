@@ -89,6 +89,7 @@ public class DialogueManager : MonoBehaviour
         ShowCanvases();
         dialogueText.text = "";
         speakerNameText.text = "";
+        StartCoroutine(ResetDialogue());
     }
 
     private void ContinueDialogue()

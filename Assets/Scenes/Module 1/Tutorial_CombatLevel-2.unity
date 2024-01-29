@@ -1927,7 +1927,7 @@ PrefabInstance:
     - target: {fileID: 3012332043965852594, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_BoundingShape2D
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1205207756}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5625,7 +5625,7 @@ PrefabInstance:
       objectReference: {fileID: 1941307330}
     - target: {fileID: 4655168322209835082, guid: 29c890102abb8df488a4fbd671700e38, type: 3}
       propertyPath: levelDurationInSeconds
-      value: 1000
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 4655168322209835082, guid: 29c890102abb8df488a4fbd671700e38, type: 3}
       propertyPath: gameObjectsToShow.Array.size
@@ -5691,7 +5691,8 @@ PrefabInstance:
     - {fileID: 2823745200966458178, guid: 29c890102abb8df488a4fbd671700e38, type: 3}
     - {fileID: 1320796950529142809, guid: 29c890102abb8df488a4fbd671700e38, type: 3}
     - {fileID: 8700924103338208447, guid: 29c890102abb8df488a4fbd671700e38, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1655667308498289627, guid: 29c890102abb8df488a4fbd671700e38, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5870202995161958618, guid: 29c890102abb8df488a4fbd671700e38, type: 3}
       insertIndex: -1
