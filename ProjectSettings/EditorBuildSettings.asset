@@ -30,16 +30,16 @@ EditorBuildSettings:
     path: Assets/Scenes/ClassroomScene.unity
     guid: 8c3d8d9f3cc47264f98cf583b355c4eb
   - enabled: 1
-    path: Assets/Scenes/Tutorial_BedroomScene.unity
+    path: Assets/Scenes/Module 1/Tutorial_BedroomScene.unity
     guid: 5c4b304feee98b545a3add685d34263e
   - enabled: 1
-    path: Assets/Scenes/Tutorial_LivingRoomScene.unity
+    path: Assets/Scenes/Module 1/Tutorial_LivingRoomScene.unity
     guid: 28e1ad253111ec146b9f02907edb13be
   - enabled: 1
-    path: Assets/Scenes/Tutorial_PamilyaEskinitaScene.unity
+    path: Assets/Scenes/Module 1/Tutorial_PamilyaEskinitaScene.unity
     guid: e89eaefeaf8376a44b3d8bdada1677af
   - enabled: 1
-    path: Assets/Scenes/Tutorial_ClassroomScene.unity
+    path: Assets/Scenes/Module 1/Tutorial_ClassroomScene.unity
     guid: 6f6a865733f6371439d5f1a14afbcea5
   - enabled: 1
     path: Assets/Scenes/TeacherPreTalkScene.unity

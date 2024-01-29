@@ -105,7 +105,6 @@ public class Interactable : MonoBehaviour
 
     public void StartInteraction()
     {
-        Debug.Log("Starting interaction!");
         if (interactable && IS_IN_RANGE)
         {
             interactAction.Invoke();

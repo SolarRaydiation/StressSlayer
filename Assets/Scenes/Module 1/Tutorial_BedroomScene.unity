@@ -1267,11 +1267,11 @@ MonoBehaviour:
   interactable: 0
   interactableColor: {r: 0.39607844, g: 0.8980392, b: 0.39607844, a: 1}
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
-  notInteractableMessage: Complete the tutorial first.
+  notInteractableMessage: Not available for this Module.
   interactableClickedSFX: {fileID: 0}
   interactableFailSFX: {fileID: 696081746}
   textMesh: {fileID: 0}
-  interactableText: Go back to your room?
+  interactableText: Not available for this Module.
   interactAction:
     m_PersistentCalls:
       m_Calls: []
@@ -3002,7 +3002,7 @@ MonoBehaviour:
   interactable: 0
   interactableColor: {r: 0.39607844, g: 0.8980392, b: 0.39607844, a: 1}
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
-  notInteractableMessage: Complete the tutorial first.
+  notInteractableMessage: Not available for this Module.
   interactableClickedSFX: {fileID: 0}
   interactableFailSFX: {fileID: 696081746}
   textMesh: {fileID: 0}
@@ -4309,7 +4309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4073455573432805162, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4804680075842947723, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
       propertyPath: m_Alpha
@@ -5282,6 +5282,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4802136682896633035, guid: 5941f6b8870298a43bd7d5bfc07c192b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 346.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4802136682896633035, guid: 5941f6b8870298a43bd7d5bfc07c192b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 164.2
+      objectReference: {fileID: 0}
     - target: {fileID: 5427393100494728039, guid: 5941f6b8870298a43bd7d5bfc07c192b, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -5477,6 +5485,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 849011840}
   - {fileID: 29663761}
+  - {fileID: 7335297289622310070}
   - {fileID: 7336575902227234715}
   - {fileID: 2565046968027370501}
   - {fileID: 1226782650987868961}
@@ -5490,4 +5499,3 @@ SceneRoots:
   - {fileID: 5001512646083902075}
   - {fileID: 2638513989631919941}
   - {fileID: 6989256867000861303}
-  - {fileID: 7335297289622310070}

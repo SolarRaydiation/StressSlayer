@@ -30,14 +30,22 @@ public class ActionButtonHelper : MonoBehaviour
     {
         if(other.CompareTag("Interactable") || other.CompareTag("ActivityInteractable"))
         {
-            //actionButtonImage.color = canInteractColor;
+            if (actionButtonImage != null)
+            {
+                actionButtonImage.color = canInteractColor;
+            }
+            
             GetAttachedInteractable(other.gameObject);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //actionButtonImage.color = Color.white;
+        if(actionButtonImage != null)
+        {
+            actionButtonImage.color = Color.white;
+        }
+        
         try
         {
             RemoveAttachedInteractable();
