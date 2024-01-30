@@ -9,6 +9,7 @@ public class PlayerStatsScript : EntityStatsScript
     public int timesDrugWasTaken;
     public float healthRegenRate;
     public static PlayerStatsScript instance;
+    public AudioSource attackSFX;
 
     protected override void ExecuteOtherStartFunctions()
     {
@@ -57,6 +58,10 @@ public class PlayerStatsScript : EntityStatsScript
 
     public void AttackEnemy()
     {
+        if(attackSFX != null)
+        {
+            attackSFX.Play();
+        }
         animator.SetTrigger("Attack");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,
             attackRange, enemyLayers);

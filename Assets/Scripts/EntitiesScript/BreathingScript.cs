@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 /// <summary>
 /// This script handles all aspects of the breathing system.
@@ -18,6 +19,10 @@ public class BreathingScript : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     public Slider breathSlider;
     public StressManager stressManager;
     private const float breathDelta = 0.2f;
+
+    [Header("Audio")]
+    public AudioSource breathInSFX;
+    public AudioSource breathOutSFX;
 
 
     /* ===================================
@@ -133,16 +138,25 @@ public class BreathingScript : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         isButtonEnabled = false;
         breatheButton.interactable = false;
         calculateStressReduction();
+
+        if (breathInSFX != null)
+        {
+            Debug.Log("Playing breath in SFX");
+            breathInSFX.Play();
+        }
     }
 
     private void enableButton()
     {
         isButtonEnabled = true;
         breatheButton.interactable = true;
+
+        if (breathOutSFX != null)
+        {
+            Debug.Log("Playing breath out SFX");
+            breathOutSFX.Play();
+        }
     }
-
-    
-
 
     /* ==================================
      * FUNCTIONS FOR REDUCING STRESS

@@ -15,6 +15,7 @@ public class EnemyBehaviorScript : MonoBehaviour
     public float attackRange;
     public LayerMask enemyLayers;
     public float knockbackStrength;
+    public AudioSource attackSFX;
 
     private Transform enemyTransform;
     private Transform targetTransform;
@@ -97,6 +98,10 @@ public class EnemyBehaviorScript : MonoBehaviour
 
     private void AttackPlayer()
     {
+        if (attackSFX != null)
+        {
+            attackSFX.Play();
+        }
         animator.SetTrigger("Attack");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,
             attackRange, enemyLayers);
