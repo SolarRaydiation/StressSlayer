@@ -1564,6 +1564,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09bc2702a2dc8894eaed3768b672d249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &726692568 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4186330025943069059, guid: a2d31a7bc7080df4abd1ebf8f72b5659, type: 3}
+  m_PrefabInstance: {fileID: 3875700829658606220}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &801113626 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4642906991321781547, guid: 5941f6b8870298a43bd7d5bfc07c192b, type: 3}
@@ -3586,6 +3597,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1955423500 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8075288065973831285, guid: a2d31a7bc7080df4abd1ebf8f72b5659, type: 3}
+  m_PrefabInstance: {fileID: 3875700829658606220}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1967037014
 GameObject:
   m_ObjectHideFlags: 0
@@ -4307,10 +4329,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4804680075842947723, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5524855609780097311, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4756,6 +4774,14 @@ PrefabInstance:
       propertyPath: shopScreen
       value: 
       objectReference: {fileID: 1095935958}
+    - target: {fileID: 6982229290190309757, guid: 500738185f24443448886afad0d6d4cd, type: 3}
+      propertyPath: shopNameText
+      value: 
+      objectReference: {fileID: 1955423500}
+    - target: {fileID: 6982229290190309757, guid: 500738185f24443448886afad0d6d4cd, type: 3}
+      propertyPath: cashRemainingText
+      value: 
+      objectReference: {fileID: 726692568}
     - target: {fileID: 6982229290190309757, guid: 500738185f24443448886afad0d6d4cd, type: 3}
       propertyPath: canvases.Array.data[0]
       value: 

@@ -269,18 +269,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4270121996517085333, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -142.4072
-      objectReference: {fileID: 0}
-    - target: {fileID: 4270121996517085333, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4270121996517085333, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -17.245987
-      objectReference: {fileID: 0}
     - target: {fileID: 7810015346979924434, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -360,18 +348,6 @@ PrefabInstance:
     - target: {fileID: 7810015346979924434, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7906578390943503677, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
-      propertyPath: m_fontSize
-      value: 23.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 7906578390943503677, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 23.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 7906578390943503677, guid: a2ca920689be45a40b71a1cb175889ae, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

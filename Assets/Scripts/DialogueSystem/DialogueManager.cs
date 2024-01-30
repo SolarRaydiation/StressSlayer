@@ -172,16 +172,18 @@ public class DialogueManager : MonoBehaviour
     // for moving the dialogue along
     private void Update()
     {
-        if (!dialogueIsPlaying)
+        // if dialogue is not playing, stop and return.
+        if(!dialogueIsPlaying)
         {
             return;
         }
 
         // replace with touch anywhere
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.touchCount > 0)
         {
-            Debug.Log("Keystroke logged!");
-            if(!playerMustChoose)
+
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began && !playerMustChoose)
             {
                 ContinueDialogue();
             }
