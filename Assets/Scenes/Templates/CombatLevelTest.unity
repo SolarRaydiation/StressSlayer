@@ -5418,6 +5418,14 @@ PrefabInstance:
       propertyPath: gameObjectsToHide.Array.data[5]
       value: 
       objectReference: {fileID: 1042732260}
+    - target: {fileID: 7044245237345500156, guid: fc5abf9251a262c4391dc85c9d8a1e51, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7564247740193608069, guid: fc5abf9251a262c4391dc85c9d8a1e51, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8407288964122597381, guid: fc5abf9251a262c4391dc85c9d8a1e51, type: 3}
       propertyPath: gameObjectsToHide.Array.size
       value: 6

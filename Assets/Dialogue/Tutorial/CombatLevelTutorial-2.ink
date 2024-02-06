@@ -1,6 +1,6 @@
 Great job!  #speaker: Teacher
 
-If you look above, you will see four emotions associated with stress: sadness, happiness, fear, and anger.
+If you look above, you will see four emotions associated with stress: sadness, happiness, anxiety, and anger.
 
 Stress has an effect on your emotions, and it can make you feel different emotions depending on the situation.
 

@@ -3,7 +3,7 @@
 Hello and good morning. Anything I can do to help you? If you need to go to school, its just over there. #speaker: Police Officer
 + [You know where the road behind you leads?]
 -> choice_1
-+ [You know where my school is?]
++ [Do you ever feel stressed while working?]
 -> choice_2
 + [Do you know how I can destress myself?]
 -> choice_3
@@ -19,9 +19,11 @@ But you shouldn't go there now. You have school don't you?
 -> start
 
 === choice_2 ===
-You don't know where your school is?
+Yes, I do. Sometimes, I notice I lose some hair on a stressful days.
 
-Your school is right behind me across the street.
+And I somtimes feel myself grow weaker and get more sick often.
+
+Make sure to take good care of yourself. Being overstressed is not healthy for you.
 -> start
 
 === choice_3 ===

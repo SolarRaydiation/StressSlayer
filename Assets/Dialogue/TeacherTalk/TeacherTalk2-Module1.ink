@@ -27,9 +27,9 @@ Yes, there are! But let's talk about it next time.
 -> question_panel
 
 === choice_2 ===
-Yes, there are! We call them SADs: sigarilyo, alak and droga.
+Yes, there are! Using cigarettes, alcohol and drugs might help you cope with stress now, but they will harm your health later.
 
-Let's talk about them next time, but stay away from them. They will harm your health.
+Stay away from them. Your health depends on it.
 -> question_panel
 
 
