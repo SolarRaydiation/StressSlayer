@@ -900,6 +900,9 @@ GameObject:
   - component: {fileID: 619914316}
   - component: {fileID: 619914317}
   - component: {fileID: 619914318}
+  - component: {fileID: 619914319}
+  - component: {fileID: 619914321}
+  - component: {fileID: 619914320}
   m_Layer: 0
   m_Name: Interactable_Teacher
   m_TagString: Interactable
@@ -997,19 +1000,7 @@ MonoBehaviour:
   interactableText: Talk to teacher?
   interactAction:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2067448115}
-        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
-        m_MethodName: LoadNextLevel
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Tutorial_TeacherModule1
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   IS_IN_RANGE: 0
   originalColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!61 &619914318
@@ -1057,6 +1048,70 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.2474315, y: 5.125}
   m_EdgeRadius: 0
+--- !u!114 &619914319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619914314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68f1f3e27d87a134484884aa4990d4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: {fileID: 0}
+  speakerName: {fileID: 0}
+  dialogueScreen: {fileID: 0}
+  playerControls: {fileID: 0}
+  textSpeed: 0
+  lines: []
+  speakers: []
+  filename: 
+--- !u!114 &619914320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619914314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inkJSON: {fileID: 4900000, guid: 7e9fde6fd5632b14e93331c1d6f8b8eb, type: 3}
+--- !u!114 &619914321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619914314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14bc87e3ce42fa44c98d128b208ed1fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 15
+  isPastThreePM:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 619914320}
+        m_TargetAssemblyTypeName: DialogueTrigger, Assembly-CSharp
+        m_MethodName: StartDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  isBeforeThreePM:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &687162799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2921,7 +2976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 0}
+  inkJSON: {fileID: 4900000, guid: 2c4a90ddcdf288140828ec741240de24, type: 3}
 --- !u!82 &1607780352
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4337,17 +4392,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2067448115 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4849236382629943566, guid: a61b2d959752db541adf1d8cc0f8f143, type: 3}
-  m_PrefabInstance: {fileID: 1651385751}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a74d3c2e185964496efc222903db0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

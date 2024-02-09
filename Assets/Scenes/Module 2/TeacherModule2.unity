@@ -2510,7 +2510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 394220381710371772, guid: a61b2d959752db541adf1d8cc0f8f143, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5802312742191854559, guid: a61b2d959752db541adf1d8cc0f8f143, type: 3}
       propertyPath: m_SortingOrder
@@ -2561,11 +2561,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a61b2d959752db541adf1d8cc0f8f143, type: 3}
---- !u!1 &1651385752 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 394220381710371772, guid: a61b2d959752db541adf1d8cc0f8f143, type: 3}
-  m_PrefabInstance: {fileID: 1651385751}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1663516776 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 659807310538163457, guid: a2d31a7bc7080df4abd1ebf8f72b5659, type: 3}
@@ -3385,16 +3380,16 @@ MonoBehaviour:
   interactAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1651385752}
-        m_TargetAssemblyTypeName: VictoryScreen, Assembly-CSharp
-        m_MethodName: OpenVictoryScreen
-        m_Mode: 1
+      - m_Target: {fileID: 2067448115}
+        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
+        m_MethodName: LoadNextLevel
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: ClassroomScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1865822931
@@ -3796,7 +3791,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4849236382629943566, guid: a61b2d959752db541adf1d8cc0f8f143, type: 3}
   m_PrefabInstance: {fileID: 1651385751}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651385752}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6a74d3c2e185964496efc222903db0c, type: 3}
