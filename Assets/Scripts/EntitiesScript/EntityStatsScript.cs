@@ -14,7 +14,6 @@ public abstract class EntityStatsScript : MonoBehaviour
     public float initialMaxHealth;                                      // health w/o drug use considered
     public float initialActualMaxHealth;                                // health w drug use considered
     public Slider healthBar;
-    public AudioSource hurtSFX;
 
     [Header("Entity Damage Values")]
     public float baseAttackDamage;
@@ -148,10 +147,14 @@ public abstract class EntityStatsScript : MonoBehaviour
         currentHealth = currentHealth - healthDecrease;
         if (currentHealth > 0)
         {
-            if (hurtSFX != null)
+            try
             {
-                hurtSFX.Play();
+                AudioManager.instance.PlaySFX("HurtSound");
+            } catch (Exception e)
+            {
+                Debug.LogWarning($"Could not play HurtSound SFX in {name}: {e}");
             }
+
             ExecuteOtherDecreaseHealthFunctions();
             UpdateHealthBar();
         }

@@ -110,14 +110,25 @@ public class Interactable : MonoBehaviour
             interactAction.Invoke();
             if(interactableClickedSFX != null)
             {
-                interactableClickedSFX.Play();
+                AudioManager audioManager = AudioManager.GetInstance();
+                if (audioManager != null)
+                {
+                    audioManager.PlaySFX("TapSFX");
+                }
+                //interactableClickedSFX.Play();
             }
         } else
         {
             uninteractableWarning.FlashWarningForNSeconds(3.0f, notInteractableMessage);
             if (interactableFailSFX != null)
             {
-                interactableFailSFX.Play();
+                AudioManager audioManager = AudioManager.GetInstance();
+                if(audioManager != null)
+                {
+                    audioManager.PlaySFX("ActionFailed");
+                }
+
+                //interactableFailSFX.Play();
             }
         }
     }

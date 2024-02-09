@@ -229,6 +229,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05c4e942365c3cc48b5d5dd9d3c1b105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &224666401
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3715038271561822642, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
+      propertyPath: bgmToPlay
+      value: SchoolTheme
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237894704415503994, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962880703979083330, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 832.3085
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962880703979083330, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 631.6282
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962880703979083330, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -19.542017
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962880703979083330, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962880703979083330, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962880703979083330, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962880703979083330, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962880703979083330, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962880703979083330, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962880703979083330, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
 --- !u!82 &252235848
 AudioSource:
   m_ObjectHideFlags: 0
@@ -642,11 +703,11 @@ PrefabInstance:
       objectReference: {fileID: 1207283452}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.90626526
       objectReference: {fileID: 0}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.0000009536743
       objectReference: {fileID: 0}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.z
@@ -654,11 +715,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -104.8
+      value: -103.89374
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.7798052
+      value: 3.7798042
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4482,3 +4543,4 @@ SceneRoots:
   - {fileID: 1892285566}
   - {fileID: 1276625035}
   - {fileID: 810381969}
+  - {fileID: 224666401}

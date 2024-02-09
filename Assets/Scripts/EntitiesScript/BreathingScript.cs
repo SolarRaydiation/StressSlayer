@@ -139,10 +139,13 @@ public class BreathingScript : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         breatheButton.interactable = false;
         calculateStressReduction();
 
-        if (breathInSFX != null)
+        try
         {
-            Debug.Log("Playing breath in SFX");
-            breathInSFX.Play();
+            AudioManager.instance.PlaySFX("BreathIn");
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"Could not play BreathIn SFX in {name}: {e}");
         }
     }
 
@@ -151,10 +154,13 @@ public class BreathingScript : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         isButtonEnabled = true;
         breatheButton.interactable = true;
 
-        if (breathOutSFX != null)
+        try
         {
-            Debug.Log("Playing breath out SFX");
-            breathOutSFX.Play();
+            AudioManager.instance.PlaySFX("BreathOut");
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"Could not play BreathOut SFX in {name}: {e}");
         }
     }
 

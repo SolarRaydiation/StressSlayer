@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,7 +10,6 @@ public class PlayerStatsScript : EntityStatsScript
     public int timesDrugWasTaken;
     public float healthRegenRate;
     public static PlayerStatsScript instance;
-    public AudioSource attackSFX;
 
     protected override void ExecuteOtherStartFunctions()
     {
@@ -58,10 +58,15 @@ public class PlayerStatsScript : EntityStatsScript
 
     public void AttackEnemy()
     {
-        if(attackSFX != null)
+        try
         {
-            attackSFX.Play();
+            AudioManager.instance.PlaySFX("SwordSwing");
         }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"Could not play HurtSound SFX in {name}: {e}");
+        }
+
         animator.SetTrigger("Attack");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position,
             attackRange, enemyLayers);

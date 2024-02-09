@@ -185,6 +185,13 @@ public class DialogueManager : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             if (touch.phase == TouchPhase.Began && !playerMustChoose)
             {
+                try
+                {
+                    AudioManager.instance.PlaySFX("TapSFX");
+                } catch (Exception e)
+                {
+                    Debug.LogWarning("Could not play TapSFX from DialogueManager!" + e);
+                }
                 ContinueDialogue();
             }
         }
