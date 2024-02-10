@@ -4,7 +4,19 @@ using UnityEngine;
 
 public class InteractablesManager : MonoBehaviour
 {
+    public static InteractablesManager instance;
+
+    private void Awake()
+    {
+        instance = this; 
+    }
+
     public void Start()
+    {
+        StartCoroutine(ResetAvailabilityOfInteractables());
+    }
+
+    public void RecheckAvailability()
     {
         StartCoroutine(ResetAvailabilityOfInteractables());
     }

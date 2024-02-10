@@ -12,8 +12,6 @@ public class Interactable : MonoBehaviour
     public Color interactableColor;                             // #65E565. Tells user that object can be interacted with
     public Color notInteractableColor;                          // #EA3030. Tells user that object CANNOT be interacted with
     public string notInteractableMessage;                       // message to send if not interactable
-    public AudioSource interactableClickedSFX;
-    public AudioSource interactableFailSFX;
     public TextMeshPro textMesh;
     public string interactableText;
 
@@ -108,27 +106,18 @@ public class Interactable : MonoBehaviour
         if (interactable && IS_IN_RANGE)
         {
             interactAction.Invoke();
-            if(interactableClickedSFX != null)
+            AudioManager audioManager = AudioManager.GetInstance();
+            if (audioManager != null)
             {
-                AudioManager audioManager = AudioManager.GetInstance();
-                if (audioManager != null)
-                {
-                    audioManager.PlaySFX("TapSFX");
-                }
-                //interactableClickedSFX.Play();
+                audioManager.PlaySFX("TapSFX");
             }
         } else
         {
             uninteractableWarning.FlashWarningForNSeconds(3.0f, notInteractableMessage);
-            if (interactableFailSFX != null)
+            AudioManager audioManager = AudioManager.GetInstance();
+            if(audioManager != null)
             {
-                AudioManager audioManager = AudioManager.GetInstance();
-                if(audioManager != null)
-                {
-                    audioManager.PlaySFX("ActionFailed");
-                }
-
-                //interactableFailSFX.Play();
+                audioManager.PlaySFX("ActionFailed");
             }
         }
     }

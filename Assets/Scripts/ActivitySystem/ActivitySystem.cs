@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActivitySystem : MonoBehaviour
 {
@@ -67,13 +68,37 @@ public class ActivitySystem : MonoBehaviour
     /// </summary>
     public void ExitActivityMode()
     {
+        CanvasGroup cg = activityScreen.transform.Find("SuperPanel").GetComponent<CanvasGroup>();
+        cg.alpha = 0;
+        cg.interactable = false;
         StartCoroutine(ResetAvailabilityOfInteractables());
         confirmationScreen.SetActive(false);
         Animator animator = fadeoutScreen.GetComponent<Animator>();
         animator.SetTrigger("FadeOut");
-        activityScreen.SetActive(false);
+        StartCoroutine(CloseUI(cg));
         ShowCanvases();
         activityInstance = null;
+
+        try
+        {
+            AudioManager.instance.PlaySFX("TapSFX");
+        }
+        catch
+        {
+
+        }
+    }
+
+    IEnumerator CloseUI(CanvasGroup cg)
+    {
+        activityScreen.SetActive(false);
+        cg.alpha = 1;
+        cg.interactable = true;
+
+        Image image = activityScreen.transform.Find("FadeoutScreen").GetComponent<Image>();
+        image.color = new Color(image.color.r, image.color.g, image.color.b, 0);
+
+        yield return null;
     }
 
     IEnumerator ResetAvailabilityOfInteractables()
@@ -159,6 +184,14 @@ public class ActivitySystem : MonoBehaviour
             FillInUserPromptText();
             FillInBenefitsText();
         }
+
+        try
+        {
+            AudioManager.instance.PlaySFX("TapSFX");
+        } catch
+        {
+
+        }
     }
 
     public void ReduceByOneHour()
@@ -173,6 +206,15 @@ public class ActivitySystem : MonoBehaviour
             FillInUserPromptText();
             FillInBenefitsText();
         }
+
+        try
+        {
+            AudioManager.instance.PlaySFX("TapSFX");
+        }
+        catch
+        {
+
+        }
     }
 
     /// <summary>
@@ -185,6 +227,15 @@ public class ActivitySystem : MonoBehaviour
         activityInstance.IncreasePlayerStat(hoursToInvest);
         clockManager.MoveForwardTimeByNHours(hoursToInvest);
         StartCoroutine(OpenConfirmationScreen(animator));
+
+        try
+        {
+            AudioManager.instance.PlaySFX("TapSFX");
+        }
+        catch
+        {
+
+        }
     }
 
     /// <summary>
@@ -196,6 +247,15 @@ public class ActivitySystem : MonoBehaviour
         activityScreen.SetActive(false);
         ShowCanvases();
         activityInstance = null;
+
+        try
+        {
+            AudioManager.instance.PlaySFX("TapSFX");
+        }
+        catch
+        {
+
+        }
     }
 
     IEnumerator OpenConfirmationScreen(Animator animator)

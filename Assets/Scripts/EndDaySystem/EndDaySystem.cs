@@ -32,18 +32,40 @@ public class EndDaySystem : MonoBehaviour
 
     IEnumerator EndDay()
     {
+        try
+        {
+            AudioManager.instance.PlaySFX("TapSFX");
+        }
+        catch
+        {
+
+        }
+
+        CanvasGroup cg = gameObject.GetComponent<CanvasGroup>();
+        cg.alpha = 0f;
+        cg.interactable = false;
+
         ClockManager cm = ClockManager.GetInstance();
         cm.MoveDayForward();
         Debug.Log("Saving player data");
         newDayChime.Play();
-        yield return new WaitForSeconds(5.0f);
-        levelLoader.LoadNextLevel("BedroomScene");
+        yield return new WaitForSeconds(2.0f);
+        levelLoader.LoadNextLevel(SceneManager.GetActiveScene().name);
     }
 
     public void ShortcircuitEndDayMode()
     {
         ShowCanvases();
         gameObject.SetActive(false);
+
+        try
+        {
+            AudioManager.instance.PlaySFX("TapSFX");
+        }
+        catch
+        {
+
+        }
     }
 
     #region Canvases Methods

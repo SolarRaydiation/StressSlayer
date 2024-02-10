@@ -93,6 +93,7 @@ public class ClockManager : MonoBehaviour
 
         currentHour += n;
         SetDaySection();
+        InteractablesManager.instance.RecheckAvailability();
     }
 
     public void SetDaySection()
