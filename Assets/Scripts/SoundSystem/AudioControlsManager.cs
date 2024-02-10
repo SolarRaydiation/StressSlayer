@@ -10,9 +10,6 @@ public class AudioControlsManager : MonoBehaviour
     public Image bgmIcon;
     public Image sfxIcon;
 
-    [SerializeField] private bool isBGMOff = false;
-    [SerializeField] private bool isSFXOff = false;
-
     private void Start()
     {
         SoundSettings soundSettings = SaveSystem.LoadSoundSettings();

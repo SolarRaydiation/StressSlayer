@@ -8,13 +8,11 @@ public class PlayerScript : MonoBehaviour
     [Header("Entity Health Values")]
     public Slider healthBar;
 
-
     [Header("Internrals")]
     [SerializeField] private float initialMaxHealth;
     [SerializeField] private float initialActualMaxHealth;
     [SerializeField] private float baseAttackDamage;
     [SerializeField] private float currentHealth;
-    [SerializeField] private bool isHealthZero;
     [SerializeField] private float maxHealth;
     [SerializeField] private float actualMaxHealth; // value not used if isPlayer set to false
     [SerializeField] private float currentAttackDamage;
@@ -85,7 +83,6 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
-            isHealthZero = true;
             UpdateHealthBar();
             StartCoroutine(KillEntity("Dead"));
         }

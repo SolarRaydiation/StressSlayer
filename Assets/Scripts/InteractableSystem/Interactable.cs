@@ -213,6 +213,13 @@ public class Interactable : MonoBehaviour
     #endregion
 
     #region Deprecated Button Listeners Methods 
+    
+    /*
+     * The obsolete and Debug.LogWarning methods are here to stop Unity from screaming
+     * a warning at me. ~ 02/10/2024
+     * **/
+
+    [Obsolete]
     private void AttachButtonListener()
     {
         try
@@ -221,9 +228,11 @@ public class Interactable : MonoBehaviour
         }
         catch (Exception e)
         {
+            Debug.LogWarning(e);
         }
     }
 
+    [Obsolete]
     private void RemoveButtonListener()
     {
         try
@@ -232,6 +241,7 @@ public class Interactable : MonoBehaviour
         }
         catch (Exception e)
         {
+            Debug.LogWarning(e);
         }
     }
     #endregion

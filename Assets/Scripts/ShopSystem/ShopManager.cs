@@ -1,12 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
-using static Item;
 
 public class ShopManager : MonoBehaviour
 {
@@ -277,12 +273,12 @@ public class ShopManager : MonoBehaviour
         {
             if(cashRemainingText == null)
             {
-                Debug.LogWarning("cashRemainingText reference not present!");
+                Debug.LogWarning("cashRemainingText reference not present!:" + ex);
             }
 
             if(pim == null)
             {
-                Debug.LogWarning("pim reference not present!");
+                Debug.LogWarning("pim reference not present!" + ex);
             }
         }
     }

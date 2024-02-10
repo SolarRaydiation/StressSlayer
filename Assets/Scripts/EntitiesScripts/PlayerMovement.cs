@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
     private FixedJoystick joystick;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
-    private Transform transform;
     private float horizontalMovement;
     private float verticalMovement;
     private Animator animator;
@@ -82,15 +81,6 @@ public class PlayerMovement : MonoBehaviour
         } catch (Exception e)
         {
             Debug.LogError("Could not get Rigidbody2D from player!: " + e);
-        }
-
-        try
-        {
-            transform = gameObject.GetComponent<Transform>();
-        }
-        catch (Exception e)
-        {
-            Debug.LogError("Could not get Transform from player!: " + e);
         }
 
         try
