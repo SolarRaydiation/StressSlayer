@@ -13,7 +13,7 @@ public class AudioControlsManager : MonoBehaviour
     [SerializeField] private bool isBGMOff = false;
     [SerializeField] private bool isSFXOff = false;
 
-    private void Awake()
+    private void Start()
     {
         SoundSettings soundSettings = SaveSystem.LoadSoundSettings();
         
@@ -28,7 +28,7 @@ public class AudioControlsManager : MonoBehaviour
         {
             Image temp = sfxIcon.gameObject.GetComponent<Image>();
             Color tempcolor = temp.color;
-            tempcolor.a = 255f;
+            tempcolor.a = 1;
             temp.color = tempcolor;
         }
 
@@ -54,8 +54,7 @@ public class AudioControlsManager : MonoBehaviour
     public void ToggleMusic()
     {
         AudioManager.instance.ToggleBGM();
-        isBGMOff = !isBGMOff;
-        if(isBGMOff)
+        if(AudioManager.instance.isBGMMuted)
         {
             Image temp = bgmIcon.gameObject.GetComponent<Image>();
             Color tempcolor = temp.color;
@@ -73,8 +72,7 @@ public class AudioControlsManager : MonoBehaviour
     public void ToggleSFX()
     {
         AudioManager.instance.ToggleSFX();
-        isSFXOff = !isSFXOff;
-        if (isSFXOff)
+        if (AudioManager.instance.isSFXMuted)
         {
             Image temp = sfxIcon.gameObject.GetComponent<Image>();
             Color tempcolor = temp.color;
@@ -85,7 +83,7 @@ public class AudioControlsManager : MonoBehaviour
         {
             Image temp = sfxIcon.gameObject.GetComponent<Image>();
             Color tempcolor = temp.color;
-            tempcolor.a = 255f;
+            tempcolor.a = 1;
             temp.color = tempcolor;
         }
     }

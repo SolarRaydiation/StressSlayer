@@ -3,7 +3,7 @@
 It seems that there is an interview between a television host and an interview ongoing. Do you want to watch? #speaker: You
 * [Watch the interview.]
 -> interview
-+ [Leave.]
+* [Leave.]
 -> ending
 
 === interview ===
@@ -20,6 +20,6 @@ In another example, adults might be stressed over their work. Or with managing t
 We can't escape stress. What matters is that we learn how to manage stress in healthy ways, while avoiding the unhealthy ones... #speaker: Doctor
 
 -> END
-
 === ending ===
+You leave and move on. #speaker: You
 -> END

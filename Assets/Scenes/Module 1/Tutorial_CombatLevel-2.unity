@@ -505,6 +505,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3331510713701723176, guid: 34a8ac050ec55094f8956555748e966a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4977851522996085641, guid: 34a8ac050ec55094f8956555748e966a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -521,7 +525,8 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1897922818}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8583432696819261114, guid: 34a8ac050ec55094f8956555748e966a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -698,6 +703,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enableMoodles: 1
+  isOverworldLevel: 0
   disabledAlpha: 99
   moodlePanel: {fileID: 1157691311}
   happyMoodle: {fileID: 1532749448}
@@ -710,6 +716,10 @@ MonoBehaviour:
   angryFlag: 0
   angrySubroutineRunning: 0
   fearSubroutineRunning: 0
+  sm: {fileID: 0}
+  tc: {fileID: 0}
+  pss: {fileID: 0}
+  psc: {fileID: 0}
 --- !u!1 &442444815
 GameObject:
   m_ObjectHideFlags: 0
@@ -2500,6 +2510,7 @@ PrefabInstance:
     - {fileID: 6613155002081244178, guid: 500738185f24443448886afad0d6d4cd, type: 3}
     - {fileID: 2574988302244651654, guid: 500738185f24443448886afad0d6d4cd, type: 3}
     - {fileID: 4620413179022587736, guid: 500738185f24443448886afad0d6d4cd, type: 3}
+    - {fileID: 6358357553699227639, guid: 500738185f24443448886afad0d6d4cd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
