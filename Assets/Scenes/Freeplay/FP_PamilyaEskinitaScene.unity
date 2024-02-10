@@ -11524,6 +11524,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 54.3946
       objectReference: {fileID: 0}
+    - target: {fileID: 3226667124134449490, guid: 754839762fcb8d24da50c937eebd67c0, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 6381689631137497849, guid: 754839762fcb8d24da50c937eebd67c0, type: 3}
       propertyPath: m_Name
       value: Background
