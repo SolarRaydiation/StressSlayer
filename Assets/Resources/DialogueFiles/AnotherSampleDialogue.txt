@@ -1,3 +1,0 @@
-Speaker 1:This is another sample dialogue!
-Speaker 2:Eureka the speaking system works!
-Speaker 3:Huzzah.
