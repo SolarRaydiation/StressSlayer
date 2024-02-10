@@ -50,7 +50,6 @@ public class WarningText : MonoBehaviour
 
     public IEnumerator FlashWarningBriefly(float duration, string warning)
     {
-        Debug.Log($"FlashWarningBriefly recieved: duration: {duration}, warning: {warning}");
         isSubroutineRunning = true;
         StartWarning(warning);
         yield return new WaitForSeconds(duration);

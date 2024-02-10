@@ -6,27 +6,51 @@ using UnityEngine.Events;
 public class DialogueAutoTrigger : MonoBehaviour
 {
     public TextAsset inkJSON;
-    public float startWaitTime;
-    public float endWaitTime;
+    public float startDelayTime;
+    public float endDelayTime;
+
+    [Header("Autostart with Timer")]
+    public bool autostartWithTimer;
+    
+    [Header("Autostart with Signal")]
+    public bool waitForASignal;
+    public bool startDialogue;
+
+    [Header("End of Interaction Event")]
     public UnityEvent interactAction;
+
     private bool gateBool;
     private DialogueManager dm;
+    private bool hasDialogueStarted = false;
 
     void Start()
     {
         gateBool = true;
         dm = DialogueManager.GetDialogueManagerInstance();
-        StartCoroutine(AutoStartDialogue());
+        if(autostartWithTimer)
+        {
+            StartCoroutine(AutoStartDialogue());
+            return;
+        }
     }
 
     IEnumerator AutoStartDialogue()
     {
-        yield return new WaitForSeconds(startWaitTime);
+        yield return new WaitForSeconds(startDelayTime);
         dm.EnterDialogueMode(inkJSON);
     }
 
     private void Update()
     {
+        // wait for signal to start dialogue
+        if (waitForASignal && startDialogue && !hasDialogueStarted)
+        {
+            hasDialogueStarted = true;
+            StartCoroutine(AutoStartDialogue());
+            return;
+        }
+
+        // wait for dialogue to complete
         if (dm.IsDialogueComplete() && gateBool)
         {
             gateBool = false;
@@ -36,8 +60,7 @@ public class DialogueAutoTrigger : MonoBehaviour
 
     IEnumerator ExecuteNextEvent()
     {
-        yield return new WaitForSeconds(endWaitTime);
+        yield return new WaitForSeconds(endDelayTime);
         interactAction.Invoke();
-
     }
 }

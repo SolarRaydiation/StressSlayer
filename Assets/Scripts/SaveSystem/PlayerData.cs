@@ -42,6 +42,7 @@ public class PlayerData
 
     #endregion
 
+    // regular play
     public PlayerData(PlayerMovement pm, PlayerStatsController psc, ClockManager cm,
         NextLevelPreInitializer nlpi, PlayerInventoryManager pim, string nextScene)
     {
@@ -121,6 +122,7 @@ public class PlayerData
         }
     }
 
+    // combat level
     public PlayerData(PlayerMovement pm, PlayerStatsScript pss, StressManager sm, ClockManager cm,
          GameboostManager gbm, string nextScene)
     {
@@ -200,6 +202,49 @@ public class PlayerData
         }
     }
 
+    // save for module two and three
+    public PlayerData(PlayerData pd, bool isModuleOneComplete, bool isModuleTwoComplete, bool isModuleThreeComplete )
+    {
+        baseMovementSpeed = pd.baseMovementSpeed;
+
+        playerName = pd.playerName;
+        maxHealth = pd.maxHealth;
+        timesDrugWasTaken = pd.timesDrugWasTaken;
+        baseAttackDamage = pd.baseAttackDamage;
+        currentStressLevel = pd.currentStressLevel;
+
+        if(isModuleOneComplete && isModuleTwoComplete)
+        {
+            // set up for Module Two
+            currentDaySection = DaySection.Afternoon;
+            currentHour = 15;
+            currentDay = Day.Wednesday;
+        } else if(isModuleOneComplete)
+        {
+            currentDaySection = DaySection.Afternoon;
+            currentHour = 15;
+            currentDay = Day.Tuesday;
+        }
+
+        nextLevelDifficulty = pd.nextLevelDifficulty;
+
+        // Player Inventory Manager
+        cashRemaining = pd.cashRemaining;
+        fruitsAndVegetablesOwned = pd.fruitsAndVegetablesOwned;
+        cortisolInjectorsOwned = pd.cortisolInjectorsOwned;
+        assortedDrugsOwned = pd.assortedDrugsOwned;
+
+        // others
+        currentSceneLocation = "";
+        lastSceneLocation = "";
+
+        // module tracking
+        moduleOneComplete = isModuleOneComplete;
+        moduleTwoComplete = isModuleTwoComplete;
+        moduleThreeComplete = isModuleThreeComplete;
+    }
+
+
 
     public PlayerData()
     {
@@ -217,7 +262,7 @@ public class PlayerData
         fruitsAndVegetablesOwned = 0;
         cortisolInjectorsOwned = 0;
         assortedDrugsOwned = 0;
-        currentSceneLocation = "Tutorial_BedroomScene";
+        currentSceneLocation = "";
         lastSceneLocation = "";
         moduleOneComplete = false;
         moduleTwoComplete = false;

@@ -33,6 +33,11 @@ public class SaveFileManager : MonoBehaviour
         return SaveSystem.LoadData();
     }
 
+    public void ReloadPlayerData()
+    {
+        saveFile = LoadPlayerData();
+    }
+
     public void SavePlayerData(string levelName)
     {
         SaveSystem.SaveData(levelName);
@@ -41,6 +46,11 @@ public class SaveFileManager : MonoBehaviour
     public void SavePlayerData_Combat(string levelName)
     {
         SaveSystem.SaveData_Combat(levelName);
+    }
+
+    public void SavePlayerDataForModuleTwo()
+    {
+        SaveSystem.SaveDataForModuleTwo(true, false, false);
     }
 
     public void SavePlayerDataAsync(string levelName)

@@ -120,25 +120,31 @@ public class ShopManager : MonoBehaviour
     // get references from the various UI elements of ShopScreen
     private void GetReferences()
     {
-        container = shopScreen.transform.Find("Container");
+        try
+        {
+            container = shopScreen.transform.Find("Container");
 
-        // money and shopname
-        Transform shopName = container.Find("ShopName");
-        shopNameText = shopName.gameObject.GetComponent<TextMeshProUGUI>();
-        Transform money = container.Find("CashText");
-        cashRemainingText = money.gameObject.GetComponent<TextMeshProUGUI>();
+            // money and shopname
+            Transform shopName = container.Find("ShopName");
+            shopNameText = shopName.gameObject.GetComponent<TextMeshProUGUI>();
+            Transform money = container.Find("CashText");
+            cashRemainingText = money.gameObject.GetComponent<TextMeshProUGUI>();
 
-        // Item Template
-        itemTemplate = container.Find("ItemTemplate");
-        itemTemplate.gameObject.SetActive(false);
+            // Item Template
+            itemTemplate = container.Find("ItemTemplate");
+            itemTemplate.gameObject.SetActive(false);
 
-        // Item Display
-        display = container.Find("ItemDisplay");
-        itemName = display.Find("ItemName").gameObject;
-        itemDescription = display.Find("ItemDescription").gameObject;
-        buyButton = display.Find("BuyButton").gameObject;
-        itemNameText = itemName.GetComponent<TextMeshProUGUI>();
-        itemDescriptionText = itemDescription.GetComponent<TextMeshProUGUI>();
+            // Item Display
+            display = container.Find("ItemDisplay");
+            itemName = display.Find("ItemName").gameObject;
+            itemDescription = display.Find("ItemDescription").gameObject;
+            buyButton = display.Find("BuyButton").gameObject;
+            itemNameText = itemName.GetComponent<TextMeshProUGUI>();
+            itemDescriptionText = itemDescription.GetComponent<TextMeshProUGUI>();
+        } catch
+        {
+            
+        }
     }
 
     private void HandleOtherShopAspects(string shopName)

@@ -89,6 +89,7 @@ public class DialogueManager : MonoBehaviour
         ShowCanvases();
         dialogueText.text = "";
         speakerNameText.text = "";
+        StartCoroutine(ResetDialogue());
     }
 
     private void ContinueDialogue()
@@ -171,16 +172,26 @@ public class DialogueManager : MonoBehaviour
     // for moving the dialogue along
     private void Update()
     {
-        if (!dialogueIsPlaying)
+        // if dialogue is not playing, stop and return.
+        if(!dialogueIsPlaying)
         {
             return;
         }
 
         // replace with touch anywhere
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.touchCount > 0)
         {
-            if(!playerMustChoose)
+
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Began && !playerMustChoose)
             {
+                try
+                {
+                    AudioManager.instance.PlaySFX("TapSFX");
+                } catch (Exception e)
+                {
+                    Debug.LogWarning("Could not play TapSFX from DialogueManager!" + e);
+                }
                 ContinueDialogue();
             }
         }
@@ -207,6 +218,11 @@ public class DialogueManager : MonoBehaviour
 
     private void HideCanvases()
     {
+        if(canvases == null)
+        {
+            return;
+        }
+
         foreach(GameObject c in canvases)
         {
             c.SetActive(false);
@@ -215,6 +231,11 @@ public class DialogueManager : MonoBehaviour
 
     private void ShowCanvases()
     {
+        if (canvases == null)
+        {
+            return;
+        }
+
         foreach (GameObject c in canvases)
         {
             c.SetActive(true);
@@ -229,4 +250,10 @@ public class DialogueManager : MonoBehaviour
     }
 
     #endregion
+
+    IEnumerator ResetDialogue()
+    {
+        yield return new WaitForSeconds(0.5f);
+        dialogueComplete = false;
+    }
 }

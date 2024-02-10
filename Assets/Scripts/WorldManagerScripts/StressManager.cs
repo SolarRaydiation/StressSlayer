@@ -18,7 +18,7 @@ public class StressManager : MonoBehaviour
 
     [Header("Internals")]
     public int currentStressLevel;
-    [SerializeField] private StressLevel stressState;
+    public StressLevel stressState;
     [SerializeField] private float stressBonus;
     [SerializeField] private PlayerStatsScript pss;
 
@@ -135,13 +135,13 @@ public class StressManager : MonoBehaviour
             case StressLevel.Green:
                 return 0f;
             case StressLevel.Yellow:
-                return 0.25f;
-            case StressLevel.Orange:
                 return 0.50f;
+            case StressLevel.Orange:
+                return 0.100f;
             case StressLevel.Red:
-                return 0.75f;
+                return 0.150f;
             case StressLevel.Black:
-                return 1f;
+                return 2f;
             default:
                 Debug.LogWarning($"An unexpected value '{sl.ToString()}' was recieved" +
                     $" while getting Stress Bonus. Default value of 0f has been returned.");

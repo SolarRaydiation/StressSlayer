@@ -121,6 +121,7 @@ public class ClockManager : MonoBehaviour
         if(clockHandTransform == null || clockTimeText == null || dayText == null)
         {
             Debug.LogWarning("UI for ClockManager not set");
+            return;
         }
 
         // Update the clock itself
@@ -154,6 +155,7 @@ public class ClockManager : MonoBehaviour
         if (clockHandTransform == null || clockTimeText == null || dayText == null)
         {
             Debug.LogWarning("UI for ClockManager not set");
+            return;
         }
 
         if (dayText.gameObject.activeSelf)

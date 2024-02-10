@@ -63,6 +63,8 @@ public class MainMenuManager : MonoBehaviour
     {
         SaveSystem.DeleteData();
         SaveSystem.CreateNewSaveFile();
+        SaveFileManager sfm = SaveFileManager.GetInstance();
+        sfm.ReloadPlayerData();
         OpenModulesList();
     }
 
@@ -109,7 +111,6 @@ public class MainMenuManager : MonoBehaviour
         freePlay.onClick.RemoveAllListeners();
 
         SaveFileManager sfm = SaveFileManager.GetInstance();
-        sfm.LoadPlayerData();
         PlayerData saveFile = sfm.saveFile;
 
         // Module One
@@ -200,6 +201,8 @@ public class MainMenuManager : MonoBehaviour
                 playButton.onClick.AddListener(() =>
                 {
                     Debug.Log("Playing Module one");
+                    AsyncManager asyncm = AsyncManager.GetInstance();
+                    asyncm.LoadLevel("Tutorial_BedroomScene");
                 });
                 break;
             case ModuleType.ModuleTwo:

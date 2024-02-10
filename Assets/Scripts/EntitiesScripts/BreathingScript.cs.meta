@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 94be15255e4623a468b6179f189e5ad3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - breatheButton: {instanceID: 0}
+  - breathSlider: {instanceID: 0}
+  - stressManager: {instanceID: 0}
+  - breathIn: {fileID: 8300000, guid: 23be8fa8da67ad04c8033b5ce31f2258, type: 3}
+  - breathOut: {fileID: 8300000, guid: 06ecbd9d93969a04c8946ad3ec4ee9ed, type: 3}
+  - breathInSFX: {instanceID: 0}
+  - breathOutSFX: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
