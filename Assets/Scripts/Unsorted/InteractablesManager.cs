@@ -34,6 +34,15 @@ public class InteractablesManager : MonoBehaviour
             }
         }
 
+        foreach (GameObject interactable in interactableList)
+        {
+            HourBasedDialogueSupplier hbsc = interactable.GetComponent<HourBasedDialogueSupplier>();
+            if (hbsc != null)
+            {
+                hbsc.UpdateDialougeTrigger();
+            }
+        }
+
         GameObject[] activityInteractableList = GameObject.FindGameObjectsWithTag("ActivityInteractable");
         foreach (GameObject interactable in activityInteractableList)
         {

@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Freeplay/FP_BasketballCourtScene.unity
     guid: 35a71f20897fae742806bd76257bf446
+  - enabled: 1
+    path: Assets/Scenes/Freeplay/FP_PamilyaEskinitaScene.unity
+    guid: c7b1b203fd1fab74a8b1033641c3317b
   m_configObjects: {}

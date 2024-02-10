@@ -72,7 +72,6 @@ public class ActivitySystem : MonoBehaviour
         CanvasGroup cg = activityScreen.transform.Find("SuperPanel").GetComponent<CanvasGroup>();
         cg.alpha = 0;
         cg.interactable = false;
-        StartCoroutine(ResetAvailabilityOfInteractables());
         confirmationScreen.SetActive(false);
 
         Animator animator = fadeoutScreen.GetComponent<Animator>();
