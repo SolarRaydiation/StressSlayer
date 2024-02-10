@@ -4,6 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ActivitySystem : MonoBehaviour
 {
@@ -73,8 +74,10 @@ public class ActivitySystem : MonoBehaviour
         cg.interactable = false;
         StartCoroutine(ResetAvailabilityOfInteractables());
         confirmationScreen.SetActive(false);
+
         Animator animator = fadeoutScreen.GetComponent<Animator>();
         animator.SetTrigger("FadeOut");
+
         StartCoroutine(CloseUI(cg));
         ShowCanvases();
         activityInstance = null;
@@ -227,6 +230,8 @@ public class ActivitySystem : MonoBehaviour
         activityInstance.IncreasePlayerStat(hoursToInvest);
         clockManager.MoveForwardTimeByNHours(hoursToInvest);
         StartCoroutine(OpenConfirmationScreen(animator));
+        SaveFileManager sfm = SaveFileManager.GetInstance();
+        sfm.SavePlayerDataAsync(SceneManager.GetActiveScene().name);
 
         try
         {
