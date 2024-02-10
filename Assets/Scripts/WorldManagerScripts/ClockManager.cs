@@ -93,6 +93,16 @@ public class ClockManager : MonoBehaviour
 
         currentHour += n;
         SetDaySection();
+
+        // repaint DayNight cycle in PamilyaEskinita Scene
+        DayNightCycleManager dncm = DayNightCycleManager.instance;
+        if(dncm != null)
+        {
+            dncm.PaintDayNightCycle();
+        }
+        
+        // recheck availability of interactables
+        InteractablesManager.instance.RecheckAvailability();
     }
 
     public void SetDaySection()

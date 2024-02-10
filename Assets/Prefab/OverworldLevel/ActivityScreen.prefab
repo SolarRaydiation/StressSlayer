@@ -1120,6 +1120,7 @@ GameObject:
   - component: {fileID: 1401646490806194826}
   - component: {fileID: 3923960171610367187}
   - component: {fileID: 7192385737489156874}
+  - component: {fileID: 4873573384847210594}
   m_Layer: 5
   m_Name: SuperPanel
   m_TagString: Untagged
@@ -1185,6 +1186,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &4873573384847210594
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5434583264349576341}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5574406528955840692
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,7 +4,19 @@ using UnityEngine;
 
 public class InteractablesManager : MonoBehaviour
 {
+    public static InteractablesManager instance;
+
+    private void Awake()
+    {
+        instance = this; 
+    }
+
     public void Start()
+    {
+        StartCoroutine(ResetAvailabilityOfInteractables());
+    }
+
+    public void RecheckAvailability()
     {
         StartCoroutine(ResetAvailabilityOfInteractables());
     }
@@ -19,6 +31,15 @@ public class InteractablesManager : MonoBehaviour
             if (ic != null)
             {
                 ic.RecheckAvailability();
+            }
+        }
+
+        foreach (GameObject interactable in interactableList)
+        {
+            HourBasedDialogueSupplier hbsc = interactable.GetComponent<HourBasedDialogueSupplier>();
+            if (hbsc != null)
+            {
+                hbsc.UpdateDialougeTrigger();
             }
         }
 

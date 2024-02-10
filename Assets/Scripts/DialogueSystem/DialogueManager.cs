@@ -208,6 +208,14 @@ public class DialogueManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
+        try
+        {
+            AudioManager.instance.PlaySFX("TapSFX");
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning("Could not play TapSFX from DialogueManager!" + e);
+        }
         currentStory.ChooseChoiceIndex(choiceIndex);
         ContinueDialogue();
     }

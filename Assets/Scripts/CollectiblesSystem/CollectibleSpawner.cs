@@ -10,12 +10,11 @@ public class CollectibleSpawner : MonoBehaviour
     public Vector2 spawnAreaSize = new Vector2(10f, 10f);
 
     [Header("Internals")]
-    public bool canSpawnCollectibles;
+    public bool canSpawnCollectibles = false;
     private float timeRemaining;
 
     void Start()
     {
-        canSpawnCollectibles = false;
         timeRemaining = durationBetweenSpawn;
     }
 

@@ -17,12 +17,12 @@ public class BondingActivity : Activity
 
     public override string DisplayStatIncreaseBenefits(int hoursInvested)
     {
-        throw new System.NotImplementedException();
+        return null;
     }
 
     public override void IncreasePlayerStat(int hoursInvested)
     {
-        throw new System.NotImplementedException();
+        // intentionally left blank
     }
 
     /* =============================================

@@ -10,31 +10,38 @@ public class CloudSpawnerHelper : MonoBehaviour
     public GameObject morningCloud;
     public GameObject afternoonCloud;
     public GameObject eveningCloud;
+
+    // Update is called once per frame
     void Start()
     {
         sp = gameObject.GetComponent<CollectibleSpawner>();
         cm = ClockManager.GetInstance();
-    }
+        sp.canSpawnCollectibles = true;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(cm.currentDaySection == ClockManager.DaySection.Morning)
+        if (cm.currentDaySection == ClockManager.DaySection.Morning)
         {
             sp.collectiblePrefab = morningCloud;
+            sp.canSpawnCollectibles = true;
+            enabled = false;
             return;
         }
 
         if (cm.currentDaySection == ClockManager.DaySection.Afternoon)
         {
             sp.collectiblePrefab = afternoonCloud;
+            sp.canSpawnCollectibles = true;
+            enabled = false;
             return;
         }
 
         if (cm.currentDaySection == ClockManager.DaySection.Evening)
         {
             sp.collectiblePrefab = eveningCloud;
+            sp.canSpawnCollectibles = true;
+            enabled = false;
             return;
         }
+
+        
     }
 }

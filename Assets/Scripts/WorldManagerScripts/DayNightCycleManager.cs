@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine.Rendering.Universal;
 
 public class DayNightCycleManager : MonoBehaviour
 {
-    
+    public static DayNightCycleManager instance;
     private ClockManager clockManager;
     // increment 0.166666
 
@@ -35,9 +36,15 @@ public class DayNightCycleManager : MonoBehaviour
             enabled = false;
             return;
         }
+
+        if(instance != null)
+        {
+            Debug.LogWarning("More than one instance of DayNightCycleManager present in scene!");
+        }
+        instance = this;
+
         GetAllLightSources();
-        ChangePPVWeight();
-        StartCoroutine(ActivateLightsAsync());
+        PaintDayNightCycle();
     }
 
     private void GetAllLightSources()
@@ -60,7 +67,7 @@ public class DayNightCycleManager : MonoBehaviour
 
         if(clockManager.currentHour > hourToStartShifting)
         {
-            ppv.weight += weightShift;
+            ppv.weight = weightShift * (clockManager.currentHour - hourToStartShifting);
         } else
         {
             return;
@@ -99,6 +106,25 @@ public class DayNightCycleManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
         ActivateLightSources();
+    }
+
+    public void PaintDayNightCycle()
+    {
+        StartCoroutine(DelayDayNightCyclePaint());
+    }
+
+    IEnumerator DelayDayNightCyclePaint()
+    {
+        yield return new WaitForSeconds(3.0f);
+        try
+        {
+            ChangePPVWeight();
+            StartCoroutine(ActivateLightsAsync());
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"Could not paint light sources!: {e}");
+        }
     }
 
     #endregion

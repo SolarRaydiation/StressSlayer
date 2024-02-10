@@ -1,12 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static StressManager;
 
 public class EmotionManager : MonoBehaviour
 {
     [Header("Controls")]
     public bool enableMoodles;
+    public bool isOverworldLevel = false;
     public float disabledAlpha = 99f;
 
     [Header("Moodle UI")]
@@ -32,11 +36,22 @@ public class EmotionManager : MonoBehaviour
     [SerializeField] protected bool fearSubroutineRunning = false;
 
     [Header("Others")]
-    private StressManager sm;
-    private TimerCountdown tc;
-    private PlayerStatsScript pss;
+    [SerializeField] private StressManager sm;
+    [SerializeField] TimerCountdown tc;
+    [SerializeField] private PlayerStatsScript pss;
+    [SerializeField] private PlayerStatsController psc;
 
     // Start is called before the first frame update
+    private void Awake()
+    {
+        moodlePanel = GameObject.Find("MoodleScreen");
+        Transform moodlePanelTransform = moodlePanel.transform;
+        happyMoodle = moodlePanelTransform.Find("MoodleHappy").gameObject;
+        sadMoodle = moodlePanelTransform.Find("MoodleSad").gameObject;
+        fearfulMoodle = moodlePanelTransform.Find("MoodleFearful").gameObject;
+        angryMoodle = moodlePanelTransform.Find("MoodleAngry").gameObject;
+    }
+
     void Start()
     {
         if (enableMoodles)
@@ -57,6 +72,7 @@ public class EmotionManager : MonoBehaviour
             sm = StressManager.GetInstance();
             tc = TimerCountdown.GetInstance();
             pss = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStatsScript>();
+            psc = GameObject.FindGameObjectWithTag("WorldManager").GetComponent<PlayerStatsController>();
 
             DisableMoodleUI(sadMoodleImage);
             DisableMoodleUI(angryMoodleImage);
@@ -72,7 +88,14 @@ public class EmotionManager : MonoBehaviour
 
     void Update()
     {
-        StressManager.StressLevel stressState = sm.stressState;
+        StressManager.StressLevel stressState = 0;
+        if (isOverworldLevel)
+        {
+            stressState = GetCurrentStressLevel(psc.GetCurrentStressLevel());
+        } else
+        {
+            stressState = sm.stressState;
+        }
 
         // if player is in a happy state, disable all other states
         if (stressState == StressManager.StressLevel.Green)
@@ -91,7 +114,7 @@ public class EmotionManager : MonoBehaviour
         }
 
         // detect if player is in a sad state
-        if(stressState > StressManager.StressLevel.Green)
+        if (stressState > StressManager.StressLevel.Green)
         {
             DisableMoodleUI(happyMoodleImage);
             happyFlag = false;
@@ -100,29 +123,42 @@ public class EmotionManager : MonoBehaviour
         }
 
         // detect if player is in an fearful state
-        if(tc.TimeRemaining < 60 && stressState != StressManager.StressLevel.Green)
+        if(!isOverworldLevel)
         {
-            EnableMoodleUI(fearfulMoodleImage);
-            fearfulFlag = true;
-            if (!fearSubroutineRunning)
+            if (tc.TimeRemaining < 60 && stressState != StressManager.StressLevel.Green)
             {
-                fearSubroutineRunning = true;
-                StartCoroutine(IncreaseStressInducedByFear());
-            }
+                EnableMoodleUI(fearfulMoodleImage);
+                fearfulFlag = true;
+                if (!fearSubroutineRunning && !isOverworldLevel)
+                {
+                    fearSubroutineRunning = true;
+                    StartCoroutine(IncreaseStressInducedByFear());
+                }
 
-        } else
-        {
-            DisableMoodleUI(fearfulMoodleImage);
-            fearfulFlag = false;
+            }
+            else
+            {
+                DisableMoodleUI(fearfulMoodleImage);
+                fearfulFlag = false;
+            }
         }
 
         // detect if player is in an angry state
-        bool isHealthHalved = pss.CurrentHealth < (pss.MaxHealth / 2);
+        bool isHealthHalved;
+        if (!isOverworldLevel)
+        {
+            isHealthHalved = pss.CurrentHealth < (pss.MaxHealth / 2);
+        }
+        else
+        {
+            isHealthHalved = psc.GetMaxHealth() < (psc.GetMaxHealth() / 2);
+        }
+         
         if (isHealthHalved && stressState > StressManager.StressLevel.Green && AreThereEnemiesLeft())
         {
             EnableMoodleUI(angryMoodleImage);
             angryFlag = true;
-            if (!angrySubroutineRunning)
+            if (!angrySubroutineRunning && !isOverworldLevel)
             {
                 angrySubroutineRunning = true;
                 StartCoroutine(IncreaseStressInducedByAnger());
@@ -182,5 +218,33 @@ public class EmotionManager : MonoBehaviour
         Debug.Log("Stopped applying anger stress bonuses");
         angrySubroutineRunning = false;
         yield break;
+    }
+
+
+
+
+    public StressLevel GetCurrentStressLevel(float currentStressLevel)
+    {
+        // greenzone
+        if (currentStressLevel < 20)
+        {
+            return StressLevel.Green;
+        }
+        else if (currentStressLevel < 40)
+        {
+            return StressLevel.Yellow;
+        }
+        else if (currentStressLevel < 60)
+        {
+            return StressLevel.Orange;
+        }
+        else if (currentStressLevel < 80)
+        {
+            return StressLevel.Red;
+        }
+        else
+        {
+            return StressLevel.Black;
+        }
     }
 }

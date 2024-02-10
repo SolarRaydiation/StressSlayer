@@ -1,12 +1,8 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
-using static Item;
 
 public class ShopManager : MonoBehaviour
 {
@@ -84,6 +80,14 @@ public class ShopManager : MonoBehaviour
         shopScreen.SetActive(false);
         ShowCanvases();
         StartCoroutine(RemoveDuplicatesAsync());
+        try
+        {
+            AudioManager.instance.PlaySFX("TapSFX");
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning("Could not play SFX from DeletCanvas!" + e.ToString());
+        }
     }
 
     private void RemoveDuplicates()
@@ -122,7 +126,7 @@ public class ShopManager : MonoBehaviour
     {
         try
         {
-            container = shopScreen.transform.Find("Container");
+            container = shopScreen.transform.Find("Panel").gameObject.transform.Find("Container");
 
             // money and shopname
             Transform shopName = container.Find("ShopName");
@@ -141,9 +145,9 @@ public class ShopManager : MonoBehaviour
             buyButton = display.Find("BuyButton").gameObject;
             itemNameText = itemName.GetComponent<TextMeshProUGUI>();
             itemDescriptionText = itemDescription.GetComponent<TextMeshProUGUI>();
-        } catch
+        } catch (Exception e)
         {
-            
+            Debug.Log($"ShopManager unable to get references from ShopScreen!: {e}");
         }
     }
 
@@ -156,7 +160,7 @@ public class ShopManager : MonoBehaviour
     // sets what items can be bought at the shop
     private void PaintShopItems(Item.ItemType[] itemType)
     {
-        int index = -1;
+        int index = 0;
         foreach (Item.ItemType type in itemType)
         {
             CreateItemButton(type, Item.GetItemName(type), Item.GetItemCost(type), index);
@@ -190,6 +194,13 @@ public class ShopManager : MonoBehaviour
             () =>
             {
                 GetItemDetails(itemType);
+                try
+                {
+                    AudioManager.instance.PlaySFX("TapSFX");
+                } catch (Exception e)
+                {
+                    Debug.LogWarning("Could not play SFX from ShopManager!" + e.ToString());
+                }
             });
     }
     
@@ -207,8 +218,24 @@ public class ShopManager : MonoBehaviour
                 pim.DecreaseCash(Item.GetItemCost(itemType));
                 pim.AddItem(itemType);
                 UpdateCashRemaining();
+                try
+                {
+                    AudioManager.instance.PlaySFX("TapSFX");
+                }
+                catch (Exception e)
+                {
+                    Debug.LogWarning("Could not play SFX from ShopManager!" + e.ToString());
+                }
             } else
             {
+                try
+                {
+                    AudioManager.instance.PlaySFX("ActionFailed");
+                }
+                catch (Exception e)
+                {
+                    Debug.LogWarning("Could not play SFX from ShopManager!" + e.ToString());
+                }
                 Instantiate(ErrorScreenWhenBuyingItems);
             }
         });
@@ -246,12 +273,12 @@ public class ShopManager : MonoBehaviour
         {
             if(cashRemainingText == null)
             {
-                Debug.LogWarning("cashRemainingText reference not present!");
+                Debug.LogWarning("cashRemainingText reference not present!:" + ex);
             }
 
             if(pim == null)
             {
-                Debug.LogWarning("pim reference not present!");
+                Debug.LogWarning("pim reference not present!" + ex);
             }
         }
     }

@@ -149,7 +149,7 @@ public class StressManager : MonoBehaviour
         }
     }
 
-    protected static StressLevel GetCurrentStressLevel(float currentStressLevel)
+    public static StressLevel GetCurrentStressLevel(float currentStressLevel)
     {
         // greenzone
         if(currentStressLevel < 20)

@@ -32,4 +32,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Module 1/Tutorial_TeacherModule1-2.unity
     guid: 071650d4e72d86b4495c593bad6e1bb7
+  - enabled: 1
+    path: Assets/Scenes/Freeplay/FP_BedroomScene.unity
+    guid: 010a4f5392f0e9943884b4f731f5a838
+  - enabled: 1
+    path: Assets/Scenes/Freeplay/FP_LivingRoomScene.unity
+    guid: a7906996b5744bf4ba892bb0a8a0bb6c
+  - enabled: 1
+    path: Assets/Scenes/Freeplay/FP_LibraryScene.unity
+    guid: 1233fe43ea8db1a408a38bbf8fe2650f
+  - enabled: 1
+    path: Assets/Scenes/Freeplay/FP_GroceryScene.unity
+    guid: c1bed963249e8b94f90d270268d9e933
+  - enabled: 1
+    path: Assets/Scenes/Freeplay/FP_BasketballCourtScene.unity
+    guid: 35a71f20897fae742806bd76257bf446
+  - enabled: 1
+    path: Assets/Scenes/Freeplay/FP_PamilyaEskinitaScene.unity
+    guid: c7b1b203fd1fab74a8b1033641c3317b
+  - enabled: 1
+    path: Assets/Scenes/Freeplay/FP_ClassroomScene.unity
+    guid: 3a93d1f4f18578f4fb4cc66cb224a72d
   m_configObjects: {}
