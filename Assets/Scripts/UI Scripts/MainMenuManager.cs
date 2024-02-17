@@ -208,12 +208,14 @@ public class MainMenuManager : MonoBehaviour
             case ModuleType.ModuleTwo:
                 moduleName.SetText("Module Two");
                 moduleDetails.SetText
-                    ("In this module, you will learn how to the play the game. You will also learn how what " +
-                    "stress is and a simple way to learn how to manage stress"
+                    ("In this module, you will learn about the Bilog ng Buhay and learn how to use it to destress" +
+                    "yourself."
                     );
                 playButton.onClick.AddListener(() =>
                 {
                     Debug.Log("Playing Module two");
+                    AsyncManager asyncm = AsyncManager.GetInstance();
+                    asyncm.LoadLevel("Module2-TeacherScene1");
                 });
                 break;
             case ModuleType.ModuleThree:

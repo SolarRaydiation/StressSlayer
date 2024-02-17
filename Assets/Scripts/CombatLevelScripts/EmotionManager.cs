@@ -44,12 +44,26 @@ public class EmotionManager : MonoBehaviour
     // Start is called before the first frame update
     private void Awake()
     {
+        if (!enableMoodles)
+        {
+            Debug.LogWarning("Disabling moodle system.");
+            enabled = false;
+            return;
+        }
+
         moodlePanel = GameObject.Find("MoodleScreen");
-        Transform moodlePanelTransform = moodlePanel.transform;
-        happyMoodle = moodlePanelTransform.Find("MoodleHappy").gameObject;
-        sadMoodle = moodlePanelTransform.Find("MoodleSad").gameObject;
-        fearfulMoodle = moodlePanelTransform.Find("MoodleFearful").gameObject;
-        angryMoodle = moodlePanelTransform.Find("MoodleAngry").gameObject;
+
+        if (moodlePanel == null )
+        {
+            Debug.LogWarning("Moodle UI not found! Disabling moodle system.");
+        } else
+        {
+            Transform moodlePanelTransform = moodlePanel.transform;
+            happyMoodle = moodlePanelTransform.Find("MoodleHappy").gameObject;
+            sadMoodle = moodlePanelTransform.Find("MoodleSad").gameObject;
+            fearfulMoodle = moodlePanelTransform.Find("MoodleFearful").gameObject;
+            angryMoodle = moodlePanelTransform.Find("MoodleAngry").gameObject;
+        }
     }
 
     void Start()

@@ -218,12 +218,12 @@ public class PlayerData
             // set up for Module Two
             currentDaySection = DaySection.Afternoon;
             currentHour = 15;
-            currentDay = Day.Wednesday;
+            currentDay = Day.Tuesday;
         } else if(isModuleOneComplete)
         {
             currentDaySection = DaySection.Afternoon;
             currentHour = 15;
-            currentDay = Day.Tuesday;
+            currentDay = Day.Monday;
         }
 
         nextLevelDifficulty = pd.nextLevelDifficulty;
