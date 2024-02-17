@@ -10,7 +10,7 @@ public class SaveFileManager : MonoBehaviour
     #region Initialization
     private void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
             Debug.Log("There is more than one instance of SaveFileManager in the scene!");
         }
@@ -25,8 +25,6 @@ public class SaveFileManager : MonoBehaviour
     }
 
     #endregion
-
-    #region Methods
 
     public PlayerData LoadPlayerData()
     {
@@ -53,6 +51,11 @@ public class SaveFileManager : MonoBehaviour
         SaveSystem.SaveDataForModuleTwo(true, false, false);
     }
 
+    public void SavePlayerDataForFreeplay()
+    {
+        SaveSystem.SaveDataForModuleTwo(true, true, false);
+    }
+
     public void SavePlayerDataAsync(string levelName)
     {
         StartCoroutine(SaveGameStateAsync(levelName));
@@ -69,5 +72,4 @@ public class SaveFileManager : MonoBehaviour
         return SaveSystem.CheckIfSaveFileExists();
     }
 
-    #endregion
 }
