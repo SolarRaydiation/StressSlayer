@@ -36,6 +36,7 @@ public class LevelLoader : MonoBehaviour
         animator.SetTrigger(triggerAnimationName);
         SaveFileManager sfm = SaveFileManager.GetInstance();
         sfm.SavePlayerDataForModuleTwo();
+        SaveSystem.DeleteGameLock();
         yield return new WaitForSeconds(transitionTime);
 
         try
@@ -52,6 +53,7 @@ public class LevelLoader : MonoBehaviour
         animator.SetTrigger(triggerAnimationName);
         SaveFileManager sfm = SaveFileManager.GetInstance();
         sfm.SavePlayerDataForFreeplay();
+        SaveSystem.DeleteGameLock();
         yield return new WaitForSeconds(transitionTime);
 
         try

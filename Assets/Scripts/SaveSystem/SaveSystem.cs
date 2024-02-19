@@ -7,6 +7,7 @@ public static class SaveSystem
 {
     public const string SAVEFILE_PATH = "/savedata.bin";
     public const string SOUNDSETTINGS_PATH = "/soundsettings.bin";
+    public const string GAMELOCK_PATH = "/gamelock.bin";
 
     #region Create New Save Files
 
@@ -195,6 +196,42 @@ public static class SaveSystem
     {
         Debug.Log("Deleting sound settings file...");
         string path = Application.persistentDataPath + SOUNDSETTINGS_PATH;
+        File.Delete(path);
+    }
+
+    #endregion
+
+    #region Game Lock
+
+    public static void CreateNewGameLock()
+    {
+        Debug.Log("Creating game lock...");
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + GAMELOCK_PATH;
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        GameLock gameLock = new GameLock();
+        formatter.Serialize(stream, gameLock);
+        stream.Close();
+    }
+
+    public static bool CheckIfGameLockExist()
+    {
+        string path = Application.persistentDataPath + GAMELOCK_PATH;
+        if (File.Exists(path))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static void DeleteGameLock()
+    {
+        Debug.Log("Deleting game lock file...");
+        string path = Application.persistentDataPath + GAMELOCK_PATH;
         File.Delete(path);
     }
 

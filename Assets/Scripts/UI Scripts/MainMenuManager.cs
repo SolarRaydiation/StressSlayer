@@ -12,6 +12,7 @@ public class MainMenuManager : MonoBehaviour
 
     [Header("Main Menu Screens")]
     public GameObject saveFileAlreadyExists;
+    public GameObject gameLockScreen;
     public GameObject noSaveFilePresent;
     public GameObject modulesListPanel;
 
@@ -74,12 +75,27 @@ public class MainMenuManager : MonoBehaviour
     {
         if (sfm.DoesSaveFileExists())
         {
-            OpenModulesList();
+            if(SaveSystem.CheckIfGameLockExist())
+            {
+                gameLockScreen.SetActive(true);
+            } else
+            {
+                OpenModulesList();
+            }
         }
         else
         {
             noSaveFilePresent.SetActive(true);
         }
+    }
+
+    public void LoadLatestLevel()
+    {
+        SaveFileManager sfm = SaveFileManager.GetInstance();
+        sfm.ReloadPlayerData();
+        PlayerData pd = sfm.saveFile;
+        AsyncManager asyncm = AsyncManager.GetInstance();
+        asyncm.LoadLevel(pd.currentSceneLocation);
     }
 
     #endregion
@@ -120,7 +136,7 @@ public class MainMenuManager : MonoBehaviour
                 PopulateScreen(ModuleType.ModuleOne);
                 try
                 {
-                    AudioManager.instance.PlaySFX("Tap");
+                    AudioManager.instance.PlaySFX("TapSFX");
                 }
                 catch (Exception ex)
                 {
@@ -142,7 +158,7 @@ public class MainMenuManager : MonoBehaviour
                 PopulateScreen(ModuleType.ModuleTwo);
                 try
                 {
-                    AudioManager.instance.PlaySFX("Tap");
+                    AudioManager.instance.PlaySFX("TapSFX");
                 } catch (Exception ex)
                 {
                     Debug.LogWarning("Could not play TapSFX from Module Two button! " + ex);
@@ -167,7 +183,7 @@ public class MainMenuManager : MonoBehaviour
                 PopulateScreen(ModuleType.FreePlay);
                 try
                 {
-                    AudioManager.instance.PlaySFX("Tap");
+                    AudioManager.instance.PlaySFX("TapSFX");
                 }
                 catch (Exception ex)
                 {
@@ -202,6 +218,7 @@ public class MainMenuManager : MonoBehaviour
                 {
                     SaveSystem.DeleteData();
                     SaveSystem.CreateNewSaveFile();
+                    SaveSystem.CreateNewGameLock();
                     SaveFileManager sfm = SaveFileManager.GetInstance();
                     sfm.ReloadPlayerData();
                     Debug.Log("Playing Module One");
@@ -217,6 +234,7 @@ public class MainMenuManager : MonoBehaviour
                     );
                 playButton.onClick.AddListener(() =>
                 {
+                    SaveSystem.CreateNewGameLock();
                     Debug.Log("Playing Module two");
                     AsyncManager asyncm = AsyncManager.GetInstance();
                     asyncm.LoadLevel("Module2-TeacherScene1");
@@ -231,6 +249,7 @@ public class MainMenuManager : MonoBehaviour
                 {
                     SaveSystem.DeleteData();
                     SaveSystem.CreateNewSaveFile();
+                    SaveSystem.CreateNewGameLock();
                     SaveFileManager sfm = SaveFileManager.GetInstance();
                     sfm.ReloadPlayerData();
                     AsyncManager asyncm = AsyncManager.GetInstance();
