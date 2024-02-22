@@ -216,7 +216,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 642589837136814849, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2.3736572
+      value: -1.4
       objectReference: {fileID: 0}
     - target: {fileID: 642589837136814849, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -230,9 +230,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6586860675219106977, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586860675219106977, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 827726431
+      objectReference: {fileID: 0}
     - target: {fileID: 7254091104200640726, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_Name
       value: InteractableTextMesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 7254091104200640726, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_text
@@ -2081,7 +2093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7288919716832013740, guid: d03850b0a7603014ca35e6eec0146674, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7783329138789063022, guid: d03850b0a7603014ca35e6eec0146674, type: 3}
       propertyPath: m_Color.a
@@ -3028,6 +3040,10 @@ PrefabInstance:
     - target: {fileID: 7254091104200640726, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_Name
       value: InteractableTextMesh (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7254091104200640726, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5156,11 +5172,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 642589837136814849, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.56
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 642589837136814849, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.7325011
+      value: -0.73
       objectReference: {fileID: 0}
     - target: {fileID: 642589837136814849, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5174,9 +5190,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6586860675219106977, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586860675219106977, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 827726431
+      objectReference: {fileID: 0}
     - target: {fileID: 7254091104200640726, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_Name
       value: InteractableTextMesh (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7254091104200640726, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5837,14 +5881,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 841676667}
     m_Modifications:
+    - target: {fileID: 3582263881644973479, guid: 017f6360753cc4547afbf87dfb59d48a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582263881644973479, guid: 017f6360753cc4547afbf87dfb59d48a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 5586004304810842254, guid: 017f6360753cc4547afbf87dfb59d48a, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2100000, guid: e6ffff2e00cf15346ad46c4a51f8768d, type: 2}
+    - target: {fileID: 6771029431659705968, guid: 017f6360753cc4547afbf87dfb59d48a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6935118056170501508, guid: 017f6360753cc4547afbf87dfb59d48a, type: 3}
       propertyPath: inkJSON
       value: 
       objectReference: {fileID: 4900000, guid: 4f6a0978b88be05478215c148b8af577, type: 3}
+    - target: {fileID: 7076572192822350343, guid: 017f6360753cc4547afbf87dfb59d48a, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076572192822350343, guid: 017f6360753cc4547afbf87dfb59d48a, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 827726431
+      objectReference: {fileID: 0}
     - target: {fileID: 7076572192822350343, guid: 017f6360753cc4547afbf87dfb59d48a, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

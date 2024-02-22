@@ -227,9 +227,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractableTextMesh (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7254091104200640726, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_text
-      value: Go back home?
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_fontSize
@@ -1842,9 +1846,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractableTextMesh (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7254091104200640726, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_text
-      value: Read the notice board?
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_fontSize
@@ -6443,9 +6451,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractableTextMesh (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7254091104200640726, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_text
-      value: Travel to the library?
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_fontSize
@@ -7155,7 +7167,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: bf9caab91a3762f49b1039deff822d95, type: 3}
     - target: {fileID: 2424267473378824031, guid: 5941f6b8870298a43bd7d5bfc07c192b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4307439125981705428, guid: 5941f6b8870298a43bd7d5bfc07c192b, type: 3}
       propertyPath: m_Pivot.x
@@ -7249,6 +7261,10 @@ PrefabInstance:
       propertyPath: pauseMenu
       value: 
       objectReference: {fileID: 1856161972}
+    - target: {fileID: 6623282658516366489, guid: 5941f6b8870298a43bd7d5bfc07c192b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6753075632348946833, guid: 5941f6b8870298a43bd7d5bfc07c192b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -7264,6 +7280,10 @@ PrefabInstance:
     - target: {fileID: 8343932020997018733, guid: 5941f6b8870298a43bd7d5bfc07c192b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8392562437745651428, guid: 5941f6b8870298a43bd7d5bfc07c192b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8854759881935188231, guid: 5941f6b8870298a43bd7d5bfc07c192b, type: 3}
       propertyPath: m_AnchorMax.y
@@ -7505,11 +7525,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractableTextMesh (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7254091104200640726, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_text
-      value: 'Travel to the
-
-        basketball court?'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_fontSize
@@ -8026,9 +8048,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractableTextMesh (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7254091104200640726, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_text
-      value: Go to school?
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_fontSize
@@ -8694,9 +8720,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: InteractableTextMesh (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7254091104200640726, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_text
-      value: Go back home?
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_fontSize
