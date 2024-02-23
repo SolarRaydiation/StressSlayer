@@ -271,6 +271,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2603469737568972881, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278058979727292625, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6712868631709138074, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -370,6 +378,10 @@ PrefabInstance:
     - target: {fileID: 8028295828674431969, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113685614721934325, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000030517578
       objectReference: {fileID: 0}
     - target: {fileID: 8263064142345563135, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
       propertyPath: m_AnchorMax.x
@@ -4949,6 +4961,10 @@ PrefabInstance:
     - target: {fileID: 7288919716832013740, guid: d03850b0a7603014ca35e6eec0146674, type: 3}
       propertyPath: m_Name
       value: DialougeScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288919716832013740, guid: d03850b0a7603014ca35e6eec0146674, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

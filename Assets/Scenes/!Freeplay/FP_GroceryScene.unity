@@ -2288,6 +2288,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5686086159292943132, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6712868631709138074, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6939595620520079992, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2658,6 +2666,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ActivityScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 1903033350727124733, guid: 760f83cd48b6c604cade4e7f050f55ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3578014494335263750, guid: 760f83cd48b6c604cade4e7f050f55ed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -2781,6 +2793,14 @@ PrefabInstance:
     - target: {fileID: 7891559785974493075, guid: 760f83cd48b6c604cade4e7f050f55ed, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571479803696583473, guid: 760f83cd48b6c604cade4e7f050f55ed, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 6.2999268
+      objectReference: {fileID: 0}
+    - target: {fileID: 8677968528994141698, guid: 760f83cd48b6c604cade4e7f050f55ed, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
