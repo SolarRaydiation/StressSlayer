@@ -1623,11 +1623,11 @@ PrefabInstance:
       objectReference: {fileID: 318534600849092289}
     - target: {fileID: 2709174404206550382, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_Lens.OrthographicSize
-      value: 12.12
+      value: 14.4
       objectReference: {fileID: 0}
     - target: {fileID: 2998201028951654171, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: orthographic size
-      value: 12.12
+      value: 14.4
       objectReference: {fileID: 0}
     - target: {fileID: 2998201028951654171, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -1663,7 +1663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.95119977
+      value: -1.0479995
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1703,7 +1703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9161924900399948033, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_ScreenY
-      value: 0.63
+      value: 0.54
       objectReference: {fileID: 0}
     - target: {fileID: 9161924900399948033, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_YDamping
@@ -4921,6 +4921,22 @@ PrefabInstance:
     - target: {fileID: 4977851522996085641, guid: 34a8ac050ec55094f8956555748e966a, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467754806558536343, guid: 34a8ac050ec55094f8956555748e966a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.6253889
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467754806558536343, guid: 34a8ac050ec55094f8956555748e966a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.6253889
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467754806558536343, guid: 34a8ac050ec55094f8956555748e966a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 14.255001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6467754806558536343, guid: 34a8ac050ec55094f8956555748e966a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 8349277038638614474, guid: 34a8ac050ec55094f8956555748e966a, type: 3}
       propertyPath: m_Name
