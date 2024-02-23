@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float baseMovementSpeed;
     public AudioSource walkSound;
-    public bool isInDialogueMode;
+    public bool canPlayerMove;
 
     [Header("Internals")]               
     private float currentMovementSpeed;
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         }
         instance = this;
 
-        isInDialogueMode = false;
+        canPlayerMove = true;
         currentMovementSpeed = baseMovementSpeed;
         GetPlayerComponents();
     }
@@ -117,12 +117,9 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
-    /* =============================================
-     * Update Methods
-     * ========================================== */
     void FixedUpdate()
     {
-        if(isInDialogueMode)
+        if(!canPlayerMove)
         {
             return;
         }
@@ -150,10 +147,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    /* =============================================
-     * Movement Values Methods
-     * ========================================== */
-
+    #region Movement Values
     private void GetMovementValues()
     {
         if(IsApproximatelyOne(joystick.Horizontal))
@@ -192,6 +186,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         currentMovementSpeed = baseMovementSpeed;
     }
+    #endregion
 
     #region Movement Methods
     void MovePlayerWithTranslate()
@@ -248,7 +243,7 @@ public class PlayerMovement : MonoBehaviour
     #region Enable/Disable PlayerMovement
     public void DisablePlayerMovement()
     {
-        isInDialogueMode = true;
+        canPlayerMove = false;
         horizontalMovement = 0;
         verticalMovement = 0;
         rb.velocity = new Vector2(0, 0);
@@ -260,7 +255,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalMovement = 0;
         verticalMovement = 0;
         rb.velocity = new Vector2(0, 0);
-        isInDialogueMode = false;
+        canPlayerMove = true;
     }
     #endregion
 }

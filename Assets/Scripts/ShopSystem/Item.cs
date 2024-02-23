@@ -47,7 +47,7 @@ public class Item
         switch (itemType)
         {
             case ItemType.FruitsAndVegetables:
-                return "This is a fruit and vegetable.";
+                return "Provides a small but healthy reduction to stress when used.";
             case ItemType.AssortedDrugs:
                 return "These are assorted drugs.";
             case ItemType.CortisolInjector:
