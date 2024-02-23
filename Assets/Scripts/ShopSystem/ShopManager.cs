@@ -216,7 +216,7 @@ public class ShopManager : MonoBehaviour
                 UpdateCashRemaining();
                 try
                 {
-                    AudioManager.instance.PlaySFX("TapSFX");
+                    AudioManager.instance.PlaySFX("ItemBought");
                 }
                 catch (Exception e)
                 {

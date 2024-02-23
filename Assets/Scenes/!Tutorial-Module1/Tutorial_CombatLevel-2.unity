@@ -1559,11 +1559,11 @@ PrefabInstance:
       objectReference: {fileID: 318534600849092289}
     - target: {fileID: 2709174404206550382, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_Lens.OrthographicSize
-      value: 12.12
+      value: 14.8
       objectReference: {fileID: 0}
     - target: {fileID: 2998201028951654171, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: orthographic size
-      value: 12.12
+      value: 14.8
       objectReference: {fileID: 0}
     - target: {fileID: 2998201028951654171, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -1599,7 +1599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.95119977
+      value: -0.7199997
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1639,7 +1639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9161924900399948033, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_ScreenY
-      value: 0.63
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 9161924900399948033, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_YDamping

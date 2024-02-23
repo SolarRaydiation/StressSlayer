@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class GameboostManager : MonoBehaviour
 {
+    #region Variables
     public static GameboostManager instance;
 
     [Header("UI")]
@@ -19,6 +20,7 @@ public class GameboostManager : MonoBehaviour
     public int fruitsAndVegetablesOwned;
     public int cortisolInjectorsOwned;
     public int assortedDrugsOwned;
+    #endregion
 
     #region Initialization
     private void Awake()
@@ -118,7 +120,7 @@ public class GameboostManager : MonoBehaviour
 
     #endregion
 
-    #region Inflict Effects
+    #region Use Effects
 
     [Obsolete]
     public void UseInjector()
@@ -137,6 +139,7 @@ public class GameboostManager : MonoBehaviour
         StressManager instance = StressManager.GetInstance();
         instance.ReduceStress(10);
         fruitsAndVegetablesOwned--;
+        PlaySFX();
 
         CheckFruitsAndVegetableInventory();
     }
@@ -152,5 +155,21 @@ public class GameboostManager : MonoBehaviour
         CheckSADInventory();
     }
 
+    #endregion
+
+    #region Supporting Methods
+    
+    private void PlaySFX()
+    {
+        try
+        {
+            AudioManager.instance.PlaySFX("ItemUsed");
+        } catch (Exception e)
+        {
+            AudioManager.instance.PlaySFX("TapSFX");
+            Debug.LogWarning(e);
+        }
+    }
+    
     #endregion
 }

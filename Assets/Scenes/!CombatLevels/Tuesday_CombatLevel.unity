@@ -990,6 +990,18 @@ PrefabInstance:
       propertyPath: bgmToPlay
       value: CombatTheme
       objectReference: {fileID: 0}
+    - target: {fileID: 3715038271561822642, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
+      propertyPath: sfx.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3715038271561822642, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
+      propertyPath: sfx.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 64b1e7974b61e1945aeccfe5d3fe7c06, type: 3}
+    - target: {fileID: 3715038271561822642, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
+      propertyPath: sfx.Array.data[7].name
+      value: ItemUsed
+      objectReference: {fileID: 0}
     - target: {fileID: 5237894704415503994, guid: cb626e71ab1f2a242b37013f91e4a676, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -1559,11 +1571,11 @@ PrefabInstance:
       objectReference: {fileID: 318534600849092289}
     - target: {fileID: 2709174404206550382, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_Lens.OrthographicSize
-      value: 12.12
+      value: 14.8
       objectReference: {fileID: 0}
     - target: {fileID: 2998201028951654171, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: orthographic size
-      value: 12.12
+      value: 14.8
       objectReference: {fileID: 0}
     - target: {fileID: 2998201028951654171, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -1599,7 +1611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.95119977
+      value: -0.7199997
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1639,7 +1651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9161924900399948033, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_ScreenY
-      value: 0.63
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 9161924900399948033, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_YDamping

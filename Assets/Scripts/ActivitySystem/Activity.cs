@@ -62,8 +62,14 @@ public abstract class Activity : MonoBehaviour
 
     public void TriggerActivitySystem()
     {
-        ActivitySystem activitySystem = ActivitySystem.GetInstance();
-        activitySystem.EnterActivityMode(this);
+        if(clockManager.currentHour != 23)
+        {
+            ActivitySystem activitySystem = ActivitySystem.GetInstance();
+            activitySystem.EnterActivityMode(this);
+        } else
+        {
+            // intentionally left blank
+        }
     }
 
     #endregion
