@@ -4952,6 +4952,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatLevelUI
       objectReference: {fileID: 0}
+    - target: {fileID: 443275625774859592, guid: fc5abf9251a262c4391dc85c9d8a1e51, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 827532799815846398, guid: fc5abf9251a262c4391dc85c9d8a1e51, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3780894410305717769, guid: fc5abf9251a262c4391dc85c9d8a1e51, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
