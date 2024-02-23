@@ -28,7 +28,7 @@ public class DefeatScreen : MonoBehaviour
         DisableGameObjects();
 
         animator.SetTrigger("AnimateScreen");
-        StartCoroutine(DelayGameFreeze());
+        //StartCoroutine(DelayGameFreeze());
     }
 
     public void ResetLevel()

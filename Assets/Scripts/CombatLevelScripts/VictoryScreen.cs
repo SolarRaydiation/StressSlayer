@@ -19,7 +19,7 @@ public class VictoryScreen : MonoBehaviour
         canvasGroup.blocksRaycasts = true;
         DisableGameObjects();
         animator.SetTrigger("AnimateScreen");
-        StartCoroutine(DelayGameFreeze());
+        //StartCoroutine(DelayGameFreeze());
     }
 
     public void ContinueToNextLevel()

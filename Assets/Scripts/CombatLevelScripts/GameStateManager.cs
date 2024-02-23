@@ -4,6 +4,7 @@ using System.Collections;
 
 public class GameStateManager : MonoBehaviour
 {
+    #region Variables
     public static GameStateManager instance;
     
     public DefeatScreen ds;                     // script reference to manage the defeat screen
@@ -27,10 +28,12 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] private bool isSubroutineRunning;
     [SerializeField] private bool shouldRestart;
 
-
     enum DefeatType
     { PlayerDeath, NoTimeLeft, Overstress }
 
+    #endregion
+
+    #region Initialization
     public void Awake()
     {
         if(instance != null)
@@ -60,7 +63,6 @@ public class GameStateManager : MonoBehaviour
             Debug.LogError($"Could not VictoryFlag script :{e.Message}");
         }
 
-
         try
         {
             sm = StressManager.GetInstance();
@@ -72,6 +74,7 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
+    #endregion
     private void FixedUpdate()
     {
         hasGameStarted = timerCountdown.IsCountDownFinished();
@@ -82,9 +85,7 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
-    /* ===========================================
-     * Checker Functions
-     * ========================================== */
+    #region Win/Loss Checker Functions
 
     private void CheckIfPlayerHasWon()
     {
@@ -122,15 +123,16 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
-    /* ===========================================
-     * Victory Defeat Functions
-     * ========================================== */
+    #endregion
+
+    #region Victory/Defeat Methods
 
     private void PlayerVictory()
     {
         hasGameEnded = true;
         Debug.Log("Player has won");
         vs.OpenVictoryScreen();
+        DisableControls();
     }
 
     private void PlayerDefeat(DefeatType defeatType)
@@ -138,12 +140,41 @@ public class GameStateManager : MonoBehaviour
         Debug.Log("Player is dead!");
         hasGameEnded = true;
         ds.OpenDefeatScreen(GetDefeatString(defeatType));
+        DisableControls();
     }
 
-    /* ===========================================
-     * Supporting Functions
-     * ========================================== */
+    private void DisableControls()
+    {
+        try
+        {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            if (player != null)
+            {
+                PlayerMovement.GetInstance().DisablePlayerMovement();
+                StressManager.GetInstance().StopStressManager();
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.Log(ex);
+        }
 
+        try
+        {
+            GameObject playerControls = GameObject.Find("PlayerControls");
+            if (playerControls != null)
+            {
+                playerControls.SetActive(false);
+            }
+        } catch (Exception ex)
+        {
+            Debug.Log(ex);
+        }
+    }
+
+    #endregion
+
+    #region Supporting Methods
     private static string GetDefeatString(DefeatType defeatType)
     {
         switch(defeatType)
@@ -159,6 +190,7 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
+    #endregion
 
     #region Stress Coroutine
 

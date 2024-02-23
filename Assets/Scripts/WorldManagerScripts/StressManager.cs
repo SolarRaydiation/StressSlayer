@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class StressManager : MonoBehaviour
 {
+    #region Variables
     public static StressManager instance;
     public Slider stressMeter;
 
@@ -26,7 +27,9 @@ public class StressManager : MonoBehaviour
     {
         Green, Yellow, Orange, Red, Black
     }
+    #endregion
 
+    #region Initialization
     private void Awake()
     {
         if(instance !=  null)
@@ -56,9 +59,9 @@ public class StressManager : MonoBehaviour
         }
     }
 
-    /* =============================================
-     * Core Functions
-     * ========================================== */
+    #endregion
+
+    #region Core Methods
 
     public void AddStress(int amount)
     {
@@ -89,10 +92,6 @@ public class StressManager : MonoBehaviour
         stressBonus = GetStressBonus(stressState);
     }
 
-    /* =============================================
-     * Apply Bonuses to the Player's Stats
-     * ========================================== */
-
     private void ApplyPlayerBonuses()
     {
         pss.UpdateCurrentAttackDamage(pss.GetBaseAttackDamage() + 
@@ -101,9 +100,9 @@ public class StressManager : MonoBehaviour
         //Debug.Log($"Current player damage is at {pss.GetCurrentAttackDamage()}");
     }
 
-    /* =============================================
-     * Coroutines
-     * ========================================== */
+    #endregion
+
+    #region Coroutines
 
     IEnumerator IncreaseStressGradually(float tickDuration)
     {
@@ -124,9 +123,14 @@ public class StressManager : MonoBehaviour
         StartCoroutine(IncreaseStressBasedOnEnemyCount());
     }
 
-    /* =============================================
-     * Static Functions
-     * ========================================== */
+    public void StopStressManager()
+    {
+        StopAllCoroutines();
+    }
+
+    #endregion
+
+    #region Static Methods
 
     protected static float GetStressBonus(StressLevel sl)
     {
@@ -174,4 +178,6 @@ public class StressManager : MonoBehaviour
     {
         return stressMeter.value;
     }
+
+    #endregion
 }

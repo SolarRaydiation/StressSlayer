@@ -247,6 +247,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalMovement = 0;
         verticalMovement = 0;
         rb.velocity = new Vector2(0, 0);
+        animator.enabled = false;
     }
 
     public void EnablePlayerMovement()
@@ -255,6 +256,7 @@ public class PlayerMovement : MonoBehaviour
         horizontalMovement = 0;
         verticalMovement = 0;
         rb.velocity = new Vector2(0, 0);
+        animator.enabled = true;
         canPlayerMove = true;
     }
     #endregion

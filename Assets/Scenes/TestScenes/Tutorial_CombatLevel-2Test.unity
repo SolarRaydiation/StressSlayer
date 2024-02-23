@@ -1595,7 +1595,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.15
+      value: 212
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2162,7 +2162,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1521352587029620485, guid: c60cb00dc00cbe2489b317d0b0abcc99, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.15
+      value: 212
       objectReference: {fileID: 0}
     - target: {fileID: 1521352587029620485, guid: c60cb00dc00cbe2489b317d0b0abcc99, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5161,6 +5161,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CombatLevelUI
       objectReference: {fileID: 0}
+    - target: {fileID: 443275625774859592, guid: fc5abf9251a262c4391dc85c9d8a1e51, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5070941889886656660, guid: fc5abf9251a262c4391dc85c9d8a1e51, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 5
@@ -5291,6 +5295,10 @@ PrefabInstance:
       objectReference: {fileID: 1157691311}
     - target: {fileID: 6992106968443579272, guid: fc5abf9251a262c4391dc85c9d8a1e51, type: 3}
       propertyPath: gameObjectsToHide.Array.data[5]
+      value: 
+      objectReference: {fileID: 1042732260}
+    - target: {fileID: 6992106968443579272, guid: fc5abf9251a262c4391dc85c9d8a1e51, type: 3}
+      propertyPath: gameObjectsToHide.Array.data[6]
       value: 
       objectReference: {fileID: 1042732260}
     - target: {fileID: 7044245237345500156, guid: fc5abf9251a262c4391dc85c9d8a1e51, type: 3}
