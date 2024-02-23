@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
 {
+    #region Variables
     public GameObject shopScreen;
     public GameObject ErrorScreenWhenBuyingItems;
 
@@ -34,14 +35,9 @@ public class ShopManager : MonoBehaviour
     private TextMeshProUGUI itemNameText;
     private TextMeshProUGUI itemDescriptionText;
     private GameObject buyButton;
+    #endregion
 
-    // public variables
-    
-
-    /* =============================================
-     * Initialization
-     * ========================================== */
-
+    #region Initialization
     private void Awake()
     {
         if (instance != null)
@@ -49,7 +45,6 @@ public class ShopManager : MonoBehaviour
             Debug.LogWarning("There is more than one instance of ShopManager in the scene!");
         }
         instance = this;
-        
     }
 
     private void Start()
@@ -62,15 +57,15 @@ public class ShopManager : MonoBehaviour
     {
         return instance;
     }
+    #endregion
 
-    /* =============================================
-     * Methods for Turning On/Off Shop Screen
-     * ========================================== */
-
+    #region Methods for Turning On/Off Shop Screen
     public void OpenShopScreen(string shopName, Item.ItemType[] itemType)
     {
         HideCanvases();
         shopScreen.SetActive(true);
+        itemNameText.SetText("");
+        itemDescriptionText.SetText("");
         RefreshScreen(shopName, itemType);
     }
 
@@ -78,6 +73,7 @@ public class ShopManager : MonoBehaviour
     {
         // delete all duplicates
         shopScreen.SetActive(false);
+        PlayerMovement.GetInstance().EnablePlayerMovement();
         ShowCanvases();
         StartCoroutine(RemoveDuplicatesAsync());
         try
@@ -110,9 +106,9 @@ public class ShopManager : MonoBehaviour
         RemoveDuplicates();
     }
 
-    /* =============================================
-     * Core Methods
-     * ========================================== */
+    #endregion
+
+    #region Core Methods
 
     // for refreshing the screen's buyable items, erasing the display UI text elements, and updating values
     private void RefreshScreen(string shopName,Item.ItemType[] itemType)
@@ -241,9 +237,9 @@ public class ShopManager : MonoBehaviour
         });
     }
 
-    /* =============================================
-     * Show/Hide Canvases Methods
-     * ========================================== */
+    #endregion
+
+    #region Show/Hide Canvases Methods
     private void HideCanvases()
     {
         foreach (GameObject c in canvases)
@@ -259,11 +255,9 @@ public class ShopManager : MonoBehaviour
             c.SetActive(true);
         }
     }
+    #endregion
 
-    /* =============================================
-     * Supporting Methods
-     * ========================================== */
-
+    #region Supporting Methods
     private void UpdateCashRemaining()
     {
         try
@@ -287,4 +281,5 @@ public class ShopManager : MonoBehaviour
     {
         shopNameText.SetText(shopName);
     }
+    #endregion
 }

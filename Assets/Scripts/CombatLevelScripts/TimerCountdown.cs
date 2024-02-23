@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TimerCountdown : MonoBehaviour
 {
+    #region Variables
     public static TimerCountdown instance;
 
     [Header("Countdown and Timer Values")]
@@ -25,7 +26,9 @@ public class TimerCountdown : MonoBehaviour
     [Header("Flags")]
     private bool isTimeAtZero;
     private bool isCountdownFinished;
+    #endregion
 
+    #region Initialization
     private void Awake()
     {
         if(instance != null)
@@ -39,17 +42,16 @@ public class TimerCountdown : MonoBehaviour
     {
         return instance;
     }
-
+    
     void Start()
     {
         isCountdownFinished = false;
         isTimeAtZero = false;
         StartCountdown();
     }
+    #endregion
 
-    /* ===========================================
-     * Timer Functions
-     * ========================================== */   
+    #region Timer Methods
     public void StartTimer()
     {
         timeRemaining = levelDurationInSeconds;
@@ -88,10 +90,9 @@ public class TimerCountdown : MonoBehaviour
         timerText.gameObject.transform.parent.gameObject.SetActive(false);
     }
 
+    #endregion
 
-    /* ===========================================
-     * Game Start Countdown
-     * ========================================== */
+    #region Countdown Methods
     public void StartCountdown()
     {
         timeRemaining = secondsBeforeGameStart;
@@ -126,4 +127,6 @@ public class TimerCountdown : MonoBehaviour
     {
         return isCountdownFinished;
     }
+
+    #endregion
 }

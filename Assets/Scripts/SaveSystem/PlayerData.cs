@@ -42,7 +42,8 @@ public class PlayerData
 
     #endregion
 
-    // regular play
+    #region Create Save File based on Type of Level
+    // for saving overworld level
     public PlayerData(PlayerMovement pm, PlayerStatsController psc, ClockManager cm,
         NextLevelPreInitializer nlpi, PlayerInventoryManager pim, string nextScene)
     {
@@ -201,51 +202,10 @@ public class PlayerData
             Debug.LogWarning("Could not get scene name!");
         }
     }
+    #endregion
 
-    // save for module two and three
-    public PlayerData(PlayerData pd, bool isModuleOneComplete, bool isModuleTwoComplete, bool isModuleThreeComplete )
-    {
-        baseMovementSpeed = pd.baseMovementSpeed;
-
-        playerName = pd.playerName;
-        maxHealth = pd.maxHealth;
-        timesDrugWasTaken = pd.timesDrugWasTaken;
-        baseAttackDamage = pd.baseAttackDamage;
-        currentStressLevel = pd.currentStressLevel;
-
-        if(isModuleOneComplete && isModuleTwoComplete)
-        {
-            // set up for Module Two
-            currentDaySection = DaySection.Afternoon;
-            currentHour = 15;
-            currentDay = Day.Wednesday;
-        } else if(isModuleOneComplete)
-        {
-            currentDaySection = DaySection.Afternoon;
-            currentHour = 15;
-            currentDay = Day.Tuesday;
-        }
-
-        nextLevelDifficulty = pd.nextLevelDifficulty;
-
-        // Player Inventory Manager
-        cashRemaining = pd.cashRemaining;
-        fruitsAndVegetablesOwned = pd.fruitsAndVegetablesOwned;
-        cortisolInjectorsOwned = pd.cortisolInjectorsOwned;
-        assortedDrugsOwned = pd.assortedDrugsOwned;
-
-        // others
-        currentSceneLocation = "";
-        lastSceneLocation = "";
-
-        // module tracking
-        moduleOneComplete = isModuleOneComplete;
-        moduleTwoComplete = isModuleTwoComplete;
-        moduleThreeComplete = isModuleThreeComplete;
-    }
-
-
-
+    #region Create Save File Based On Play Mode
+    // for free play and Module One
     public PlayerData()
     {
         baseMovementSpeed = 12;
@@ -268,4 +228,48 @@ public class PlayerData
         moduleTwoComplete = false;
         moduleThreeComplete = false;
     }
+
+    public PlayerData(PlayerData pd, bool isModuleOneComplete, bool isModuleTwoComplete, bool isModuleThreeComplete)
+    {
+        baseMovementSpeed = pd.baseMovementSpeed;
+
+        playerName = pd.playerName;
+        maxHealth = pd.maxHealth;
+        timesDrugWasTaken = pd.timesDrugWasTaken;
+        baseAttackDamage = pd.baseAttackDamage;
+        currentStressLevel = pd.currentStressLevel;
+
+        if (isModuleOneComplete && isModuleTwoComplete)
+        {
+            // set up for Module Two
+            currentDaySection = DaySection.Afternoon;
+            currentHour = 15;
+            currentDay = Day.Tuesday;
+        }
+        else if (isModuleOneComplete)
+        {
+            currentDaySection = DaySection.Afternoon;
+            currentHour = 15;
+            currentDay = Day.Monday;
+        }
+
+        nextLevelDifficulty = pd.nextLevelDifficulty;
+
+        // Player Inventory Manager
+        cashRemaining = pd.cashRemaining;
+        fruitsAndVegetablesOwned = pd.fruitsAndVegetablesOwned;
+        cortisolInjectorsOwned = pd.cortisolInjectorsOwned;
+        assortedDrugsOwned = pd.assortedDrugsOwned;
+
+        // others
+        currentSceneLocation = "";
+        lastSceneLocation = "";
+
+        // module tracking
+        moduleOneComplete = isModuleOneComplete;
+        moduleTwoComplete = isModuleTwoComplete;
+        moduleThreeComplete = isModuleThreeComplete;
+    }
+
+    #endregion
 }

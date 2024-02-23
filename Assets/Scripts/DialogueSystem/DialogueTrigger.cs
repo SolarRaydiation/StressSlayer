@@ -9,6 +9,7 @@ public class DialogueTrigger : MonoBehaviour
     public void StartDialogue()
     {
         DialogueManager dm = DialogueManager.GetDialogueManagerInstance();
+        PlayerMovement.GetInstance().DisablePlayerMovement();
         dm.EnterDialogueMode(inkJSON);
     }
 }

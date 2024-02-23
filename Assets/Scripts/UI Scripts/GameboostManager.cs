@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -19,11 +20,12 @@ public class GameboostManager : MonoBehaviour
     public int cortisolInjectorsOwned;
     public int assortedDrugsOwned;
 
+    #region Initialization
     private void Awake()
     {
         if (instance != null)
         {
-            Debug.LogWarning("More than one instance of PlayerStatsScript in the scene!");
+            Debug.LogWarning("More than one instance of GameboostManager in the scene!");
         }
         instance = this;
     }
@@ -36,8 +38,8 @@ public class GameboostManager : MonoBehaviour
     void Start()
     {
         LoadData();
-        CheckInjectorInventory();
-        CheckSADInventory();
+        //CheckInjectorInventory();
+        //CheckSADInventory();
         CheckFruitsAndVegetableInventory();
     }
 
@@ -61,7 +63,11 @@ public class GameboostManager : MonoBehaviour
         }
     }
 
+    #endregion
+
     #region Checker if Inventory is Present
+
+    [Obsolete]
     private void CheckInjectorInventory()
     {
         if(cortisolInjectorsOwned != 0)
@@ -77,6 +83,7 @@ public class GameboostManager : MonoBehaviour
         }
     }
 
+    [Obsolete]
     private void CheckSADInventory()
     {
         if (assortedDrugsOwned != 0)
@@ -112,6 +119,8 @@ public class GameboostManager : MonoBehaviour
     #endregion
 
     #region Inflict Effects
+
+    [Obsolete]
     public void UseInjector()
     {
         StressManager instance = StressManager.GetInstance();
@@ -132,6 +141,7 @@ public class GameboostManager : MonoBehaviour
         CheckFruitsAndVegetableInventory();
     }
 
+    [Obsolete]
     public void UseAssortedDrugs()
     {
         StressManager instance = StressManager.GetInstance();

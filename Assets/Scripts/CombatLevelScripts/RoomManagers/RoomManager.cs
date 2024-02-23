@@ -115,6 +115,7 @@ public abstract class RoomManager : MonoBehaviour
     // for triggering the start of the room
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log($"{collision.name} triggered Room!");
         RoomStart();
         hasRoomStarted = true;
     }

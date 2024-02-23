@@ -26,11 +26,34 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(_CloseModuleOne());
     }
 
+    public void CloseModuleTwo()
+    {
+        StartCoroutine(_CloseModuleTwo());
+    }
+
     IEnumerator _CloseModuleOne()
     {
         animator.SetTrigger(triggerAnimationName);
         SaveFileManager sfm = SaveFileManager.GetInstance();
         sfm.SavePlayerDataForModuleTwo();
+        SaveSystem.DeleteGameLock();
+        yield return new WaitForSeconds(transitionTime);
+
+        try
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Could not move to MainMenu because: " + e);
+        }
+    }
+    IEnumerator _CloseModuleTwo()
+    {
+        animator.SetTrigger(triggerAnimationName);
+        SaveFileManager sfm = SaveFileManager.GetInstance();
+        sfm.SavePlayerDataForFreeplay();
+        SaveSystem.DeleteGameLock();
         yield return new WaitForSeconds(transitionTime);
 
         try

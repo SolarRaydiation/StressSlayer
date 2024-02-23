@@ -5,7 +5,6 @@ using Ink.Runtime;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine.EventSystems;
-using UnityEditor.ShaderGraph.Serialization;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -90,6 +89,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         speakerNameText.text = "";
         StartCoroutine(ResetDialogue());
+        PlayerMovement.GetInstance().EnablePlayerMovement();
     }
 
     private void ContinueDialogue()

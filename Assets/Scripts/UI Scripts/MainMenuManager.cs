@@ -8,17 +8,18 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
+    #region Variables
     SaveFileManager sfm;
 
     [Header("Main Menu Screens")]
     public GameObject saveFileAlreadyExists;
+    public GameObject gameLockScreen;
     public GameObject noSaveFilePresent;
     public GameObject modulesListPanel;
 
     [Header("Module List Buttons")]
     public Button moduleOne;
     public Button moduleTwo;
-    public Button moduleThree;
     public Button freePlay;
 
     [Header("Module Details Object References")]
@@ -27,6 +28,7 @@ public class MainMenuManager : MonoBehaviour
     public TextMeshProUGUI moduleName;
     public TextMeshProUGUI moduleDetails;
     public Button playButton;
+    #endregion
 
     private void Start()
     {
@@ -75,12 +77,27 @@ public class MainMenuManager : MonoBehaviour
     {
         if (sfm.DoesSaveFileExists())
         {
-            OpenModulesList();
+            if(SaveSystem.CheckIfGameLockExist())
+            {
+                gameLockScreen.SetActive(true);
+            } else
+            {
+                OpenModulesList();
+            }
         }
         else
         {
             noSaveFilePresent.SetActive(true);
         }
+    }
+
+    public void LoadLatestLevel()
+    {
+        SaveFileManager sfm = SaveFileManager.GetInstance();
+        sfm.ReloadPlayerData();
+        PlayerData pd = sfm.saveFile;
+        AsyncManager asyncm = AsyncManager.GetInstance();
+        asyncm.LoadLevel(pd.currentSceneLocation);
     }
 
     #endregion
@@ -89,7 +106,7 @@ public class MainMenuManager : MonoBehaviour
 
     private enum ModuleType
     {
-        ModuleOne, ModuleTwo, ModuleThree, FreePlay,
+        ModuleOne, ModuleTwo, FreePlay,
     }
 
     public void OpenModulesList()
@@ -107,36 +124,48 @@ public class MainMenuManager : MonoBehaviour
     {
         moduleOne.onClick.RemoveAllListeners();
         moduleTwo.onClick.RemoveAllListeners();
-        moduleThree.onClick.RemoveAllListeners();
-        freePlay.onClick.RemoveAllListeners();
+        //freePlay.onClick.RemoveAllListeners();
 
         SaveFileManager sfm = SaveFileManager.GetInstance();
         PlayerData saveFile = sfm.saveFile;
 
         // Module One
-        if (!saveFile.moduleOneComplete)
+        if(!saveFile.moduleOneComplete)
         {
             moduleOne.interactable = true;
             moduleOne.onClick.AddListener(() =>
+            {
+                PopulateScreen(ModuleType.ModuleOne);
+                try
                 {
-                    PopulateScreen(ModuleType.ModuleOne);
-                    moduleOne.gameObject.GetComponent<AudioSource>().Play();
-                });
-        }
-        else
+                    AudioManager.instance.PlaySFX("TapSFX");
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogWarning("Could not play TapSFX from Module One button! " + ex);
+                }
+            });
+        } else
         {
-            moduleOne.interactable = false;
-            moduleOne.gameObject.GetComponent<Image>().color = new Color(87, 299, 62);
+            //moduleOne.interactable = false;
+            //moduleOne.gameObject.GetComponent<Image>().color = new Color(87, 299, 62);
         }
 
         // Module Two
-        if (saveFile.moduleOneComplete && !saveFile.moduleTwoComplete)
+        if (saveFile.moduleOneComplete )
         {
             moduleTwo.interactable = true;
             moduleTwo.onClick.AddListener(() =>
             {
                 PopulateScreen(ModuleType.ModuleTwo);
-                moduleTwo.gameObject.GetComponent<AudioSource>().Play();
+                try
+                {
+                    AudioManager.instance.PlaySFX("TapSFX");
+                } catch (Exception ex)
+                {
+                    Debug.LogWarning("Could not play TapSFX from Module Two button! " + ex);
+                }
+                
             });
         }
         else
@@ -148,38 +177,27 @@ public class MainMenuManager : MonoBehaviour
             }
         }
 
-        // Module Three
-        if (saveFile.moduleOneComplete && saveFile.moduleTwoComplete && !saveFile.moduleThreeComplete)
-        {
-            moduleThree.interactable = true;
-            moduleThree.onClick.AddListener(() =>
-            {
-                PopulateScreen(ModuleType.ModuleThree);
-                moduleThree.gameObject.GetComponent<AudioSource>().Play();
-            });
-        }
-        else
-        {
-            moduleThree.interactable = false;
-            if(saveFile.moduleOneComplete && saveFile.moduleTwoComplete)
-            {
-                moduleThree.gameObject.GetComponent<Image>().color = new Color(87, 299, 62);
-            }
-        }
+        //if(saveFile.moduleOneComplete && saveFile.moduleTwoComplete)
+        //{
+        //    freePlay.interactable = true;
+        //    freePlay.onClick.AddListener(() =>
+        //    {
+        //        PopulateScreen(ModuleType.FreePlay);
+        //        try
+        //        {
+        //            AudioManager.instance.PlaySFX("TapSFX");
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Debug.LogWarning("Could not play TapSFX from Freeplay button! " + ex);
+        //        }
+        //    });
 
-        if(saveFile.moduleOneComplete && saveFile.moduleTwoComplete && saveFile.moduleThreeComplete)
-        {
-            freePlay.interactable = true;
-            freePlay.onClick.AddListener(() =>
-            {
-                PopulateScreen(ModuleType.FreePlay);
-                freePlay.gameObject.GetComponent<AudioSource>().Play();
-            });
-
-        } else
-        {
-            freePlay.interactable = false;
-        }
+        //}
+        //else
+        //{
+        //    freePlay.interactable = false;
+        //}
     }
 
     private void PopulateScreen(ModuleType mt)
@@ -200,7 +218,12 @@ public class MainMenuManager : MonoBehaviour
                     );
                 playButton.onClick.AddListener(() =>
                 {
-                    Debug.Log("Playing Module one");
+                    SaveSystem.DeleteData();
+                    SaveSystem.CreateNewSaveFile();
+                    SaveSystem.CreateNewGameLock();
+                    SaveFileManager sfm = SaveFileManager.GetInstance();
+                    sfm.ReloadPlayerData();
+                    Debug.Log("Playing Module One");
                     AsyncManager asyncm = AsyncManager.GetInstance();
                     asyncm.LoadLevel("Tutorial_BedroomScene");
                 });
@@ -208,23 +231,15 @@ public class MainMenuManager : MonoBehaviour
             case ModuleType.ModuleTwo:
                 moduleName.SetText("Module Two");
                 moduleDetails.SetText
-                    ("In this module, you will learn how to the play the game. You will also learn how what " +
-                    "stress is and a simple way to learn how to manage stress"
+                    ("In this module, you will learn about the Bilog ng Buhay and learn how to use it to destress" +
+                    "yourself."
                     );
                 playButton.onClick.AddListener(() =>
                 {
+                    SaveSystem.CreateNewGameLock();
                     Debug.Log("Playing Module two");
-                });
-                break;
-            case ModuleType.ModuleThree:
-                moduleName.SetText("Module Three");
-                moduleDetails.SetText
-                    ("In this module, you will learn how to the play the game. You will also learn how what " +
-                    "stress is and a simple way to learn how to manage stress"
-                    );
-                playButton.onClick.AddListener(() =>
-                {
-                    Debug.Log("Playing Module three");
+                    AsyncManager asyncm = AsyncManager.GetInstance();
+                    asyncm.LoadLevel("Module2-TeacherScene1");
                 });
                 break;
             case ModuleType.FreePlay:
@@ -234,6 +249,13 @@ public class MainMenuManager : MonoBehaviour
                     );
                 playButton.onClick.AddListener(() =>
                 {
+                    SaveSystem.DeleteData();
+                    SaveSystem.CreateNewSaveFile();
+                    SaveSystem.CreateNewGameLock();
+                    SaveFileManager sfm = SaveFileManager.GetInstance();
+                    sfm.ReloadPlayerData();
+                    AsyncManager asyncm = AsyncManager.GetInstance();
+                    asyncm.LoadLevel("Tutorial_BedroomScene");
                     Debug.Log("Playing free Play mode");
                 });
                 break;

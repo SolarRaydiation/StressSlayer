@@ -1,12 +1,46 @@
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System;
 
 public static class SaveSystem
 {
     public const string SAVEFILE_PATH = "/savedata.bin";
     public const string SOUNDSETTINGS_PATH = "/soundsettings.bin";
+    public const string GAMELOCK_PATH = "/gamelock.bin";
 
+    #region Create New Save Files
+
+    // Savefile for Freeplay and Module 1
+    public static PlayerData CreateNewSaveFile()
+    {
+        Debug.Log("Creating new save file for freeplay...");
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + SAVEFILE_PATH;
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        PlayerData data = new PlayerData();
+        formatter.Serialize(stream, data);
+        stream.Close();
+        return data;
+    }
+
+    // Create Save File for Module Two
+    public static void SaveDataForModuleTwo(bool isModuleOneComplete, bool isModuleTwoComplete, bool isModuleThreeComplete)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + SAVEFILE_PATH;
+        FileStream stream = new FileStream(path, FileMode.Create);
+        SaveFileManager sfm = SaveFileManager.GetInstance();
+
+        PlayerData data = new PlayerData(sfm.saveFile, isModuleOneComplete, isModuleTwoComplete, isModuleThreeComplete);
+        formatter.Serialize(stream, data);
+        stream.Close();
+    }
+
+    #endregion
+
+    #region Save, Load, Delete Functions
     public static bool CheckIfSaveFileExists()
     {
         string path = Application.persistentDataPath + SAVEFILE_PATH;
@@ -56,18 +90,6 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static void SaveDataForModuleTwo(bool isModuleOneComplete, bool isModuleTwoComplete, bool isModuleThreeComplete)
-    {
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + SAVEFILE_PATH;
-        FileStream stream = new FileStream(path, FileMode.Create);
-        SaveFileManager sfm = SaveFileManager.GetInstance();
-
-        PlayerData data = new PlayerData(sfm.saveFile, isModuleOneComplete, isModuleTwoComplete, isModuleThreeComplete);
-        formatter.Serialize(stream, data);
-        stream.Close();
-    }
-
     public static PlayerData LoadData()
     {
         Debug.Log("Loading save file...");
@@ -89,26 +111,21 @@ public static class SaveSystem
         }
     }
 
-    public static PlayerData CreateNewSaveFile()
-    {
-        Debug.Log("Creating new save file...");
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + SAVEFILE_PATH;
-        FileStream stream = new FileStream(path, FileMode.Create);
-
-        PlayerData data = new PlayerData();
-        formatter.Serialize(stream, data);
-        stream.Close();
-        return data;
-    }
-
     public static void DeleteData()
     {
-        Debug.Log("Deleting save file...");
-        string path = Application.persistentDataPath + SAVEFILE_PATH;
-        File.Delete(path);
+        try
+        {
+            Debug.Log("Deleting save file...");
+            string path = Application.persistentDataPath + SAVEFILE_PATH;
+            File.Delete(path);
+        } catch (Exception ex)
+        {
+            Debug.LogWarning("Could not delete! Save file does not exist!: " + ex);
+        }
+        
     }
 
+    #endregion
 
     #region Sound Settings
 
@@ -179,6 +196,42 @@ public static class SaveSystem
     {
         Debug.Log("Deleting sound settings file...");
         string path = Application.persistentDataPath + SOUNDSETTINGS_PATH;
+        File.Delete(path);
+    }
+
+    #endregion
+
+    #region Game Lock
+
+    public static void CreateNewGameLock()
+    {
+        Debug.Log("Creating game lock...");
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + GAMELOCK_PATH;
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        GameLock gameLock = new GameLock();
+        formatter.Serialize(stream, gameLock);
+        stream.Close();
+    }
+
+    public static bool CheckIfGameLockExist()
+    {
+        string path = Application.persistentDataPath + GAMELOCK_PATH;
+        if (File.Exists(path))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public static void DeleteGameLock()
+    {
+        Debug.Log("Deleting game lock file...");
+        string path = Application.persistentDataPath + GAMELOCK_PATH;
         File.Delete(path);
     }
 

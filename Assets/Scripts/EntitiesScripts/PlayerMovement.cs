@@ -11,15 +11,20 @@ public class PlayerMovement : MonoBehaviour
 
     public float baseMovementSpeed;
     public AudioSource walkSound;
-    
+    public bool canPlayerMove;
+
     [Header("Internals")]               
     private float currentMovementSpeed;
+    private float horizontalMovement;
+    private float verticalMovement;
+    private const float EPSILON = 0.1f;
+    private const float SPRINT_BOOST = 1.3f;
     private FixedJoystick joystick;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
-    private float horizontalMovement;
-    private float verticalMovement;
     private Animator animator;
+    //private ParticleSystem sprintTrail;
+    
 
     #region Initialization
     private void Awake()
@@ -30,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         }
         instance = this;
 
+        canPlayerMove = true;
         currentMovementSpeed = baseMovementSpeed;
         GetPlayerComponents();
     }
@@ -38,6 +44,10 @@ public class PlayerMovement : MonoBehaviour
     {
         // get references form outside the object
         GetJoystickFromPlayerControls();
+        //if (sprintTrail != null)
+        //{
+        //    sprintTrail.Stop();
+        //}
         LoadData();
     }
 
@@ -55,8 +65,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.LogError($"No save file found. PlayerMovement will default to fall-back.");
         }
     }
-
-    #endregion
+    
     private void GetJoystickFromPlayerControls()
     {
         try
@@ -91,17 +100,30 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("Could not get Animator from player!: " + e);
         }
+
+        //try
+        //{
+        //    sprintTrail = gameObject.transform.Find("SprintTrail").GetComponent<ParticleSystem>();
+        //}
+        //catch (Exception e)
+        //{
+        //    Debug.LogError("Could not get sprintTrail from player!: " + e);
+        //}
     }
 
     public static PlayerMovement GetInstance()
     {
         return instance;
     }
-    /* =============================================
-     * Update Methods
-     * ========================================== */
+    #endregion
+
     void FixedUpdate()
     {
+        if(!canPlayerMove)
+        {
+            return;
+        }
+
         GetMovementValues();
 
         if (rb != null)
@@ -125,14 +147,27 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    /* =============================================
-     * Movement Values Methods
-     * ========================================== */
-
+    #region Movement Values
     private void GetMovementValues()
     {
-        horizontalMovement = joystick.Horizontal * currentMovementSpeed;
-        verticalMovement = joystick.Vertical * currentMovementSpeed;
+        if(IsApproximatelyOne(joystick.Horizontal))
+        {
+            horizontalMovement = joystick.Horizontal * currentMovementSpeed * SPRINT_BOOST;
+            verticalMovement = joystick.Vertical * currentMovementSpeed * SPRINT_BOOST;
+            //if(sprintTrail != null)
+            //{
+            //    sprintTrail.Play();
+            //}
+            
+        } else
+        {
+            horizontalMovement = joystick.Horizontal * currentMovementSpeed;
+            verticalMovement = joystick.Vertical * currentMovementSpeed;
+            //if (sprintTrail != null)
+            //{
+            //    sprintTrail.Stop();
+            //}
+        }
     }
 
     public float GetCurrentMovementSpeed()
@@ -151,10 +186,9 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         currentMovementSpeed = baseMovementSpeed;
     }
+    #endregion
 
-    /* =============================================
-     * Movement Methods
-     * ========================================== */
+    #region Movement Methods
     void MovePlayerWithTranslate()
     {
         transform.Translate(horizontalMovement, verticalMovement, 0);
@@ -165,11 +199,9 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2 (horizontalMovement, rb.velocity.y);
         animator.SetFloat("speed", Mathf.Abs(horizontalMovement));
     }
+    #endregion
 
-    /* =============================================
-     * Other Methods
-     * ========================================== */
-
+    #region Other Methods
     private void MirrorPlayerDirection()
     {
         if(horizontalMovement > 0)
@@ -197,4 +229,35 @@ public class PlayerMovement : MonoBehaviour
             return false;
         }
     }
+
+    private bool IsApproximatelyOne(float value)
+    {
+        if(value < 0)
+        {
+            return Mathf.Abs(-value - 1.0f) < EPSILON;
+        }
+        return Mathf.Abs(value - 1.0f) < EPSILON;
+    }
+    #endregion
+
+    #region Enable/Disable PlayerMovement
+    public void DisablePlayerMovement()
+    {
+        canPlayerMove = false;
+        horizontalMovement = 0;
+        verticalMovement = 0;
+        rb.velocity = new Vector2(0, 0);
+        animator.enabled = false;
+    }
+
+    public void EnablePlayerMovement()
+    {
+        joystick.SetInputToZero();
+        horizontalMovement = 0;
+        verticalMovement = 0;
+        rb.velocity = new Vector2(0, 0);
+        animator.enabled = true;
+        canPlayerMove = true;
+    }
+    #endregion
 }
