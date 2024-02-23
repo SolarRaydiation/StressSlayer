@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
+    #region Variables
     SaveFileManager sfm;
 
     [Header("Main Menu Screens")]
@@ -27,6 +28,7 @@ public class MainMenuManager : MonoBehaviour
     public TextMeshProUGUI moduleName;
     public TextMeshProUGUI moduleDetails;
     public Button playButton;
+    #endregion
 
     private void Start()
     {
@@ -122,7 +124,7 @@ public class MainMenuManager : MonoBehaviour
     {
         moduleOne.onClick.RemoveAllListeners();
         moduleTwo.onClick.RemoveAllListeners();
-        freePlay.onClick.RemoveAllListeners();
+        //freePlay.onClick.RemoveAllListeners();
 
         SaveFileManager sfm = SaveFileManager.GetInstance();
         PlayerData saveFile = sfm.saveFile;
@@ -145,12 +147,12 @@ public class MainMenuManager : MonoBehaviour
             });
         } else
         {
-            moduleOne.interactable = false;
-            moduleOne.gameObject.GetComponent<Image>().color = new Color(87, 299, 62);
+            //moduleOne.interactable = false;
+            //moduleOne.gameObject.GetComponent<Image>().color = new Color(87, 299, 62);
         }
 
         // Module Two
-        if (saveFile.moduleOneComplete && !saveFile.moduleTwoComplete)
+        if (saveFile.moduleOneComplete )
         {
             moduleTwo.interactable = true;
             moduleTwo.onClick.AddListener(() =>
@@ -175,27 +177,27 @@ public class MainMenuManager : MonoBehaviour
             }
         }
 
-        if(saveFile.moduleOneComplete && saveFile.moduleTwoComplete)
-        {
-            freePlay.interactable = true;
-            freePlay.onClick.AddListener(() =>
-            {
-                PopulateScreen(ModuleType.FreePlay);
-                try
-                {
-                    AudioManager.instance.PlaySFX("TapSFX");
-                }
-                catch (Exception ex)
-                {
-                    Debug.LogWarning("Could not play TapSFX from Freeplay button! " + ex);
-                }
-            });
+        //if(saveFile.moduleOneComplete && saveFile.moduleTwoComplete)
+        //{
+        //    freePlay.interactable = true;
+        //    freePlay.onClick.AddListener(() =>
+        //    {
+        //        PopulateScreen(ModuleType.FreePlay);
+        //        try
+        //        {
+        //            AudioManager.instance.PlaySFX("TapSFX");
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            Debug.LogWarning("Could not play TapSFX from Freeplay button! " + ex);
+        //        }
+        //    });
 
-        }
-        else
-        {
-            freePlay.interactable = false;
-        }
+        //}
+        //else
+        //{
+        //    freePlay.interactable = false;
+        //}
     }
 
     private void PopulateScreen(ModuleType mt)
