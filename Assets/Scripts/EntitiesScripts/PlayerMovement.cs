@@ -214,11 +214,12 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
     }
 
-    public void AllowPlayerMovement()
+    public void EnablePlayerMovement()
     {
-        isInDialogueMode = false;
+        joystick.SetInputToZero();
         horizontalMovement = 0;
         verticalMovement = 0;
         rb.velocity = new Vector2(0, 0);
+        isInDialogueMode = false;
     }
 }

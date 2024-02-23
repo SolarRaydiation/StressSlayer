@@ -89,6 +89,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
         speakerNameText.text = "";
         StartCoroutine(ResetDialogue());
+        PlayerMovement.GetInstance().EnablePlayerMovement();
     }
 
     private void ContinueDialogue()
