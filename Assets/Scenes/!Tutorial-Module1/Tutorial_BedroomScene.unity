@@ -4279,6 +4279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialougeScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 7288919716832013740, guid: d03850b0a7603014ca35e6eec0146674, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

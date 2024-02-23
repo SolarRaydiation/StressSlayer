@@ -11,7 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float baseMovementSpeed;
     public AudioSource walkSound;
-    
+    public bool isInDialogueMode;
+
     [Header("Internals")]               
     private float currentMovementSpeed;
     private FixedJoystick joystick;
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         }
         instance = this;
 
+        isInDialogueMode = false;
         currentMovementSpeed = baseMovementSpeed;
         GetPlayerComponents();
     }
@@ -55,8 +57,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.LogError($"No save file found. PlayerMovement will default to fall-back.");
         }
     }
-
-    #endregion
+    
     private void GetJoystickFromPlayerControls()
     {
         try
@@ -97,11 +98,18 @@ public class PlayerMovement : MonoBehaviour
     {
         return instance;
     }
+    #endregion
+
     /* =============================================
      * Update Methods
      * ========================================== */
     void FixedUpdate()
     {
+        if(isInDialogueMode)
+        {
+            return;
+        }
+
         GetMovementValues();
 
         if (rb != null)
@@ -196,5 +204,21 @@ public class PlayerMovement : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public void DisablePlayerMovement()
+    {
+        isInDialogueMode = true;
+        horizontalMovement = 0;
+        verticalMovement = 0;
+        rb.velocity = new Vector2(0, 0);
+    }
+
+    public void AllowPlayerMovement()
+    {
+        isInDialogueMode = false;
+        horizontalMovement = 0;
+        verticalMovement = 0;
+        rb.velocity = new Vector2(0, 0);
     }
 }
