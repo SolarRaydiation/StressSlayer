@@ -704,7 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 646063b79ee8b52499d892b15337a160, type: 3}
+  inkJSON: {fileID: 4900000, guid: 2bbd6feec208fa840922c7087e1a1822, type: 3}
 --- !u!114 &226477524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,7 +722,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 1348085013}
-  interactableText: Talk to police officer.
+  interactableText: Kausapin ang police officer?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -8410,7 +8410,7 @@ PrefabInstance:
       objectReference: {fileID: 1167799743}
     - target: {fileID: 8217580700820538078, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: interactableText
-      value: Go to school?
+      value: Pumasok ng school?
       objectReference: {fileID: 0}
     - target: {fileID: 8217580700820538078, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -8719,7 +8719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8217580700820538078, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: notInteractableMessage
-      value: Area not available during Module 1.
+      value: Hindi ka pwedeng pumunta dito ngayon.
       objectReference: {fileID: 0}
     - target: {fileID: 8217580700820538078, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -9733,7 +9733,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 491607232}
-  interactableText: Read the notice board?
+  interactableText: Basahin ang notice board?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -9763,7 +9763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 82bd3c990a97881418ca605c7b55eecc, type: 3}
+  inkJSON: {fileID: 4900000, guid: fb9580a317fc1384299cfc1a636c7245, type: 3}
 --- !u!212 &1098798855
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10573,7 +10573,7 @@ MonoBehaviour:
   interactable: 0
   interactableColor: {r: 0.39607844, g: 0.8980392, b: 0.39607844, a: 1}
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
-  notInteractableMessage: Area not returnable during Module 1
+  notInteractableMessage: Hindi ka pwedeng pumunta dito ngayon.
   textMesh: {fileID: 1376400895}
   interactableText: Go back home?
   interactAction:
@@ -10633,7 +10633,7 @@ MonoBehaviour:
   interactable: 0
   interactableColor: {r: 0.39607844, g: 0.8980392, b: 0.39607844, a: 1}
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
-  notInteractableMessage: Area not available during Module 1.
+  notInteractableMessage: Hindi ka pwedeng pumunta dito ngayon.
   textMesh: {fileID: 17926918}
   interactableText: 
   interactAction:
@@ -13936,7 +13936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 02d27ea8ba8802346a91609b073335be, type: 3}
+  inkJSON: {fileID: 4900000, guid: d3361048305cfc146809d714e0601678, type: 3}
 --- !u!114 &1789780224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15790,7 +15790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8217580700820538078, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: notInteractableMessage
-      value: Area not available during Module 1.
+      value: Hindi ka pwedeng pumunta dito ngayon.
       objectReference: {fileID: 0}
     - target: {fileID: 8217580700820538078, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -15946,7 +15946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 3cc9422e34b5b254895c5d5fac318192, type: 3}
+  inkJSON: {fileID: 4900000, guid: 040c7fc3dbfbf7646a7cc00ff954de39, type: 3}
 --- !u!61 &5972096133320470248
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16009,7 +16009,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 8196676890505736353}
-  interactableText: Talk to police officer.
+  interactableText: Kausapin ang police officer?
   interactAction:
     m_PersistentCalls:
       m_Calls:

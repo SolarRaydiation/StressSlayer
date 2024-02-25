@@ -4184,7 +4184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e588529b004a8349985e8a33c459912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: f96ee0a98ba0cac4f9cd0f795ee2bc66, type: 3}
+  inkJSON: {fileID: 4900000, guid: 5e5b4074b6aed574f950315f2078d0a4, type: 3}
   startDelayTime: 2
   endDelayTime: 2
   autostartWithTimer: 1

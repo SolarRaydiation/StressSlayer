@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: b1a528109224eef438640dc9ffdacbca, type: 3}
+  inkJSON: {fileID: 4900000, guid: 863bb7246f1e408438959c11d371da76, type: 3}
 --- !u!114 &117026351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +336,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0, g: 0, b: 0, a: 0}
   notInteractableMessage: 
   textMesh: {fileID: 613981876}
-  interactableText: Read a book?
+  interactableText: Magbasa ng libro?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -599,7 +599,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.91764706, g: 0.1882353, b: 0.1882353, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 1318555456}
-  interactableText: Leave library?
+  interactableText: Umalis ng library?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -1194,7 +1194,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0, g: 0, b: 0, a: 0}
   notInteractableMessage: 
   textMesh: {fileID: 1605183085}
-  interactableText: Spend time reading?
+  interactableText: Magbasa ng libro?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -1326,7 +1326,7 @@ PrefabInstance:
       objectReference: {fileID: 1207283452}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.331406
+      value: 7.1171875
       objectReference: {fileID: 0}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1338,7 +1338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.068594
+      value: 18.282812
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2908,7 +2908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: c044a78c1e8135946981f9628a75dd89, type: 3}
+  inkJSON: {fileID: 4900000, guid: af8d1f45cf6e02a4e882546b90f5fb36, type: 3}
 --- !u!114 &1014591263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2926,7 +2926,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0, g: 0, b: 0, a: 0}
   notInteractableMessage: 
   textMesh: {fileID: 843997125}
-  interactableText: Read a book?
+  interactableText: Magbasa ng libro?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -4440,7 +4440,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0, g: 0, b: 0, a: 0}
   notInteractableMessage: 
   textMesh: {fileID: 1449334689}
-  interactableText: Read a book?
+  interactableText: Magbasa ng libro?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -4470,7 +4470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 8f645e9fcc2924146bcc5a080cb75f9c, type: 3}
+  inkJSON: {fileID: 4900000, guid: bede6483e6eac3744a2fc1567a4983f0, type: 3}
 --- !u!61 &1500986815
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4653,7 +4653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 06fd6103f3ab185438392e08f6b7741f, type: 3}
+  inkJSON: {fileID: 4900000, guid: 9a157f52ab04c9e4a9bfaf0275940559, type: 3}
 --- !u!82 &1559936022
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4767,7 +4767,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0, g: 0, b: 0, a: 0}
   notInteractableMessage: 
   textMesh: {fileID: 601897908}
-  interactableText: Talk to librarian?
+  interactableText: Kausapin?
   interactAction:
     m_PersistentCalls:
       m_Calls:

@@ -2064,7 +2064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e588529b004a8349985e8a33c459912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 18d575971d1845942ba5c237d8c23768, type: 3}
+  inkJSON: {fileID: 4900000, guid: 062c998dc66842242ba94a80f83fb486, type: 3}
   startDelayTime: 2
   endDelayTime: 2
   autostartWithTimer: 0
@@ -2112,7 +2112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e588529b004a8349985e8a33c459912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: dfbe720332e52fe449f7494480f240ae, type: 3}
+  inkJSON: {fileID: 4900000, guid: 2a7d1157bfd9b24408a7d51d795260e9, type: 3}
   startDelayTime: 2
   endDelayTime: 2
   autostartWithTimer: 0
@@ -2160,7 +2160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e588529b004a8349985e8a33c459912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 169451be716ddd049af7f0ea68d72c84, type: 3}
+  inkJSON: {fileID: 4900000, guid: c6d29848fe2510e42bb0d44cf75a2af8, type: 3}
   startDelayTime: 2
   endDelayTime: 2
   autostartWithTimer: 1

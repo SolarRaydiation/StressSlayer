@@ -828,11 +828,11 @@ MonoBehaviour:
   - dialogueName: MorningDialogue
     timeStart: 7
     timeEnd: 12
-    inkJSON: {fileID: 4900000, guid: 646063b79ee8b52499d892b15337a160, type: 3}
+    inkJSON: {fileID: 4900000, guid: 2bbd6feec208fa840922c7087e1a1822, type: 3}
   - dialogueName: AfternoonDialogue
     timeStart: 13
     timeEnd: 23
-    inkJSON: {fileID: 4900000, guid: bdddda427269942458e7f9374eaa0bb4, type: 3}
+    inkJSON: {fileID: 4900000, guid: 3e22a63819c7b1046a0b1e15e700b408, type: 3}
 --- !u!1001 &275454046
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2095,7 +2095,7 @@ PrefabInstance:
       objectReference: {fileID: 209758137}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.345703
+      value: 4.416809
       objectReference: {fileID: 0}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2107,7 +2107,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 332.6543
+      value: 341.5832
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3711,7 +3711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6852312656930625532, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: notInteractableMessage
-      value: Area accessible only between 3pm to 5pm
+      value: Available lang nang umaga.
       objectReference: {fileID: 0}
     - target: {fileID: 6852312656930625532, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: setInactiveIfNotAvailable
@@ -5200,7 +5200,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 491607232}
-  interactableText: Read the notice board?
+  interactableText: Basahin ang notice board?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -6042,7 +6042,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 1376400895}
-  interactableText: Go back home?
+  interactableText: Bumalik sa bahay?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -6113,7 +6113,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 0}
-  interactableText: Enter grocery?
+  interactableText: Pumasok ng grocery?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -6243,7 +6243,7 @@ MonoBehaviour:
   timeAvailableStart: 12
   timeAvailableEnd: 23
   setInactiveIfNotAvailable: 0
-  notInteractableMessage: Grocery is open between 12:00pm to midnight only.
+  notInteractableMessage: Available lang mula 3pm hanggang 11pm.
 --- !u!1 &1292557126 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1958277622258967326, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
@@ -6264,7 +6264,7 @@ MonoBehaviour:
   timeAvailableStart: 15
   timeAvailableEnd: 19
   setInactiveIfNotAvailable: 0
-  notInteractableMessage: Area accessible only between 3pm to 7pm
+  notInteractableMessage: Available lang mula 3pm hanggang 7pm.
 --- !u!1 &1327641773 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1958277622258967326, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
@@ -8359,7 +8359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 78aab14d164434a4e8784a05f8d8b38e, type: 3}
+  inkJSON: {fileID: 4900000, guid: 37f5a9653339d2e43b052179619ba7ab, type: 3}
 --- !u!114 &1597077336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8869,7 +8869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 4135bd113dbb9a04baf9250d1d1a5f33, type: 3}
+  inkJSON: {fileID: 4900000, guid: c46d2dff3d3680c409f425eec043dc50, type: 3}
 --- !u!114 &1662825390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9358,7 +9358,7 @@ MonoBehaviour:
   timeAvailableStart: 15
   timeAvailableEnd: 19
   setInactiveIfNotAvailable: 0
-  notInteractableMessage: Area accessible only between 3pm to 7pm
+  notInteractableMessage: Available lang mula 3pm hanggang 7pm.
 --- !u!1 &1810450957
 GameObject:
   m_ObjectHideFlags: 0
@@ -10458,7 +10458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 02d27ea8ba8802346a91609b073335be, type: 3}
+  inkJSON: {fileID: 4900000, guid: d3361048305cfc146809d714e0601678, type: 3}
 --- !u!114 &1941803386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11656,7 +11656,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 8196676890505736353}
-  interactableText: Talk to police officer.
+  interactableText: Kausapin ang police officer?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -11859,11 +11859,11 @@ MonoBehaviour:
   - dialogueName: MorningDialogue
     timeStart: 7
     timeEnd: 12
-    inkJSON: {fileID: 4900000, guid: 3cc9422e34b5b254895c5d5fac318192, type: 3}
+    inkJSON: {fileID: 4900000, guid: 040c7fc3dbfbf7646a7cc00ff954de39, type: 3}
   - dialogueName: AfternoonDialogue
     timeStart: 13
     timeEnd: 23
-    inkJSON: {fileID: 4900000, guid: f40c7fac7fef19944affb3c6bf8e0e65, type: 3}
+    inkJSON: {fileID: 4900000, guid: f6ac112758e52f94bb513529d8133b7a, type: 3}
 --- !u!114 &8196676890505736353
 MonoBehaviour:
   m_ObjectHideFlags: 0

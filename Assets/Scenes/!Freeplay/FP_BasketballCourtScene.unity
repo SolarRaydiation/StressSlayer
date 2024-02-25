@@ -636,7 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 45fe16699bfe15c42b4563f7cad267f5, type: 3}
+  inkJSON: {fileID: 4900000, guid: d017af29d4300c34ab731761d3c9f740, type: 3}
 --- !u!61 &219709802
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -699,7 +699,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0, g: 0, b: 0, a: 0}
   notInteractableMessage: 
   textMesh: {fileID: 1469600951}
-  interactableText: Talk to player?
+  interactableText: Kausapin?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -1439,7 +1439,7 @@ PrefabInstance:
       objectReference: {fileID: 1399986279}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0000019073486
+      value: -0.0000019073486
       objectReference: {fileID: 0}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1447,7 +1447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.399998
+      value: 16.400002
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2740,7 +2740,7 @@ PrefabInstance:
       objectReference: {fileID: 1775618499}
     - target: {fileID: 8217580700820538078, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: interactableText
-      value: Leave basketball court?
+      value: Umalis ng basketball court?
       objectReference: {fileID: 0}
     - target: {fileID: 8217580700820538078, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target

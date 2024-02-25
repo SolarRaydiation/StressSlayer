@@ -1095,7 +1095,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: Talk to your brother first before leaving.
   textMesh: {fileID: 2093874167}
-  interactableText: Leave the house?
+  interactableText: Umalis ng bahay?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -1798,7 +1798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 2e310ff5fc3a1454692a2ba14470c498, type: 3}
+  inkJSON: {fileID: 4900000, guid: ee6132f272d75914a8b340a3ef55a94e, type: 3}
 --- !u!114 &702343405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1816,7 +1816,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 387500257}
-  interactableText: Listen to the news?
+  interactableText: Manood ng T.V.?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -2699,7 +2699,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 1254371160}
-  interactableText: Go upstairs?
+  interactableText: Umakyat at bumalik sa kwarto?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -5242,7 +5242,7 @@ PrefabInstance:
     - target: {fileID: 6935118056170501508, guid: 017f6360753cc4547afbf87dfb59d48a, type: 3}
       propertyPath: inkJSON
       value: 
-      objectReference: {fileID: 4900000, guid: b25f32948d08c694b85c8c4402fac893, type: 3}
+      objectReference: {fileID: 4900000, guid: c5df472b77c2dfb4ebe26bc7e5d8db6e, type: 3}
     - target: {fileID: 8279633687405145539, guid: 017f6360753cc4547afbf87dfb59d48a, type: 3}
       propertyPath: m_Name
       value: Interactable_NPCFamily

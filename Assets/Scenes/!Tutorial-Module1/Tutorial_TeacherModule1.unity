@@ -577,7 +577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -88.150475
+      value: -89.2436
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3426,7 +3426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e588529b004a8349985e8a33c459912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: b3b9e0177297d1044b290c1ef47502ff, type: 3}
+  inkJSON: {fileID: 4900000, guid: 89f3e29cda2b1054582f2d982d464f90, type: 3}
   startDelayTime: 2
   endDelayTime: 2
   autostartWithTimer: 1

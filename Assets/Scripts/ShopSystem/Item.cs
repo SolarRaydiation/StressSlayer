@@ -21,7 +21,7 @@ public class Item
         switch(type)
         {
             case ItemType.FruitsAndVegetables:
-                return "Fruits And Vegetables";
+                return "Gulay at Prutas";
             case ItemType.AssortedDrugs:
                 return "Assorted Drugs";
             case ItemType.CortisolInjector:
@@ -47,7 +47,7 @@ public class Item
         switch (itemType)
         {
             case ItemType.FruitsAndVegetables:
-                return "Provides a small but healthy reduction to stress when used.";
+                return "Nagbibigay ng maliit ngunit malusog na pagbawas sa stress kapag ginamit.";
             case ItemType.AssortedDrugs:
                 return "These are assorted drugs.";
             case ItemType.CortisolInjector:

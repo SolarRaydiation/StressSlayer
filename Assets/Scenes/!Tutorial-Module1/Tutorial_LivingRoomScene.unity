@@ -935,11 +935,11 @@ PrefabInstance:
       objectReference: {fileID: 1829383387}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.153141
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000019073486
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.z
@@ -947,11 +947,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.576859
+      value: -2.73
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.347998
+      value: 1.3479999
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1318,9 +1318,9 @@ MonoBehaviour:
   interactable: 0
   interactableColor: {r: 0.39607844, g: 0.8980392, b: 0.39607844, a: 1}
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
-  notInteractableMessage: Talk to your brother first before leaving.
+  notInteractableMessage: Kausapin muna ang iyong kapatid
   textMesh: {fileID: 2093874167}
-  interactableText: Leave the house?
+  interactableText: Umalis ng bahay?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -2256,7 +2256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 2e310ff5fc3a1454692a2ba14470c498, type: 3}
+  inkJSON: {fileID: 4900000, guid: ee6132f272d75914a8b340a3ef55a94e, type: 3}
 --- !u!114 &702343405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2274,7 +2274,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 387500257}
-  interactableText: Listen to the news?
+  interactableText: Manood ng T.V.?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -3256,7 +3256,7 @@ MonoBehaviour:
   interactable: 0
   interactableColor: {r: 0.39607844, g: 0.8980392, b: 0.39607844, a: 1}
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
-  notInteractableMessage: Area inacessible.
+  notInteractableMessage: 'Hindi ka pwedeng pumunta dito ngayon.  '
   textMesh: {fileID: 1254371160}
   interactableText: 
   interactAction:
@@ -4702,6 +4702,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4804680075842947723, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5524855609780097311, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -4709,6 +4713,14 @@ PrefabInstance:
     - target: {fileID: 5656540125566312629, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
       propertyPath: m_Name
       value: OverworldScreen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5656540125566312629, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8343726303646417085, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
+      propertyPath: m_text
+      value: "Hindi ka pwedeng pumunta dito ngayon.\r"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5985,7 +5997,7 @@ PrefabInstance:
     - target: {fileID: 6935118056170501508, guid: 017f6360753cc4547afbf87dfb59d48a, type: 3}
       propertyPath: inkJSON
       value: 
-      objectReference: {fileID: 4900000, guid: 4f6a0978b88be05478215c148b8af577, type: 3}
+      objectReference: {fileID: 4900000, guid: 20664776eb90f324eb2a6c08f989df50, type: 3}
     - target: {fileID: 7076572192822350343, guid: 017f6360753cc4547afbf87dfb59d48a, type: 3}
       propertyPath: m_SortingLayer
       value: 4

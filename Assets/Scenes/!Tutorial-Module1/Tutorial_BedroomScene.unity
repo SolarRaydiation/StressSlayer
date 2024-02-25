@@ -1311,9 +1311,9 @@ MonoBehaviour:
   interactable: 0
   interactableColor: {r: 0.39607844, g: 0.8980392, b: 0.39607844, a: 1}
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
-  notInteractableMessage: Not available for this Module.
+  notInteractableMessage: Hindi ka pwedeng pumunta dito ngayon.
   textMesh: {fileID: 0}
-  interactableText: Not available for this Module.
+  interactableText: Hindi ka pwedeng pumunta dito ngayon.
   interactAction:
     m_PersistentCalls:
       m_Calls: []
@@ -1425,7 +1425,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 1521212964}
-  interactableText: Go downstairs
+  interactableText: Umalis ng kwarto?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -3074,7 +3074,7 @@ MonoBehaviour:
   interactable: 0
   interactableColor: {r: 0.39607844, g: 0.8980392, b: 0.39607844, a: 1}
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
-  notInteractableMessage: Not available for this Module.
+  notInteractableMessage: Hindi ka pwedeng pumunta dito ngayon.
   textMesh: {fileID: 0}
   interactableText: 
   interactAction:
