@@ -13954,7 +13954,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 784046545}
-  interactableText: Talk to student?
+  interactableText: Kausapin?
   interactAction:
     m_PersistentCalls:
       m_Calls:

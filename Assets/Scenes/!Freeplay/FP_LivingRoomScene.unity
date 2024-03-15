@@ -4546,7 +4546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 642589837136814849, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.56
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 642589837136814849, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5231,6 +5231,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 841676667}
     m_Modifications:
+    - target: {fileID: 1997718895271893860, guid: 017f6360753cc4547afbf87dfb59d48a, type: 3}
+      propertyPath: interactableText
+      value: Kausapin?
+      objectReference: {fileID: 0}
     - target: {fileID: 1997718895271893860, guid: 017f6360753cc4547afbf87dfb59d48a, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.size
       value: 1

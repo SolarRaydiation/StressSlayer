@@ -252,6 +252,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 642589837136814849, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
   m_PrefabInstance: {fileID: 17926916}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &17926918 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+  m_PrefabInstance: {fileID: 17926916}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &56484380
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,7 +719,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 1348085013}
-  interactableText: Talk to police officer.
+  interactableText: Kausapin ang police officer?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -2095,7 +2106,7 @@ PrefabInstance:
       objectReference: {fileID: 209758137}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.416809
+      value: 13.345703
       objectReference: {fileID: 0}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2107,7 +2118,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 341.5832
+      value: 332.6543
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3751,7 +3762,7 @@ PrefabInstance:
       objectReference: {fileID: 1167799743}
     - target: {fileID: 8217580700820538078, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: interactableText
-      value: Go to school?
+      value: Pumunta sa school?
       objectReference: {fileID: 0}
     - target: {fileID: 8217580700820538078, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -4058,7 +4069,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8217580700820538078, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: interactableText
-      value: Travel to the library?
+      value: Pumunta sa library?
       objectReference: {fileID: 0}
     - target: {fileID: 8217580700820538078, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: notInteractableMessage
@@ -4807,7 +4818,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9137255, g: 0.18431373, b: 0.18431373, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 1850604207}
-  interactableText: Destress with friends?
+  interactableText: Magrelax kasama ng kaibigan?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -5230,7 +5241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 82bd3c990a97881418ca605c7b55eecc, type: 3}
+  inkJSON: {fileID: 4900000, guid: fb9580a317fc1384299cfc1a636c7245, type: 3}
 --- !u!212 &1098798855
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6112,7 +6123,7 @@ MonoBehaviour:
   interactableColor: {r: 0.39607844, g: 0.8980392, b: 0.39607844, a: 1}
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
-  textMesh: {fileID: 0}
+  textMesh: {fileID: 17926918}
   interactableText: Pumasok ng grocery?
   interactAction:
     m_PersistentCalls:
@@ -8377,7 +8388,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9137255, g: 0.18431373, b: 0.18431373, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 738944423}
-  interactableText: Talk to student?
+  interactableText: Kausapin?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -8887,7 +8898,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9137255, g: 0.18431373, b: 0.18431373, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 751672763}
-  interactableText: Talk to student?
+  interactableText: Kausapin?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -9827,6 +9838,10 @@ PrefabInstance:
       value: 50.1
       objectReference: {fileID: 0}
     - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
+      propertyPath: m_margin.w
+      value: -5.589289
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419843826418738728, guid: 6b7a7fa0e0d39d341bceec10a57c71d3, type: 3}
       propertyPath: m_fontSizeBase
       value: 50.1
       objectReference: {fileID: 0}
@@ -10476,7 +10491,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9137255, g: 0.18431373, b: 0.18431373, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 778875173}
-  interactableText: Talk to student?
+  interactableText: Kausapin?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -11412,7 +11427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8217580700820538078, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: interactableText
-      value: Travel to the basketball court?
+      value: Pumunta sa basketball court?
       objectReference: {fileID: 0}
     - target: {fileID: 8217580700820538078, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: notInteractableMessage

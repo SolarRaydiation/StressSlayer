@@ -779,7 +779,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: Activity is not accessible during tutorial.
   textMesh: {fileID: 22338280}
-  interactableText: End the day?
+  interactableText: Tapusin ang araw?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -1802,7 +1802,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 280176789}
-  interactableText: Go downstairs
+  interactableText: Bumaba at umalis ng kwarto?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -4402,7 +4402,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: Activity is not accessible during tutorial.
   textMesh: {fileID: 1623303326}
-  interactableText: Start studying?
+  interactableText: Mag-aral?
   interactAction:
     m_PersistentCalls:
       m_Calls:

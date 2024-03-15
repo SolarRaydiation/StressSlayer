@@ -276,7 +276,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 526460200}
-  interactableText: Buy items from grocery?
+  interactableText: Gusto mo bumili?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -3706,7 +3706,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 2089946341}
-  interactableText: Leave the grocery?
+  interactableText: Umalis ng grocery?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -4503,7 +4503,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 605530823}
-  interactableText: Work for cash?
+  interactableText: Magtrabaho para kumita?
   interactAction:
     m_PersistentCalls:
       m_Calls:

@@ -1057,7 +1057,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 1380424514}
-  interactableText: Talk to teacher?
+  interactableText: Kausapin ang guro?
   interactAction:
     m_PersistentCalls:
       m_Calls:

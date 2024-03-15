@@ -1439,7 +1439,7 @@ PrefabInstance:
       objectReference: {fileID: 1399986279}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000019073486
+      value: 0.0000019073486
       objectReference: {fileID: 0}
     - target: {fileID: 5806984942487881811, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1447,7 +1447,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.400002
+      value: 16.399998
       objectReference: {fileID: 0}
     - target: {fileID: 6105198974718877923, guid: b1b571f600e81e848b2d1a9ae9d02345, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3128,7 +3128,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0, g: 0, b: 0, a: 0}
   notInteractableMessage: 
   textMesh: {fileID: 797316256}
-  interactableText: Play basketball?
+  interactableText: Maglaro ng basketball?
   interactAction:
     m_PersistentCalls:
       m_Calls:

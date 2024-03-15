@@ -999,7 +999,7 @@ MonoBehaviour:
   notInteractableColor: {r: 0.9150943, g: 0.18560876, b: 0.18560876, a: 1}
   notInteractableMessage: 
   textMesh: {fileID: 1380424514}
-  interactableText: Talk to teacher?
+  interactableText: Kausapin ang guro?
   interactAction:
     m_PersistentCalls:
       m_Calls:
@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec690d85cb9084846bf5f0fce4bad78e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inkJSON: {fileID: 4900000, guid: 7e9fde6fd5632b14e93331c1d6f8b8eb, type: 3}
+  inkJSON: {fileID: 4900000, guid: 353e0c0dca9995f44a67be76c367e634, type: 3}
 --- !u!114 &619914321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1839,7 +1839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8217580700820538078, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: interactableText
-      value: Leave the school
+      value: Umalis ng school?
       objectReference: {fileID: 0}
     - target: {fileID: 8217580700820538078, guid: f5c479ffbf4e7a748b561282e313c3ac, type: 3}
       propertyPath: interactableColor.a
