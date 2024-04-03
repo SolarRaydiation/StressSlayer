@@ -13,6 +13,7 @@ public class TimerCountdown : MonoBehaviour
     public float levelDurationInSeconds;        // the max number of seconds the game will last ins econds
     public TextMeshProUGUI timerText;           // UI for displaying how much time is left
     [SerializeField] private float timeRemaining;
+    [SerializeField] private PlayerMovement pm;
 
     public float TimeRemaining
     {
@@ -36,6 +37,13 @@ public class TimerCountdown : MonoBehaviour
             Debug.LogWarning("More than one instance of TimerCountdown in scene!");
         }
         instance = this;
+
+        foreach (GameObject gameObject in gameObjectsToShow)
+        {
+            CanvasGroup cg = gameObject.GetComponent<CanvasGroup>();
+            cg.alpha = 0;
+            cg.interactable = false;
+        }
     }
 
     public static TimerCountdown GetInstance()
@@ -48,6 +56,8 @@ public class TimerCountdown : MonoBehaviour
         isCountdownFinished = false;
         isTimeAtZero = false;
         StartCountdown();
+        pm = PlayerMovement.instance;
+        pm.DisablePlayerMovement();
     }
     #endregion
 
@@ -111,6 +121,7 @@ public class TimerCountdown : MonoBehaviour
         ShowGameObjects();
         isCountdownFinished = true;
         StartTimer();
+        pm.EnablePlayerMovement();
     }
 
     private void ShowGameObjects()
