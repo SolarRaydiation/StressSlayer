@@ -147,9 +147,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.026918178, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.7144268
 --- !u!58 &5906426633206922525
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -182,9 +182,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.010767874, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1.7304766
 --- !u!114 &915986126019493678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,6 +198,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusEffectDuration: 10
-  floatingTextPrefab: {fileID: 0}
+  floatingTextPrefab: {fileID: 7860627676403382833, guid: 0e9707630f337ef4fb1e290a6eb2c08e, type: 3}
   floatingText: Stats increased!
   statBonus: 0.25

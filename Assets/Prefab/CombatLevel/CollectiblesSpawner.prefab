@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1768188030800535928}
   m_Layer: 0
   m_Name: CollectiblesSpawner
-  m_TagString: Untagged
+  m_TagString: CollectibleSpawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,4 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   durationBetweenSpawn: 5
   collectiblePrefab: {fileID: 131675278080765075, guid: f20af052e9d431944970ca266a1d9538, type: 3}
+  collectiblePrefabs:
+  - {fileID: 6907849167862388016, guid: 61a20808f0d9f5344b3bb44de13dd2a9, type: 3}
+  - {fileID: 131675278080765075, guid: f20af052e9d431944970ca266a1d9538, type: 3}
+  - {fileID: 6158606618995300205, guid: 99ed90cddab20ce40a6b17d4c2ae9902, type: 3}
   spawnAreaSize: {x: 30, y: 5}
+  canSpawnCollectibles: 0

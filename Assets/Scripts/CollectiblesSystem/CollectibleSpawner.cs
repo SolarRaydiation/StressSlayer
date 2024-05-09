@@ -7,6 +7,7 @@ public class CollectibleSpawner : MonoBehaviour
     [Header("Public Variables")]
     public float durationBetweenSpawn;
     public GameObject collectiblePrefab;
+    public GameObject[] collectiblePrefabs;
     public Vector2 spawnAreaSize = new Vector2(10f, 10f);
 
     [Header("Internals")]
@@ -38,10 +39,21 @@ public class CollectibleSpawner : MonoBehaviour
 
     private void SpawnCollectible()
     {
+        GameObject collcetibleToSpawn = null;
+        if (collectiblePrefabs.Length != 0)
+        {
+            collcetibleToSpawn = collectiblePrefabs[Random.Range(0, collectiblePrefabs.Length)];
+        }
+        else
+        {
+            Debug.LogWarning("collectiblesPrefabs array has zero length. Will default to healing item.");
+            collcetibleToSpawn = collectiblePrefab;
+        }
+
         Vector2 centerPosition = transform.position;
         Vector2 randomPosition = new Vector2(Random.Range(centerPosition.x - spawnAreaSize.x / 2f, centerPosition.x + spawnAreaSize.x / 2f),
                                              Random.Range(centerPosition.y - spawnAreaSize.y / 2f, centerPosition.y + spawnAreaSize.y / 2f));
-        Instantiate(collectiblePrefab, randomPosition, Quaternion.identity);
+        Instantiate(collcetibleToSpawn, randomPosition, Quaternion.identity);
     }
 
     private void OnDrawGizmosSelected()

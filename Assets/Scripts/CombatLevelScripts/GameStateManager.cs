@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using static ClockManager;
 
 public class GameStateManager : MonoBehaviour
 {
@@ -45,6 +46,10 @@ public class GameStateManager : MonoBehaviour
 
     private void Start()
     {
+        ClockManager cm = ClockManager.GetInstance();
+        cm.currentDaySection = DaySection.Afternoon;
+        cm.currentHour = 15;
+
         Time.timeScale = 1.0f;
         try
         {
@@ -129,6 +134,10 @@ public class GameStateManager : MonoBehaviour
 
     private void PlayerVictory()
     {
+        ClockManager cm = ClockManager.GetInstance();
+        cm.currentDaySection = DaySection.Afternoon;
+        cm.currentHour = 15;
+
         hasGameEnded = true;
         Debug.Log("Player has won");
         vs.OpenVictoryScreen();
@@ -137,10 +146,26 @@ public class GameStateManager : MonoBehaviour
 
     private void PlayerDefeat(DefeatType defeatType)
     {
+        ClockManager cm = ClockManager.GetInstance();
+        cm.currentDaySection = DaySection.Afternoon;
+        cm.currentHour = 15;
+
         Debug.Log("Player is dead!");
         hasGameEnded = true;
         ds.OpenDefeatScreen(GetDefeatString(defeatType));
         DisableControls();
+        DisableEnemies();
+        DestroyCollectibleSpawner();
+    }
+
+    private void DisableEnemies()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject e in enemies)
+        {
+            e.GetComponent<EnemyBehaviorScript>().enabled = false;
+            e.GetComponent<EnemyStatsScript>().enabled = false;
+        }
     }
 
     private void DisableControls()
@@ -169,6 +194,23 @@ public class GameStateManager : MonoBehaviour
         } catch (Exception ex)
         {
             Debug.Log(ex);
+        }
+    }
+
+    private void DestroyCollectibleSpawner()
+    {
+        // destroy collectiblespawners. don't need them anyways.
+        GameObject[] collectibleSpanwer = GameObject.FindGameObjectsWithTag("CollectibleSpawner");
+        foreach(GameObject e in collectibleSpanwer)
+        {
+            GameObject.Destroy(e);
+        }
+
+        // destroy all collectibles. don't need them anyways
+        collectibleSpanwer = GameObject.FindGameObjectsWithTag("Collectible");
+        foreach (GameObject e in collectibleSpanwer)
+        {
+            GameObject.Destroy(e);
         }
     }
 

@@ -208,22 +208,22 @@ public class PlayerData
     // for free play and Module One
     public PlayerData()
     {
-        baseMovementSpeed = 12;
+        baseMovementSpeed = 10;     // include in stat list
         playerName = "";
-        maxHealth = 10;
+        maxHealth = 10;         
         timesDrugWasTaken = 0;
-        baseAttackDamage = 5f;
-        currentStressLevel = 30;
+        baseAttackDamage = 5f;      // include in stat list
+        currentStressLevel = 30;    
         currentDaySection = 0;
         currentHour = 7;
         currentDay = 0;
-        nextLevelDifficulty = 1.5f;
-        cashRemaining = 0;
-        fruitsAndVegetablesOwned = 0;
+        nextLevelDifficulty = 1.0f; // include in stat list
+        cashRemaining = 0;          // include in stat list
+        fruitsAndVegetablesOwned = 0;// include in stat list
         cortisolInjectorsOwned = 0;
         assortedDrugsOwned = 0;
-        currentSceneLocation = "";
-        lastSceneLocation = "";
+        currentSceneLocation = "Tutorial_BedroomScene";
+        lastSceneLocation = "Tutorial_BedroomScene";
         moduleOneComplete = false;
         moduleTwoComplete = false;
         moduleThreeComplete = false;

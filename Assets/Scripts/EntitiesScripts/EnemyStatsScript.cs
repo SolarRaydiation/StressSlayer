@@ -9,8 +9,8 @@ public class EnemyStatsScript : EntityStatsScript
         NextLevelPreInitializer nlpi = NextLevelPreInitializer.GetInstance();
         if(nlpi != null )
         {
-            baseAttackDamage = baseAttackDamage + (baseAttackDamage  * nlpi.nextLevelDifficulty);
-            maxHealth = initialMaxHealth + (initialMaxHealth * nlpi.nextLevelDifficulty);
+            baseAttackDamage = baseAttackDamage * nlpi.nextLevelDifficulty;
+            maxHealth = initialMaxHealth;
             currentHealth = maxHealth;
             healthBar.maxValue = maxHealth;
             healthBar.value = maxHealth;

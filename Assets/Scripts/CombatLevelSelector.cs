@@ -21,7 +21,7 @@ public class CombatLevelSelector : MonoBehaviour
         // check if we are on a Module 2 level
         SaveFileManager sfm = SaveFileManager.GetInstance();
         PlayerData playerData = sfm.saveFile;
-        if(playerData != null)
+        /*if(playerData != null)
         {
             if (!playerData.moduleTwoComplete)
             {
@@ -29,7 +29,7 @@ public class CombatLevelSelector : MonoBehaviour
                 levelLoader.LoadNextLevel(moduleTwoLevel);
                 return;
             }
-        }
+        }*/
 
         // check if current hour
         ClockManager cm = ClockManager.GetInstance();

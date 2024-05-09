@@ -1503,6 +1503,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OverworldScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 5656540125566312629, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8707188516335153780, guid: 42028e9676a01e44790a1aaf0b9def3b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -10012,6 +10016,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2603469737568972881, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 3010071696165281159, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
+      propertyPath: m_fontSize
+      value: 44.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3963223750392528047, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
+      propertyPath: m_fontSize
+      value: 44.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4278058979727292625, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6939595620520079992, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -10099,6 +10119,18 @@ PrefabInstance:
     - target: {fileID: 7038792654137983054, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7185714181813579531, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
+      propertyPath: m_fontSize
+      value: 44.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 8113685614721934325, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000030517578
+      objectReference: {fileID: 0}
+    - target: {fileID: 8991189186437162891, guid: 0384e754007504e4daac2b5041a8b962, type: 3}
+      propertyPath: m_fontSize
+      value: 59.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

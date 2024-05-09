@@ -49,25 +49,26 @@ public class MainMenuManager : MonoBehaviour
         } else
         {
             // if there is no save file, create a new one
-            SetupNewGame();                            
+            CreateNewSaveFile();
         }
     }
 
     // called when creating a save file when there is no pre-existing save file
     public void SetupNewGame()                      
     {
-        CreateNewSaveFile();
         OpenModulesList();
     }
 
-    // called when creating a save file when there is one already existing in game
+    // create a new save file
     public void CreateNewSaveFile()
     {
-        SaveSystem.DeleteData();
         SaveSystem.CreateNewSaveFile();
+        SaveSystem.CreateNewGameLock();
         SaveFileManager sfm = SaveFileManager.GetInstance();
         sfm.ReloadPlayerData();
-        OpenModulesList();
+        Debug.Log("Playing Module One");
+        AsyncManager asyncm = AsyncManager.GetInstance();
+        asyncm.LoadLevel("Tutorial_BedroomScene");
     }
 
     #endregion
@@ -75,15 +76,10 @@ public class MainMenuManager : MonoBehaviour
     #region Load Game Methods
     public void LoadGame()
     {
+        Debug.Log(Application.persistentDataPath);
         if (sfm.DoesSaveFileExists())
         {
-            if(SaveSystem.CheckIfGameLockExist())
-            {
-                gameLockScreen.SetActive(true);
-            } else
-            {
-                OpenModulesList();
-            }
+            LoadLatestLevel();
         }
         else
         {

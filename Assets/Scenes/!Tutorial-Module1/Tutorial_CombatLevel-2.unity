@@ -5179,7 +5179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5070941889886656660, guid: fc5abf9251a262c4391dc85c9d8a1e51, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Tutorial_TeacherModule1-2
+      value: Module2-TeacherScene1
       objectReference: {fileID: 0}
     - target: {fileID: 6188318373533356590, guid: fc5abf9251a262c4391dc85c9d8a1e51, type: 3}
       propertyPath: m_BlocksRaycasts

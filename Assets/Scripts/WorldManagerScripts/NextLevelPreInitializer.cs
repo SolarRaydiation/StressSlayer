@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class NextLevelPreInitializer : MonoBehaviour
 {
-    private const float INTIAL_LEVEL_DIFFICULTY = 1.5f;
+    private const float INTIAL_LEVEL_DIFFICULTY = 1.0f;
     private const float MINIMUM_LEVEL_DIFFICULTY = 0.5f;
 
     [Header("UI Externals")]

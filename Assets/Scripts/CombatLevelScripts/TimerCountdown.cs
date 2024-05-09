@@ -38,12 +38,7 @@ public class TimerCountdown : MonoBehaviour
         }
         instance = this;
 
-        foreach (GameObject gameObject in gameObjectsToShow)
-        {
-            CanvasGroup cg = gameObject.GetComponent<CanvasGroup>();
-            cg.alpha = 0;
-            cg.interactable = false;
-        }
+        
     }
 
     public static TimerCountdown GetInstance()
@@ -53,6 +48,13 @@ public class TimerCountdown : MonoBehaviour
     
     void Start()
     {
+        foreach (GameObject gameObject in gameObjectsToShow)
+        {
+            CanvasGroup cg = gameObject.GetComponent<CanvasGroup>();
+            cg.alpha = 0;
+            cg.interactable = false;
+        }
+
         isCountdownFinished = false;
         isTimeAtZero = false;
         StartCountdown();

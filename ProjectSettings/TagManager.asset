@@ -12,6 +12,7 @@ TagManager:
   - Background
   - GlobalVolume
   - Light
+  - CollectibleSpawner
   layers:
   - Default
   - TransparentFX
